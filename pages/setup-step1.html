@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glynac Admin - Data Source Connection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold">Glynac</span>
+                        <span class="ml-2 text-gray-500">Admin Setup</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Setup Progress -->
+        <div class="bg-white shadow">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="py-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-blue-500 text-white justify-center items-center">1</span>
+                            <span class="ml-2 text-sm font-medium">Connection</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-gray-300"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-gray-300 text-gray-500 justify-center items-center">2</span>
+                            <span class="ml-2 text-sm font-medium text-gray-500">Employees</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-gray-300"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-gray-300 text-gray-500 justify-center items-center">3</span>
+                            <span class="ml-2 text-sm font-medium text-gray-500">Data</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-gray-300"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-gray-300 text-gray-500 justify-center items-center">4</span>
+                            <span class="ml-2 text-sm font-medium text-gray-500">Anonymization</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-gray-300"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-gray-300 text-gray-500 justify-center items-center">5</span>
+                            <span class="ml-2 text-sm font-medium text-gray-500">Review</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="flex-grow py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-6">
+                    <h1 class="text-2xl font-bold">Data Source Connection</h1>
+                    <p class="text-gray-600 mt-1">Connect to your workplace platforms to collect data for analysis.</p>
+                </div>
+
+                <!-- Connection Cards -->
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Microsoft 365 -->
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="https://img.icons8.com/color/48/000000/microsoft-office-2019.png"
+                                    alt="Microsoft 365" class="h-10 w-10">
+                                <h2 class="ml-3 text-lg font-medium">Microsoft 365</h2>
+                            </div>
+                            <span id="microsoft-status"
+                                class="px-2 py-1 text-sm rounded-full bg-gray-100 text-gray-600">Not Connected</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Connect to access emails, calendar, SharePoint, and Teams data.
+                        </p>
+                        <button id="microsoft-connect"
+                            class="mt-4 w-full inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                            Connect
+                        </button>
+                    </div>
+
+                    <!-- Google Workspace -->
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="https://img.icons8.com/color/48/000000/google-workspace.png"
+                                    alt="Google Workspace" class="h-10 w-10">
+                                <h2 class="ml-3 text-lg font-medium">Google Workspace</h2>
+                            </div>
+                            <span id="google-status"
+                                class="px-2 py-1 text-sm rounded-full bg-gray-100 text-gray-600">Not Connected</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Connect to access Gmail, Calendar, Drive, and Google Chat data.
+                        </p>
+                        <button id="google-connect"
+                            class="mt-4 w-full inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                            Connect
+                        </button>
+                    </div>
+
+                    <!-- Dropbox -->
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="https://img.icons8.com/color/48/000000/dropbox.png" alt="Dropbox"
+                                    class="h-10 w-10">
+                                <h2 class="ml-3 text-lg font-medium">Dropbox</h2>
+                            </div>
+                            <span id="dropbox-status"
+                                class="px-2 py-1 text-sm rounded-full bg-gray-100 text-gray-600">Not Connected</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Connect to access Dropbox files and sharing activities.</p>
+                        <button id="dropbox-connect"
+                            class="mt-4 w-full inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                            Connect
+                        </button>
+                    </div>
+
+                    <!-- Slack -->
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="https://img.icons8.com/color/48/000000/slack-new.png" alt="Slack"
+                                    class="h-10 w-10">
+                                <h2 class="ml-3 text-lg font-medium">Slack</h2>
+                            </div>
+                            <span id="slack-status" class="px-2 py-1 text-sm rounded-full bg-gray-100 text-gray-600">Not
+                                Connected</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Connect to access Slack messages and activity data.</p>
+                        <button id="slack-connect"
+                            class="mt-4 w-full inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                            Connect
+                        </button>
+                    </div>
+
+                    <!-- Zoom -->
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <img src="https://img.icons8.com/color/48/000000/zoom.png" alt="Zoom" class="h-10 w-10">
+                                <h2 class="ml-3 text-lg font-medium">Zoom</h2>
+                            </div>
+                            <span id="zoom-status" class="px-2 py-1 text-sm rounded-full bg-gray-100 text-gray-600">Not
+                                Connected</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Connect to access Zoom meeting and participant data.</p>
+                        <button id="zoom-connect"
+                            class="mt-4 w-full inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                            Connect
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-8 flex justify-end">
+                    <a href="setup-step2.html"
+                        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                        id="next-button">
+                        Next
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Simple interaction for connection buttons
+        const sources = ['microsoft', 'google', 'dropbox', 'slack', 'zoom'];
+
+        sources.forEach(source => {
+            const button = document.getElementById(`${source}-connect`);
+            const status = document.getElementById(`${source}-status`);
+
+            button.addEventListener('click', function () {
+                this.innerText = 'Connecting...';
+                this.disabled = true;
+
+                // Simulate OAuth flow
+                setTimeout(() => {
+                    status.innerText = 'Connected';
+                    status.classList.remove('bg-gray-100', 'text-gray-600');
+                    status.classList.add('bg-green-100', 'text-green-600');
+
+                    this.innerText = 'Disconnect';
+                    this.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                    this.classList.add('bg-red-600', 'hover:bg-red-700');
+                    this.disabled = false;
+
+                    // Enable next button if at least one source is connected
+                    document.getElementById('next-button').classList.remove('disabled:opacity-50', 'disabled:cursor-not-allowed');
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+
+</html>

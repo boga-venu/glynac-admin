@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glynac Admin - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold">Glynac</span>
+                        <span class="ml-2 text-gray-500">Admin</span>
+                    </div>
+
+                    <div class="flex items-center">
+                        <button
+                            class="bg-gray-200 p-1 rounded-full text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span class="sr-only">View notifications</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            </svg>
+                        </button>
+
+                        <div class="ml-3 relative">
+                            <div>
+                                <button
+                                    class="bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    id="user-menu-button">
+                                    <span class="sr-only">Open user menu</span>
+                                    <img class="h-8 w-8 rounded-full"
+                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                        alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex-1 flex">
+            <!-- Sidebar -->
+            <nav class="w-64 bg-white border-r border-gray-200 pt-5">
+                <div class="px-4 pb-6">
+                    <h2 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        Administration
+                    </h2>
+                    <div class="mt-2 space-y-1">
+                        <a href="admin-dashboard.html"
+                            class="bg-gray-100 text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                            <svg class="text-gray-500 mr-3 h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                            Dashboard
+                        </a>
+
+                        <a href="admin-employees.html"
+                            class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            Employees
+                        </a>
+
+                        <a href="admin-departments.html"
+                            class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                            Departments
+                        </a>
+
+                        <a href="admin-roles.html"
+                            class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                            Roles
+                        </a>
+
+                        <a href="admin-data-sources.html"
+                            class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+                            <svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                            </svg>
+                            Data Sources
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="flex-1 overflow-y-auto p-6 bg-gray-50">
+                <div class="max-w-7xl mx-auto">
+                    <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
+
+                    <!-- Stats Grid -->
+                    <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
+                            <div class="px-4 py-5 sm:p-6">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                                Total Employees
+                                            </dt>
+                                            <dd>
+                                                <div class="text-lg font-medium text-gray-900">
+                                                    45
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-4 py-4 sm:px-6">
+                                <div class="text-sm">
+                                    <a href="admin-employees.html"
+                                        class="font-medium text-blue-600 hover:text-blue-500">
+                                        View all employees
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
+                            <div class="px-4 py-5 sm:p-6">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                                Active Connections
+                                            </dt>
+                                            <dd>
+                                                <div class="text-lg font-medium text-gray-900">
+                                                    3
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-4 py-4 sm:px-6">
+                                <div class="text-sm">
+                                    <a href="admin-data-sources.html"
+                                        class="font-medium text-blue-600 hover:text-blue-500">
+                                        Manage data sources
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
+                            <div class="px-4 py-5 sm:p-6">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                                Departments
+                                            </dt>
+                                            <dd>
+                                                <div class="text-lg font-medium text-gray-900">
+                                                    6
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-4 py-4 sm:px-6">
+                                <div class="text-sm">
+                                    <a href="admin-departments.html"
+                                        class="font-medium text-blue-600 hover:text-blue-500">
+                                        Manage departments
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Connection Status -->
+                    <div class="mt-8">
+                        <h2 class="text-lg font-medium text-gray-900">Connection Status</h2>
+                        <div class="mt-4 bg-white shadow overflow-hidden rounded-md">
+                            <ul class="divide-y divide-gray-200">
+                                <li class="px-6 py-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <img class="h-10 w-10"
+                                                src="https://img.icons8.com/color/48/000000/microsoft-office-2019.png"
+                                                alt="Microsoft 365">
+                                            <div class="ml-3">
+                                                <p class="text-sm font-medium text-gray-900">Microsoft 365</p>
+                                                <p class="text-sm text-gray-500">Last synced: Today at 9:41 AM</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span
+                                                class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Connected</span>
+                                            <button class="ml-4 text-sm font-medium text-blue-600 hover:text-blue-500">
+                                                Settings
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="px-6 py-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <img class="h-10 w-10"
+                                                src="https://img.icons8.com/color/48/000000/google-workspace.png"
+                                                alt="Google Workspace">
+                                            <div class="ml-3">
+                                                <p class="text-sm font-medium text-gray-900">Google Workspace</p>
+                                                <p class="text-sm text-gray-500">Last synced: Today at 10:23 AM</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span
+                                                class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Connected</span>
+                                            <button class="ml-4 text-sm font-medium text-blue-600 hover:text-blue-500">
+                                                Settings
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="px-6 py-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <img class="h-10 w-10"
+                                                src="https://img.icons8.com/color/48/000000/slack-new.png" alt="Slack">
+                                            <div class="ml-3">
+                                                <p class="text-sm font-medium text-gray-900">Slack</p>
+                                                <p class="text-sm text-gray-500">Last synced: Today at 8:17 AM</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span
+                                                class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Connected</span>
+                                            <button class="ml-4 text-sm font-medium text-blue-600 hover:text-blue-500">
+                                                Settings
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="px-6 py-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <img class="h-10 w-10"
+                                                src="https://img.icons8.com/color/48/000000/dropbox.png" alt="Dropbox">
+                                            <div class="ml-3">
+                                                <p class="text-sm font-medium text-gray-900">Dropbox</p>
+                                                <p class="text-sm text-gray-500">Not connected</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <span
+                                                class="px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800">Disconnected</span>
+                                            <button class="ml-4 text-sm font-medium text-blue-600 hover:text-blue-500">
+                                                Connect
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="mt-8">
+                        <h2 class="text-lg font-medium text-gray-900">Recent Activity</h2>
+                        <div class="mt-4 bg-white shadow overflow-hidden rounded-md">
+                            <ul class="divide-y divide-gray-200">
+                                <li class="px-6 py-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex-shrink-0">
+                                            <span
+                                                class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                                <svg class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                Added new employee: Sarah Johnson
+                                            </p>
+                                            <p class="text-sm text-gray-500">
+                                                10 minutes ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="px-6 py-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex-shrink-0">
+                                            <span
+                                                class="h-8 w-8 rounded-full bg-green-100 flex items-center justify-center">
+                                                <svg class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                Connected to Google Workspace
+                                            </p>
+                                            <p class="text-sm text-gray-500">
+                                                1 hour ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="px-6 py-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex-shrink-0">
+                                            <span
+                                                class="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center">
+                                                <svg class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                Updated department: Engineering
+                                            </p>
+                                            <p class="text-sm text-gray-500">
+                                                3 hours ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="px-6 py-4">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex-shrink-0">
+                                            <span
+                                                class="h-8 w-8 rounded-full bg-yellow-100 flex items-center justify-center">
+                                                <svg class="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm font-medium text-gray-900">
+                                                Completed PII anonymization process
+                                            </p>
+                                            <p class="text-sm text-gray-500">
+                                                1 day ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
