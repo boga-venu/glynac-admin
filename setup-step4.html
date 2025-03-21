@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glynac Admin - PII Anonymization</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold">Glynac</span>
+                        <span class="ml-2 text-gray-500">Admin Setup</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Setup Progress -->
+        <div class="bg-white shadow">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="py-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-green-500 text-white justify-center items-center">✓</span>
+                            <span class="ml-2 text-sm font-medium">Connection</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-green-500"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-green-500 text-white justify-center items-center">✓</span>
+                            <span class="ml-2 text-sm font-medium">Employees</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-green-500"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-green-500 text-white justify-center items-center">✓</span>
+                            <span class="ml-2 text-sm font-medium">Data</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-blue-500"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-blue-500 text-white justify-center items-center">4</span>
+                            <span class="ml-2 text-sm font-medium">Anonymization</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-gray-300"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-gray-300 text-gray-500 justify-center items-center">5</span>
+                            <span class="ml-2 text-sm font-medium text-gray-500">Review</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="flex-grow py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-6">
+                    <h1 class="text-2xl font-bold">PII Anonymization</h1>
+                    <p class="text-gray-600 mt-1">Protect employee privacy by anonymizing personal identifiable
+                        information.</p>
+                </div>
+
+                <!-- Anonymization Explanation -->
+                <!-- Anonymization Explanation -->
+                <div class="bg-white shadow rounded-lg p-6 mb-6">
+                    <h2 class="text-lg font-medium mb-2">How Anonymization Works</h2>
+                    <p class="text-gray-500">Glynac uses a secure anonymization process to protect employee privacy while maintaining
+                        data analysis integrity.</p>
+                
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-md">
+                            <h3 class="font-medium text-blue-800 mb-2">1. Automatic Identity Protection</h3>
+                            <p class="text-sm text-blue-700">All names, email addresses, and other personally identifiable information
+                                are automatically replaced with anonymous IDs by the system.</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-md">
+                            <h3 class="font-medium text-blue-800 mb-2">2. One-Click Anonymization</h3>
+                            <p class="text-sm text-blue-700">With a single action, you can trigger Glynac's powerful anonymization engine to
+                                process all collected data, ensuring complete employee privacy protection.</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-md">
+                            <h3 class="font-medium text-blue-800 mb-2">3. Secure Analysis</h3>
+                            <p class="text-sm text-blue-700">The Glynac analysis engine only processes the anonymized data, ensuring
+                                complete employee privacy throughout all analysis phases.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anonymization Preview -->
+                <div class="bg-white shadow rounded-lg p-6 mb-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h2 class="text-lg font-medium">Preview Anonymization</h2>
+                            <p class="text-gray-500 mt-1">See how your data will look after anonymization.</p>
+                        </div>
+                        <button id="previewBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
+                            Generate Preview
+                        </button>
+                    </div>
+
+                    <div id="previewResults" class="hidden mt-4">
+                        <div class="bg-gray-100 p-4 rounded-md">
+                            <h3 class="font-medium mb-2">Sample Email Before Anonymization</h3>
+                            <div class="bg-white p-3 rounded border text-sm">
+                                <p><strong>From:</strong> John Smith &lt;john.smith@company.com&gt;</p>
+                                <p><strong>To:</strong> Sarah Williams &lt;sarah.williams@company.com&gt;</p>
+                                <p><strong>Subject:</strong> Project Update - Q3 Roadmap</p>
+                                <p class="mt-2">Hi Sarah,</p>
+                                <p class="mt-1">I wanted to follow up on our discussion yesterday about the Q3 roadmap.
+                                    David mentioned that we need to prioritize the mobile app features, but I think we
+                                    should focus on the API improvements first.</p>
+                                <p class="mt-1">Let's discuss this with Michael and Emma during tomorrow's meeting.</p>
+                                <p class="mt-1">Thanks,<br>John</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-100 p-4 rounded-md mt-4">
+                            <h3 class="font-medium mb-2">Same Email After Anonymization</h3>
+                            <div class="bg-white p-3 rounded border text-sm">
+                                <p><strong>From:</strong> User1024 &lt;user1024@anonymous.glynac&gt;</p>
+                                <p><strong>To:</strong> User1036 &lt;user1036@anonymous.glynac&gt;</p>
+                                <p><strong>Subject:</strong> Project Update - Q3 Roadmap</p>
+                                <p class="mt-2">Hi User1036,</p>
+                                <p class="mt-1">I wanted to follow up on our discussion yesterday about the Q3 roadmap.
+                                    User1042 mentioned that we need to prioritize the mobile app features, but I think
+                                    we should focus on the API improvements first.</p>
+                                <p class="mt-1">Let's discuss this with User1029 and User1045 during tomorrow's meeting.
+                                </p>
+                                <p class="mt-1">Thanks,<br>User1024</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-100 p-4 rounded-md mt-4">
+                            <h3 class="font-medium mb-2">Sample Chat Before Anonymization</h3>
+                            <div class="bg-white p-3 rounded border text-sm">
+                                <div class="flex items-start mb-2">
+                                    <div class="bg-blue-100 rounded-lg px-3 py-2 max-w-[80%]">
+                                        <p class="text-xs text-gray-500 mb-1">Robert Johnson</p>
+                                        <p>Have you reviewed the design proposal from the marketing team?</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start justify-end mb-2">
+                                    <div class="bg-gray-100 rounded-lg px-3 py-2 max-w-[80%]">
+                                        <p class="text-xs text-gray-500 mb-1">Jane Doe</p>
+                                        <p>Yes, I've looked at it. I think we need to discuss it with Emily before
+                                            proceeding.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <div class="bg-blue-100 rounded-lg px-3 py-2 max-w-[80%]">
+                                        <p class="text-xs text-gray-500 mb-1">Robert Johnson</p>
+                                        <p>Good idea. I'll set up a meeting with Emily and the team for tomorrow.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-100 p-4 rounded-md mt-4">
+                            <h3 class="font-medium mb-2">Same Chat After Anonymization</h3>
+                            <div class="bg-white p-3 rounded border text-sm">
+                                <div class="flex items-start mb-2">
+                                    <div class="bg-blue-100 rounded-lg px-3 py-2 max-w-[80%]">
+                                        <p class="text-xs text-gray-500 mb-1">User1052</p>
+                                        <p>Have you reviewed the design proposal from the marketing team?</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start justify-end mb-2">
+                                    <div class="bg-gray-100 rounded-lg px-3 py-2 max-w-[80%]">
+                                        <p class="text-xs text-gray-500 mb-1">User1041</p>
+                                        <p>Yes, I've looked at it. I think we need to discuss it with User1038 before
+                                            proceeding.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <div class="bg-blue-100 rounded-lg px-3 py-2 max-w-[80%]">
+                                        <p class="text-xs text-gray-500 mb-1">User1052</p>
+                                        <p>Good idea. I'll set up a meeting with User1038 and the team for tomorrow.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Run Anonymization -->
+                <div class="bg-white shadow rounded-lg p-6 mb-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-lg font-medium">Run Anonymization</h2>
+                            <p class="text-gray-500 mt-1">Start the anonymization process for all collected data.</p>
+                        </div>
+                        <button id="runAnonymizationBtn"
+                            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
+                            Run Anonymization
+                        </button>
+                    </div>
+
+                    <div id="anonymizationResults" class="hidden mt-6 border-t pt-4">
+                        <div class="flex items-center text-green-600 mb-4">
+                            <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Anonymization complete! All personal identifiable information has been secured.</span>
+                        </div>
+
+                        <div class="bg-gray-100 p-4 rounded-md">
+                            <h3 class="font-medium mb-2">Anonymization Summary</h3>
+                            <ul class="text-sm space-y-2">
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span><strong>45 employees</strong> anonymized</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span><strong>15,768 emails</strong> processed</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span><strong>24,354 chat messages</strong> anonymized</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span><strong>2,145 meetings</strong> processed</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span><strong>8,721 file accesses</strong> anonymized</span>
+                                </li>
+                            </ul>
+
+                            <div class="mt-4 p-4 bg-blue-50 rounded-md">
+                                <h3 class="font-medium text-blue-800 mb-2">Privacy Assurance</h3>
+                                <p class="text-sm text-blue-700">
+                                    All personal identifiable information has been anonymized. The Glynac analysis
+                                    engine will only process anonymized data to ensure employee privacy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-6 flex justify-between">
+                    <a href="setup-step3.html"
+                        class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        Previous
+                    </a>
+                    <a href="setup-step5.html" id="next-button"
+                        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
+                        Next
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Preview button interaction
+        document.getElementById('previewBtn').addEventListener('click', function () {
+            this.innerText = 'Generating...';
+            this.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                document.getElementById('previewResults').classList.remove('hidden');
+                this.innerText = 'Generate Preview';
+                this.disabled = false;
+            }, 1500);
+        });
+
+        // Anonymization button interaction
+        document.getElementById('runAnonymizationBtn').addEventListener('click', function () {
+            this.innerText = 'Processing...';
+            this.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                document.getElementById('anonymizationResults').classList.remove('hidden');
+                this.innerText = 'Run Anonymization';
+                this.disabled = false;
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>

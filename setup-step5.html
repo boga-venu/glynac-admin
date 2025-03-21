@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glynac Admin - Review & Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold">Glynac</span>
+                        <span class="ml-2 text-gray-500">Admin Setup</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Setup Progress -->
+        <div class="bg-white shadow">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="py-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-green-500 text-white justify-center items-center">✓</span>
+                            <span class="ml-2 text-sm font-medium">Connection</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-green-500"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-green-500 text-white justify-center items-center">✓</span>
+                            <span class="ml-2 text-sm font-medium">Employees</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-green-500"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-green-500 text-white justify-center items-center">✓</span>
+                            <span class="ml-2 text-sm font-medium">Data</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-green-500"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-green-500 text-white justify-center items-center">✓</span>
+                            <span class="ml-2 text-sm font-medium">Anonymization</span>
+                        </div>
+                        <div class="h-0.5 w-8 bg-blue-500"></div>
+                        <div class="flex items-center">
+                            <span
+                                class="flex h-8 w-8 rounded-full bg-blue-500 text-white justify-center items-center">5</span>
+                            <span class="ml-2 text-sm font-medium">Review</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="flex-grow py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-6">
+                    <h1 class="text-2xl font-bold">Review & Confirmation</h1>
+                    <p class="text-gray-600 mt-1">Review your setup and confirm to deploy to the Glynac analysis engine.
+                    </p>
+                </div>
+
+                <!-- Setup Summary -->
+                <div class="bg-white shadow rounded-lg p-6 mb-6">
+                    <h2 class="text-lg font-medium mb-4">Setup Summary</h2>
+
+                    <div class="space-y-6">
+                        <!-- Data Sources Summary -->
+                        <div>
+                            <h3 class="text-md font-medium text-gray-900">Connected Data Sources</h3>
+                            <div class="mt-2 bg-gray-50 p-4 rounded-md">
+                                <ul class="space-y-2">
+                                    <li class="flex items-center">
+                                        <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span>Microsoft 365</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span>Google Workspace</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span>Slack</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Employee Data Summary -->
+                        <div>
+                            <h3 class="text-md font-medium text-gray-900">Employee Data</h3>
+                            <div class="mt-2 bg-gray-50 p-4 rounded-md">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-500">Total Employees:</span>
+                                    <span class="font-medium">45</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-500">Included in Analysis:</span>
+                                    <span class="font-medium">43</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-500">Excluded from Analysis:</span>
+                                    <span class="font-medium">2</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-500">Departments:</span>
+                                    <span class="font-medium">Engineering, Marketing, Sales, Product, Finance, HR</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Collection Summary -->
+                        <div>
+                            <h3 class="text-md font-medium text-gray-900">Data Collection</h3>
+                            <div class="mt-2 bg-gray-50 p-4 rounded-md">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <div class="flex justify-between mb-2">
+                                            <span class="text-gray-500">Emails:</span>
+                                            <span class="font-medium">15,768</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-500">Chat Messages:</span>
+                                            <span class="font-medium">24,354</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-2">
+                                            <span class="text-gray-500">Meetings:</span>
+                                            <span class="font-medium">2,145</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-500">File Accesses:</span>
+                                            <span class="font-medium">8,721</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Anonymization Summary -->
+                        <div>
+                            <h3 class="text-md font-medium text-gray-900">Anonymization</h3>
+                            <div class="mt-2 bg-gray-50 p-4 rounded-md">
+                                <div class="flex items-center mb-2">
+                                    <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="text-gray-900">All PII successfully anonymized</span>
+                                </div>
+                                <p class="text-sm text-gray-500">Employee names, email addresses, and other personal
+                                    identifiers have been replaced with anonymous IDs to ensure privacy during analysis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Usage & Privacy Confirmation -->
+                <div class="bg-white shadow rounded-lg p-6 mb-6">
+                    <h2 class="text-lg font-medium mb-2">Data Usage Confirmation</h2>
+                    <p class="text-gray-500 mb-4">Please confirm the following statements before proceeding with analysis:</p>
+                
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="privacy1" name="privacy1" type="checkbox"
+                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="privacy1" class="font-medium text-gray-700">Employee Notification</label>
+                                <p class="text-gray-500">I confirm that employees have been informed that their workplace communication
+                                    data will be analyzed for improving collaboration and team dynamics.</p>
+                            </div>
+                        </div>
+                
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="privacy2" name="privacy2" type="checkbox"
+                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="privacy2" class="font-medium text-gray-700">Organization Approval</label>
+                                <p class="text-gray-500">I confirm that I have the necessary authorization from my organization to
+                                    collect and analyze workplace communication data.</p>
+                            </div>
+                        </div>
+                
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="privacy3" name="privacy3" type="checkbox"
+                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="privacy3" class="font-medium text-gray-700">Appropriate Use</label>
+                                <p class="text-gray-500">I confirm that the analysis results will be used solely for the purpose of
+                                    improving workplace collaboration, employee well-being, and organizational effectiveness.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Complete Setup -->
+                <div class="bg-white shadow rounded-lg p-6 mb-6">
+                    <div class="flex items-start">
+                        <div>
+                            <h2 class="text-lg font-medium">Complete Setup</h2>
+                            <p class="text-gray-500 mt-1">Ready to deploy to the Glynac analysis engine?</p>
+                        </div>
+                        <button id="completeSetupBtn"
+                            class="ml-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
+                            disabled>
+                            Complete Setup
+                        </button>
+                    </div>
+
+                    <div id="setupComplete" class="hidden mt-6 border-t pt-4">
+                        <div class="flex items-center text-green-600 mb-4">
+                            <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Setup complete! Redirecting to admin dashboard...</span>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="w-12 h-12 rounded-full border-t-2 border-b-2 border-blue-500 animate-spin">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mt-6 flex justify-between">
+                    <a href="setup-step4.html"
+                        class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        Previous
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Check if all privacy checkboxes are checked
+        function updateCompleteButton() {
+            const privacy1 = document.getElementById('privacy1').checked;
+            const privacy2 = document.getElementById('privacy2').checked;
+            const privacy3 = document.getElementById('privacy3').checked;
+
+            const completeBtn = document.getElementById('completeSetupBtn');
+            completeBtn.disabled = !(privacy1 && privacy2 && privacy3);
+        }
+
+        // Add event listeners to privacy checkboxes
+        document.getElementById('privacy1').addEventListener('change', updateCompleteButton);
+        document.getElementById('privacy2').addEventListener('change', updateCompleteButton);
+        document.getElementById('privacy3').addEventListener('change', updateCompleteButton);
+
+        // Complete setup button
+        document.getElementById('completeSetupBtn').addEventListener('click', function () {
+            this.innerText = 'Processing...';
+            this.disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                document.getElementById('setupComplete').classList.remove('hidden');
+
+                // Redirect to admin dashboard after 3 seconds
+                setTimeout(() => {
+                    window.location.href = "admin-dashboard.html";
+                }, 3000);
+            }, 2000);
+        });
+    </script>
+</body>
+
+</html>
