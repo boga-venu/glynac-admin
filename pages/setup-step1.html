@@ -90,11 +90,11 @@
                         </button>
                     </div>
 
-                    <!-- Google Workspace -->
+                    <!-- Google Workspace (Fixed Logo) -->
                     <div class="bg-white shadow rounded-lg p-6">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center">
-                                <img src="https://img.icons8.com/color/48/000000/google-workspace.png"
+                                <img src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"
                                     alt="Google Workspace" class="h-10 w-10">
                                 <h2 class="ml-3 text-lg font-medium">Google Workspace</h2>
                             </div>
@@ -161,6 +161,31 @@
                             Connect
                         </button>
                     </div>
+
+                    <!-- Custom API (New Card) -->
+                    <div class="bg-white shadow rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="h-10 w-10 bg-purple-100 rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                    </svg>
+                                </div>
+                                <h2 class="ml-3 text-lg font-medium">Custom API</h2>
+                            </div>
+                            <span id="custom-api-status"
+                                class="px-2 py-1 text-sm rounded-full bg-gray-100 text-gray-600">Not
+                                Connected</span>
+                        </div>
+                        <p class="text-gray-500 text-sm">Connect to your company's internal APIs or other data sources.
+                        </p>
+                        <button id="custom-api-connect"
+                            class="mt-4 w-full inline-flex justify-center items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                            Configure
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Navigation Buttons -->
@@ -173,6 +198,149 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- Custom API Modal -->
+    <div id="customApiModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div
+                class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                <div class="absolute top-0 right-0 pt-4 pr-4">
+                    <button type="button"
+                        class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        id="closeCustomApiModal">
+                        <span class="sr-only">Close</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div>
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                            Configure Custom API
+                        </h3>
+                        <div class="mt-2">
+                            <p class="text-sm text-gray-500">
+                                Connect to your organization's internal APIs or other data sources.
+                            </p>
+                        </div>
+                        <div class="mt-4">
+                            <form>
+                                <div class="grid grid-cols-1 gap-y-4">
+                                    <div>
+                                        <label for="api-name" class="block text-sm font-medium text-gray-700">
+                                            API Name
+                                        </label>
+                                        <div class="mt-1">
+                                            <input type="text" name="api-name" id="api-name"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                placeholder="HR System API">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="api-endpoint" class="block text-sm font-medium text-gray-700">
+                                            API Endpoint URL
+                                        </label>
+                                        <div class="mt-1">
+                                            <input type="text" name="api-endpoint" id="api-endpoint"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                placeholder="https://api.company.com/v1/employees">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="auth-type" class="block text-sm font-medium text-gray-700">
+                                            Authentication Type
+                                        </label>
+                                        <div class="mt-1">
+                                            <select id="auth-type" name="auth-type"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <option value="none">None</option>
+                                                <option value="api-key">API Key</option>
+                                                <option value="basic">Basic Auth</option>
+                                                <option value="oauth2">OAuth 2.0</option>
+                                                <option value="bearer">Bearer Token</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div id="api-key-fields" class="space-y-4">
+                                        <div>
+                                            <label for="api-key-name" class="block text-sm font-medium text-gray-700">
+                                                API Key Name
+                                            </label>
+                                            <div class="mt-1">
+                                                <input type="text" name="api-key-name" id="api-key-name"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                    placeholder="X-API-Key">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="api-key-value" class="block text-sm font-medium text-gray-700">
+                                                API Key Value
+                                            </label>
+                                            <div class="mt-1">
+                                                <input type="password" name="api-key-value" id="api-key-value"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                                    placeholder="your-api-key">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="data-format" class="block text-sm font-medium text-gray-700">
+                                            Data Format
+                                        </label>
+                                        <div class="mt-1">
+                                            <select id="data-format" name="data-format"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <option value="json">JSON</option>
+                                                <option value="xml">XML</option>
+                                                <option value="csv">CSV</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="flex items-start">
+                                            <div class="flex items-center h-5">
+                                                <input id="test-connection" name="test-connection" type="checkbox"
+                                                    class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                                            </div>
+                                            <div class="ml-3 text-sm">
+                                                <label for="test-connection" class="font-medium text-gray-700">Test
+                                                    connection before saving</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
+                    <button type="button"
+                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:col-start-2 sm:text-sm"
+                        id="saveCustomApi">
+                        Save
+                    </button>
+                    <button type="button"
+                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:col-start-1 sm:text-sm"
+                        id="cancelCustomApi">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -203,6 +371,51 @@
                 }, 1500);
             });
         });
+
+        // Custom API modal interactions
+        document.getElementById('custom-api-connect').addEventListener('click', function () {
+            document.getElementById('customApiModal').classList.remove('hidden');
+        });
+
+        document.getElementById('closeCustomApiModal').addEventListener('click', function () {
+            document.getElementById('customApiModal').classList.add('hidden');
+        });
+
+        document.getElementById('cancelCustomApi').addEventListener('click', function () {
+            document.getElementById('customApiModal').classList.add('hidden');
+        });
+
+        document.getElementById('saveCustomApi').addEventListener('click', function () {
+            // Simulate saving
+            document.getElementById('customApiModal').classList.add('hidden');
+
+            const status = document.getElementById('custom-api-status');
+            const connectButton = document.getElementById('custom-api-connect');
+
+            status.innerText = 'Connected';
+            status.classList.remove('bg-gray-100', 'text-gray-600');
+            status.classList.add('bg-green-100', 'text-green-600');
+
+            connectButton.innerText = 'Disconnect';
+            connectButton.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+            connectButton.classList.add('bg-red-600', 'hover:bg-red-700');
+
+            // Enable next button if at least one source is connected
+            document.getElementById('next-button').classList.remove('disabled:opacity-50', 'disabled:cursor-not-allowed');
+        });
+
+        // Authentication type change handler
+        document.getElementById('auth-type').addEventListener('change', function () {
+            const apiKeyFields = document.getElementById('api-key-fields');
+            if (this.value === 'api-key') {
+                apiKeyFields.classList.remove('hidden');
+            } else {
+                apiKeyFields.classList.add('hidden');
+            }
+        });
+
+        // Initialize
+        document.getElementById('api-key-fields').classList.add('hidden');
     </script>
 </body>
 

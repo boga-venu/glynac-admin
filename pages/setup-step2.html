@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glynac Admin - Employee Discovery</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-gray-50">
   <div class="min-h-screen flex flex-col">
     <!-- Header -->
@@ -73,280 +75,455 @@
               Run Discovery
             </button>
           </div>
-          
+
           <div id="discoveryResults" class="hidden mt-6 border-t pt-4">
             <div class="flex items-center text-green-600 mb-4">
               <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
               </svg>
-              <span>Discovery complete! 45 employees found.</span>
+              <span>Discovery complete! 248 employees found.</span>
             </div>
-            
-            <!-- Employee table -->
-            <div class="mt-4 overflow-x-auto">
-              <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                  <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      <input type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Name
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Email
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Department
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Position
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Include
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                  <!-- Sample employees -->
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <input type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm font-medium text-gray-900">John Smith</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500">john.smith@company.com</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500">Engineering</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500">Software Engineer</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                    
-                            <!-- Toggle Switch -->
-                            <button type="button"
-                                class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-blue-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                                role="switch" aria-checked="true"
-                                onclick="this.classList.toggle('bg-blue-600'); this.classList.toggle('bg-gray-200'); this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true');">
-                                <span class="sr-only">Toggle inclusion</span>
-                                <span aria-hidden="true"
-                                    class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-5"
-                                    onclick="this.classList.toggle('translate-x-5'); this.classList.toggle('translate-x-0');">
-                                </span>
-                            </button>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <input type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm font-medium text-gray-900">Jane Doe</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500">jane.doe@company.com</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500">Marketing</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500">Marketing Manager</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                    
-                            <!-- Toggle Switch -->
-                            <button type="button"
-                                class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-blue-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                                role="switch" aria-checked="true"
-                                onclick="this.classList.toggle('bg-blue-600'); this.classList.toggle('bg-gray-200'); this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true');">
-                                <span class="sr-only">Toggle inclusion</span>
-                                <span aria-hidden="true"
-                                    class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-5"
-                                    onclick="this.classList.toggle('translate-x-5'); this.classList.toggle('translate-x-0');">
-                                </span>
-                            </button>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <input type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm font-medium text-gray-900">Robert Johnson</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500">robert.johnson@company.com</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500">Sales</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-500">Sales Representative</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="flex items-center">
-                            
-                            <!-- Toggle Switch -->
-                            <button type="button"
-                                class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-blue-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                                role="switch" aria-checked="true"
-                                onclick="this.classList.toggle('bg-blue-600'); this.classList.toggle('bg-gray-200'); this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true');">
-                                <span class="sr-only">Toggle inclusion</span>
-                                <span aria-hidden="true"
-                                    class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-5"
-                                    onclick="this.classList.toggle('translate-x-5'); this.classList.toggle('translate-x-0');">
-                                </span>
-                            </button>
-                        </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            
-            <!-- Pagination -->
-            <div class="flex items-center justify-between px-4 py-3 sm:px-6">
-              <div class="flex-1 flex justify-between sm:hidden">
-                <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                  Previous
-                </a>
-                <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                  Next
-                </a>
-              </div>
-              <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                <div>
-                  <p class="text-sm text-gray-700">
-                    Showing <span class="font-medium">1</span> to <span class="font-medium">10</span> of <span class="font-medium">45</span> results
-                  </p>
-                </div>
-                <div>
-                  <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                      <span class="sr-only">Previous</span>
-                      <!-- Heroicon name: solid/chevron-left -->
-                      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+
+            <!-- Demographics Overview Cards -->
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-6 mt-6">
+              <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                      <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
-                    </a>
-                    <a href="#" aria-current="page" class="z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-                      1
-                    </a>
-                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-                      2
-                    </a>
-                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-                      3
-                    </a>
-                    <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
-                      ...
-                    </span>
-                    <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
-                      5
-                    </a>
-                    <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                      <span class="sr-only">Next</span>
-                      <!-- Heroicon name: solid/chevron-right -->
-                      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                      </svg>
-                    </a>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Manual Import -->
-        <div class="bg-white shadow rounded-lg p-6">
-          <h2 class="text-lg font-medium">Import Employees</h2>
-          <p class="text-gray-500 mt-1">Add employees manually or upload a CSV file.</p>
-          
-          <div class="mt-4 flex space-x-4">
-            <div class="flex-1 border-r pr-4">
-              <h3 class="text-md font-medium mb-2">Upload CSV</h3>
-              <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                <div class="space-y-1 text-center">
-                  <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <div class="flex text-sm text-gray-600">
-                    <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500">
-                      <span>Upload a file</span>
-                      <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                    </label>
-                    <p class="pl-1">or drag and drop</p>
-                  </div>
-                  <p class="text-xs text-gray-500">CSV up to 10MB</p>
-                </div>
-              </div>
-              <a href="#" class="text-sm text-blue-600 hover:text-blue-500 mt-2 inline-block">Download template</a>
-            </div>
-            
-            <div class="flex-1">
-              <h3 class="text-md font-medium mb-2">Add Manually</h3>
-              <div class="grid grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">Name</label>
-                  <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">Email</label>
-                  <input type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">Department</label>
-                  <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-700">Position</label>
-                  <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
-                </div>
-                <div class="col-span-2 mt-4">
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm font-medium text-gray-700">Include in analysis:</span>
-                        <div class="flex items-center">
-                            <span class="mr-3 text-sm font-medium text-gray-500">Exclude</span>
-                            <!-- Toggle Switch -->
-                            <button type="button"
-                                class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-blue-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                                role="switch" aria-checked="true"
-                                onclick="this.classList.toggle('bg-blue-600'); this.classList.toggle('bg-gray-200'); this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true');">
-                                <span class="sr-only">Toggle inclusion</span>
-                                <span aria-hidden="true"
-                                    class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-5"
-                                    onclick="this.classList.toggle('translate-x-5'); this.classList.toggle('translate-x-0');">
-                                </span>
-                            </button>
-                            <span class="ml-3 text-sm font-medium text-gray-900">Include</span>
-                        </div>
                     </div>
+                    <div class="ml-5 w-0 flex-1">
+                      <dl>
+                        <dt class="text-sm font-medium text-gray-500 truncate">
+                          Total Employees
+                        </dt>
+                        <dd>
+                          <div class="text-lg font-medium text-gray-900">
+                            248
+                          </div>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-span-2">
-                  <button class="mt-2 w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
-                    Add Employee
+              </div>
+
+              <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                      <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                      <dl>
+                        <dt class="text-sm font-medium text-gray-500 truncate">
+                          Departments
+                        </dt>
+                        <dd>
+                          <div class="text-lg font-medium text-gray-900">
+                            8
+                          </div>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                      <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                      <dl>
+                        <dt class="text-sm font-medium text-gray-500 truncate">
+                          Locations
+                        </dt>
+                        <dd>
+                          <div class="text-lg font-medium text-gray-900">
+                            12
+                          </div>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                  <div class="flex items-center">
+                    <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                      <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                      </svg>
+                    </div>
+                    <div class="ml-5 w-0 flex-1">
+                      <dl>
+                        <dt class="text-sm font-medium text-gray-500 truncate">
+                          Remote Workers
+                        </dt>
+                        <dd>
+                          <div class="text-lg font-medium text-gray-900">
+                            87
+                          </div>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Department Distribution -->
+            <div class="bg-white shadow rounded-lg p-6 mb-6">
+              <h2 class="text-lg font-medium mb-4">Department Distribution</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium">Engineering</span>
+                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">67 employees</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 27%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium">Sales</span>
+                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">54 employees</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 22%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium">Marketing</span>
+                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">32 employees</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 13%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium">Finance</span>
+                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">28 employees</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 11%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium">Product</span>
+                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">26 employees</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 10%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium">HR</span>
+                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">18 employees</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 7%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium">Customer Support</span>
+                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">15 employees</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 6%"></div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-3 rounded-lg">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium">Legal</span>
+                    <span class="text-sm bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full">8 employees</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: 3%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Employee Management Section -->
+            <div class="bg-white shadow rounded-lg p-6 mb-6">
+              <div class="flex justify-between items-center mb-6">
+                <h2 class="text-lg font-medium">Employee List</h2>
+                <div>
+                  <button id="manageEmployeesBtn"
+                    class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                    Manage Employees
                   </button>
                 </div>
               </div>
+            
+              <!-- Quick Stats -->
+              <div class="flex flex-wrap -mx-2 mb-6">
+                <div class="px-2 w-full sm:w-1/3">
+                  <div class="border border-gray-200 rounded-md p-3">
+                    <div class="text-sm text-gray-500">Total Discovered</div>
+                    <div class="text-2xl font-semibold">248</div>
+                  </div>
+                </div>
+                <div class="px-2 w-full sm:w-1/3 mt-2 sm:mt-0">
+                  <div class="border border-gray-200 rounded-md p-3">
+                    <div class="text-sm text-gray-500">Included in Analysis</div>
+                    <div class="text-2xl font-semibold text-green-600">242</div>
+                  </div>
+                </div>
+                <div class="px-2 w-full sm:w-1/3 mt-2 sm:mt-0">
+                  <div class="border border-gray-200 rounded-md p-3">
+                    <div class="text-sm text-gray-500">Excluded from Analysis</div>
+                    <div class="text-2xl font-semibold text-red-600">6</div>
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Sample Table -->
+              <div class="border border-gray-200 rounded-md">
+                <div class="px-4 py-3 bg-gray-50 border-b border-gray-200 text-sm text-gray-500">
+                  Recently added employees (showing 5 of 248)
+                </div>
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Name
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Email
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Department
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Position
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Status
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="h-10 w-10 flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                              alt="">
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              Jane Cooper
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Marketing</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Marketing Director</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                          Included
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button class="text-blue-600 hover:text-blue-900 employee-details" data-id="1">View Details</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="h-10 w-10 flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                              alt="">
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              John Smith
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">john.smith@example.com</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Engineering</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Software Engineer</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                          Included
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button class="text-blue-600 hover:text-blue-900 employee-details" data-id="2">View Details</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="h-10 w-10 flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                              alt="">
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              Robert Johnson
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">robert.johnson@example.com</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Sales</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Sales Manager</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                          Included
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button class="text-blue-600 hover:text-blue-900 employee-details" data-id="3">View Details</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="h-10 w-10 flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                              alt="">
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              Emily Rodriguez
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">emily.rodriguez@example.com</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Product</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Product Manager</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                          Excluded
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button class="text-blue-600 hover:text-blue-900 employee-details" data-id="4">View Details</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="h-10 w-10 flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full"
+                              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                              alt="">
+                          </div>
+                          <div class="ml-4">
+                            <div class="text-sm font-medium text-gray-900">
+                              David Kim
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">david.kim@example.com</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Finance</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm text-gray-500">Finance Director</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <span
+                          class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                          Included
+                        </span>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button class="text-blue-600 hover:text-blue-900 employee-details" data-id="5">View Details</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        </div>
+
         
+
         <!-- Navigation Buttons -->
         <div class="mt-6 flex justify-between">
-          <a href="setup-step1.html" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+          <a href="setup-step1.html"
+            class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
             Previous
           </a>
-          <a href="setup-step3.html" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+          <a href="setup-step3.html"
+            class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
             Next
           </a>
         </div>
@@ -354,12 +531,1022 @@
     </main>
   </div>
 
+  <!-- Employee Management Modal -->
+  <div id="manageEmployeesModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+  
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+  
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-7xl sm:w-full sm:p-6">
+        <!-- Modal Header -->
+        <div class="flex justify-between items-start mb-4">
+          <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+            Manage Employees
+          </h3>
+          <button type="button"
+            class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            id="closeManageEmployeesModal">
+            <span class="sr-only">Close</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+  
+        <!-- Search and Filters -->
+        <div class="mb-4 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+          <div class="flex-1">
+            <div class="relative rounded-md shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <input type="text" id="search-employees"
+                class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                placeholder="Search employees">
+            </div>
+          </div>
+          <div class="flex space-x-2">
+            <select id="department-filter"
+              class="block rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <option value="">All Departments</option>
+              <option value="engineering">Engineering</option>
+              <option value="marketing">Marketing</option>
+              <option value="sales">Sales</option>
+              <option value="product">Product</option>
+              <option value="finance">Finance</option>
+              <option value="hr">HR</option>
+              <option value="support">Customer Support</option>
+              <option value="legal">Legal</option>
+            </select>
+            <select id="location-filter"
+              class="block rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <option value="">All Locations</option>
+              <option value="nyc">New York City</option>
+              <option value="sf">San Francisco</option>
+              <option value="austin">Austin</option>
+              <option value="london">London</option>
+              <option value="remote">Remote</option>
+            </select>
+            <select id="status-filter"
+              class="block rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+              <option value="">All Status</option>
+              <option value="included">Included</option>
+              <option value="excluded">Excluded</option>
+            </select>
+              <button
+                class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                id="addEmployeeBtn">
+                <svg class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Add Employee
+              </button>
+          </div>
+        </div>
+  
+        <!-- Selected Actions -->
+        <div class="mb-4 bg-gray-50 p-3 rounded-md flex justify-between items-center hidden" id="selected-actions">
+          <div>
+            <span class="text-sm text-gray-700">Selected <span id="selected-count" class="font-medium">0</span>
+              employees</span>
+          </div>
+          <div class="flex space-x-2">
+            <button id="include-selected"
+              class="px-3 py-1.5 bg-green-600 text-white text-sm rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+              Include Selected
+            </button>
+            <button id="exclude-selected"
+              class="px-3 py-1.5 bg-red-600 text-white text-sm rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+              Exclude Selected
+            </button>
+          </div>
+          
+        </div>
+        
+        
+
+  
+        <!-- Employees Table -->
+        <div class="overflow-auto max-h-96 border border-gray-200 rounded-md">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50 sticky top-0">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <input type="checkbox" id="select-all"
+                    class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Name
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Email
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Department
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Position
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Location
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Status
+                </th>
+                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <!-- Row 1 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <input type="checkbox"
+                    class="employee-checkbox focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="h-10 w-10 flex-shrink-0">
+                      <img class="h-10 w-10 rounded-full"
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                        alt="">
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        Jane Cooper
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">jane.cooper@example.com</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Marketing</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Marketing Director</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">New York City</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span
+                    class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Included
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button class="text-blue-600 hover:text-blue-900 employee-details-modal" data-id="1">View
+                    Details</button>
+                </td>
+              </tr>
+  
+              <!-- Row 2 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <input type="checkbox"
+                    class="employee-checkbox focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="h-10 w-10 flex-shrink-0">
+                      <img class="h-10 w-10 rounded-full"
+                        src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                        alt="">
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        John Smith
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">john.smith@example.com</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Engineering</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Software Engineer</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">San Francisco</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span
+                    class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Included
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button class="text-blue-600 hover:text-blue-900 employee-details-modal" data-id="2">View
+                    Details</button>
+                </td>
+              </tr>
+  
+              <!-- Row 3 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <input type="checkbox"
+                    class="employee-checkbox focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="h-10 w-10 flex-shrink-0">
+                      <img class="h-10 w-10 rounded-full"
+                        src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                        alt="">
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        Robert Johnson
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">robert.johnson@example.com</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Sales</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Sales Manager</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Austin</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span
+                    class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Included
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button class="text-blue-600 hover:text-blue-900 employee-details-modal" data-id="3">View
+                    Details</button>
+                </td>
+              </tr>
+  
+              <!-- Row 4 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <input type="checkbox"
+                    class="employee-checkbox focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="h-10 w-10 flex-shrink-0">
+                      <img class="h-10 w-10 rounded-full"
+                        src="https://images.unsplash.com/photo-1498551172505-8ee7ad69f235?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                        alt="">
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        Emily Rodriguez
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">emily.rodriguez@example.com</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Product</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Product Manager</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Remote</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span
+                    class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                    Excluded
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button class="text-blue-600 hover:text-blue-900 employee-details-modal" data-id="4">View
+                    Details</button>
+                </td>
+              </tr>
+  
+              <!-- Row 5 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <input type="checkbox"
+                    class="employee-checkbox focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="h-10 w-10 flex-shrink-0">
+                      <img class="h-10 w-10 rounded-full"
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                        alt="">
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        David Kim
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">david.kim@example.com</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Finance</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">Finance Director</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">London</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span
+                    class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    Included
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button class="text-blue-600 hover:text-blue-900 employee-details-modal" data-id="5">View
+                    Details</button>
+                </td>
+              </tr>
+  
+              <!-- Row 6 -->
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <input type="checkbox"
+                    class="employee-checkbox focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <div class="h-10 w-10 flex-shrink-0">
+                      <img class="h-10 w-10 rounded-full"
+                        src="https://images.unsplash.com/photo-1532417344469-368f9ae6d187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                        alt="">
+                    </div>
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        Sarah Williams
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">sarah.williams@example.com</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">HR</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">HR Manager</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="text-sm text-gray-500">New York City</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span
+                    class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                    Excluded
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button class="text-blue-600 hover:text-blue-900 employee-details-modal" data-id="6">View
+                    Details</button>
+                </td>
+              </tr>
+  
+              <!-- More rows would be added here -->
+            </tbody>
+          </table>
+        </div>
+  
+        <!-- Pagination -->
+        <div class="flex items-center justify-between py-3 mt-4">
+          <div class="flex-1 flex justify-between sm:hidden">
+            <a href="#"
+              class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+              Previous
+            </a>
+            <a href="#"
+              class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+              Next
+            </a>
+          </div>
+          <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+            <div>
+              <p class="text-sm text-gray-700">
+                Showing <span class="font-medium">1</span> to <span class="font-medium">6</span> of <span
+                  class="font-medium">248</span> results
+              </p>
+            </div>
+            <div>
+              <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                <a href="#"
+                  class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                  <span class="sr-only">Previous</span>
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    aria-hidden="true">
+                    <path fill-rule="evenodd"
+                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </a>
+                <a href="#" aria-current="page"
+                  class="z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                  1
+                </a>
+                <a href="#"
+                  class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                  2
+                </a>
+                <a href="#"
+                  class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                  3
+                </a>
+                <span
+                  class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
+                  ...
+                </span>
+                <a href="#"
+                  class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                  42
+                </a>
+                <a href="#"
+                  class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                  <span class="sr-only">Next</span>
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    aria-hidden="true">
+                    <path fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Modal Footer -->
+        <div class="mt-6 flex justify-end space-x-3">
+          <button type="button"
+            class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            id="cancelManageEmployees">
+            Cancel
+          </button>
+          <button type="button"
+            class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            id="confirmManageEmployees">
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Employee Modal -->
+  <div id="addEmployeeModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+  
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+  
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-5xl sm:w-full sm:p-6">
+        <!-- Modal Header -->
+        <div class="absolute top-0 right-0 pt-4 pr-4">
+          <button type="button"
+            class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            id="closeAddEmployeeModal">
+            <span class="sr-only">Close</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+  
+        <div>
+          <div class="mt-3 text-center sm:mt-0 sm:text-left">
+            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+              Add New Employee
+            </h3>
+  
+            <!-- Tab Navigation -->
+            <div class="mt-4 border-b border-gray-200">
+              <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                <button id="manualEntryTab"
+                  class="border-blue-500 text-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                  aria-current="page">
+                  Manual Entry
+                </button>
+                <button id="csvUploadTab"
+                  class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                  CSV Upload
+                </button>
+              </nav>
+            </div>
+  
+            <!-- Manual Entry Tab Content -->
+            <div id="manualEntryContent" class="mt-6">
+              <form id="addEmployeeForm">
+                <div class="grid grid-cols-1 sm:grid-cols-6 gap-6">
+                  <!-- Personal Information Section -->
+                  <div class="sm:col-span-6">
+                    <h4 class="text-base font-medium text-gray-900">Personal Information</h4>
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
+                    <input type="text" name="first-name" id="first-name"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
+                    <input type="text" name="last-name" id="last-name"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                    <input type="email" name="email" id="email"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone number</label>
+                    <input type="tel" name="phone" id="phone"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                  </div>
+  
+                  <!-- Work Information Section -->
+                  <div class="sm:col-span-6 pt-2 border-t border-gray-200">
+                    <h4 class="text-base font-medium text-gray-900">Work Information</h4>
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="department" class="block text-sm font-medium text-gray-700">Department</label>
+                    <select id="department" name="department"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                      <option value="">Select a department</option>
+                      <option value="engineering">Engineering</option>
+                      <option value="marketing">Marketing</option>
+                      <option value="sales">Sales</option>
+                      <option value="product">Product</option>
+                      <option value="finance">Finance</option>
+                      <option value="hr">HR</option>
+                      <option value="customer-support">Customer Support</option>
+                      <option value="legal">Legal</option>
+                    </select>
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="position" class="block text-sm font-medium text-gray-700">Position</label>
+                    <input type="text" name="position" id="position"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                    <select id="location" name="location"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                      <option value="">Select a location</option>
+                      <option value="new-york">New York</option>
+                      <option value="san-francisco">San Francisco</option>
+                      <option value="chicago">Chicago</option>
+                      <option value="austin">Austin</option>
+                      <option value="london">London</option>
+                      <option value="remote">Remote</option>
+                    </select>
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="work-model" class="block text-sm font-medium text-gray-700">Work Model</label>
+                    <select id="work-model" name="work-model"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                      <option value="">Select a work model</option>
+                      <option value="onsite">Onsite (5 days in office)</option>
+                      <option value="hybrid-3">Hybrid (3 days in office)</option>
+                      <option value="hybrid-2">Hybrid (2 days in office)</option>
+                      <option value="remote">Remote</option>
+                    </select>
+                  </div>
+  
+                  <!-- Demographic Information Section -->
+                  <div class="sm:col-span-6 pt-2 border-t border-gray-200">
+                    <h4 class="text-base font-medium text-gray-900">Demographic Information</h4>
+                    <p class="mt-1 text-sm text-gray-500">This information helps analyze workplace patterns. All data is
+                      anonymized.</p>
+                  </div>
+  
+                  <div class="sm:col-span-2">
+                    <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+                    <input type="number" name="age" id="age" min="18" max="100"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                  </div>
+  
+                  <div class="sm:col-span-2">
+                    <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                    <select id="gender" name="gender"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                      <option value="">Select gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="non-binary">Non-binary</option>
+                      <option value="other">Other</option>
+                      <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                  </div>
+  
+                  <div class="sm:col-span-2">
+                    <label for="ethnicity" class="block text-sm font-medium text-gray-700">Race/Ethnicity</label>
+                    <select id="ethnicity" name="ethnicity"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                      <option value="">Select ethnicity</option>
+                      <option value="asian">Asian</option>
+                      <option value="black">Black or African American</option>
+                      <option value="hispanic">Hispanic or Latino</option>
+                      <option value="native-american">Native American</option>
+                      <option value="pacific-islander">Pacific Islander</option>
+                      <option value="white">White</option>
+                      <option value="multiple">Two or More Races</option>
+                      <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="language" class="block text-sm font-medium text-gray-700">Primary Language</label>
+                    <input type="text" name="language" id="language"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                      placeholder="e.g., English, Spanish, Mandarin">
+                  </div>
+  
+                  <div class="sm:col-span-3">
+                    <label for="timezone" class="block text-sm font-medium text-gray-700">Time Zone</label>
+                    <select id="timezone" name="timezone"
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                      <option value="">Select time zone</option>
+                      <option value="et">Eastern Time (ET)</option>
+                      <option value="ct">Central Time (CT)</option>
+                      <option value="mt">Mountain Time (MT)</option>
+                      <option value="pt">Pacific Time (PT)</option>
+                      <option value="gmt">Greenwich Mean Time (GMT)</option>
+                      <option value="cet">Central European Time (CET)</option>
+                      <option value="ist">India Standard Time (IST)</option>
+                      <option value="jst">Japan Standard Time (JST)</option>
+                      <option value="aest">Australian Eastern Standard Time (AEST)</option>
+                    </select>
+                  </div>
+  
+                  <!-- Inclusion Setting -->
+                  <div class="sm:col-span-6 pt-2 border-t border-gray-200">
+                    <div class="flex justify-between items-center mt-4">
+                      <div>
+                        <h4 class="text-base font-medium text-gray-900">Analysis Inclusion</h4>
+                        <p class="text-sm text-gray-500 mt-1">Choose whether to include this employee's data in the
+                          workplace analysis</p>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="mr-3 text-sm font-medium text-gray-500">Exclude</span>
+                        <!-- Toggle Switch -->
+                        <button type="button" id="new-employee-toggle"
+                          class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-blue-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                          role="switch" aria-checked="true">
+                          <span class="sr-only">Toggle inclusion</span>
+                          <span aria-hidden="true"
+                            class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-5"
+                            id="new-toggle-knob">
+                          </span>
+                        </button>
+                        <span class="ml-3 text-sm font-medium text-gray-900">Include</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+  
+            <!-- CSV Upload Tab Content -->
+            <div id="csvUploadContent" class="mt-6 hidden">
+              <div class="space-y-6">
+                <div>
+                  <h4 class="text-base font-medium text-gray-900">Upload Employee Data</h4>
+                  <p class="mt-1 text-sm text-gray-500">Upload a CSV file with employee data. The file should include
+                    columns for name, email, department, position, etc.</p>
+                </div>
+  
+                <div class="mt-4 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+                  <div class="space-y-1 text-center">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"
+                      aria-hidden="true">
+                      <path
+                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="flex text-sm text-gray-600">
+                      <label for="csv-upload"
+                        class="relative cursor-pointer rounded-md bg-white font-medium text-blue-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 hover:text-blue-500">
+                        <span>Upload a file</span>
+                        <input id="csv-upload" name="csv-upload" type="file" class="sr-only" accept=".csv">
+                      </label>
+                      <p class="pl-1">or drag and drop</p>
+                    </div>
+                    <p class="text-xs text-gray-500">CSV up to 10MB</p>
+                  </div>
+                </div>
+  
+                <div>
+                  <h4 class="text-base font-medium text-gray-900">CSV Format Guide</h4>
+                  <p class="mt-1 text-sm text-gray-500">Your CSV file should have the following columns:</p>
+                  <div class="mt-3 bg-gray-50 p-4 rounded-md">
+                    <pre
+                      class="text-xs text-gray-700">first_name,last_name,email,phone,department,position,location,work_model,age,gender,ethnicity,language,timezone,include_in_analysis</pre>
+                  </div>
+                  <a href="#" class="mt-2 inline-flex text-sm text-blue-600 hover:text-blue-500">
+                    Download template
+                  </a>
+                </div>
+  
+                <div id="csv-preview" class="hidden">
+                  <h4 class="text-base font-medium text-gray-900">File Preview</h4>
+                  <p class="text-sm text-gray-500 mb-2">Displaying the first few rows of your CSV file.</p>
+                  <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                      <thead class="bg-gray-50">
+                        <tr id="csv-header">
+                          <!-- CSV headers will be inserted here -->
+                        </tr>
+                      </thead>
+                      <tbody class="bg-white divide-y divide-gray-200" id="csv-body">
+                        <!-- CSV rows will be inserted here -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="mt-6 flex justify-end space-x-3">
+          <button type="button" id="cancelAddEmployee"
+            class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            Cancel
+          </button>
+          <button type="button" id="submitAddEmployee"
+            class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            Add Employee
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Employee Details Modal -->
+  <div id="employeeDetailsModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title"
+    role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+      <div
+        class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
+        <!-- Modal Header -->
+        <div class="flex justify-between items-start mb-4 border-b pb-4">
+          <div class="flex items-center">
+            <div class="h-12 w-12 flex-shrink-0">
+              <img id="employee-detail-avatar" class="h-12 w-12 rounded-full"
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                alt="">
+            </div>
+            <div class="ml-4">
+              <h3 class="text-lg leading-6 font-medium text-gray-900" id="employee-detail-name">
+                Jane Cooper
+              </h3>
+              <p class="text-sm text-gray-500" id="employee-detail-position">
+                Marketing Director
+              </p>
+            </div>
+          </div>
+          <button type="button"
+            class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            id="closeEmployeeDetailsModal">
+            <span class="sr-only">Close</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Employee Details content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+          <!-- Basic Info Section -->
+          <div>
+            <h4 class="text-sm font-medium text-gray-500 mb-2">Basic Information</h4>
+            <dl class="text-sm">
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Full Name</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-full-name">Jane Cooper</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Email</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-email">jane.cooper@example.com</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Department</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-department">Marketing</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Position</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-position-detail">Marketing Director</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Location</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-location">New York City</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Work Model</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-work-model">Hybrid (3 days in office)</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Demographics Section -->
+          <div>
+            <h4 class="text-sm font-medium text-gray-500 mb-2">Demographics</h4>
+            <dl class="text-sm">
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Age</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-age">34</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Gender</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-gender">Female</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Race/Ethnicity</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-ethnicity">White</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Time Zone</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-timezone">Eastern Time (ET)</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Tenure</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-tenure">3 years, 2 months</dd>
+              </div>
+              <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                <dt class="font-medium text-gray-500">Language</dt>
+                <dd class="col-span-2 text-gray-900" id="employee-language">English (Primary), Spanish</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Work Activity Section (full width) -->
+          <div class="col-span-1 md:col-span-2 mt-2">
+            <h4 class="text-sm font-medium text-gray-500 mb-2">Work Activity</h4>
+
+            <!-- Average Work Hours -->
+            <div class="bg-gray-50 p-3 rounded-md mb-3">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium">Average Work Hours</span>
+                <span class="text-sm font-medium">42.5 hours/week</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+              </div>
+              <div class="flex justify-between text-xs text-gray-500 mt-1">
+                <span>30 hrs</span>
+                <span>40 hrs</span>
+                <span>50 hrs</span>
+              </div>
+            </div>
+
+            <!-- Weekly Activity Breakdown -->
+            <div class="bg-gray-50 p-3 rounded-md">
+              <div class="text-sm font-medium mb-3">Weekly Work Pattern</div>
+              <div class="grid grid-cols-7 gap-1">
+                <div>
+                  <div class="text-center text-xs text-gray-500 mb-1">Mon</div>
+                  <div class="h-16 bg-blue-200 rounded-md relative overflow-hidden">
+                    <div class="absolute bottom-0 w-full bg-blue-600" style="height: 70%"></div>
+                  </div>
+                  <div class="text-center text-xs font-medium mt-1">8.4h</div>
+                </div>
+                <div>
+                  <div class="text-center text-xs text-gray-500 mb-1">Tue</div>
+                  <div class="h-16 bg-blue-200 rounded-md relative overflow-hidden">
+                    <div class="absolute bottom-0 w-full bg-blue-600" style="height: 90%"></div>
+                  </div>
+                  <div class="text-center text-xs font-medium mt-1">10.8h</div>
+                </div>
+                <div>
+                  <div class="text-center text-xs text-gray-500 mb-1">Wed</div>
+                  <div class="h-16 bg-blue-200 rounded-md relative overflow-hidden">
+                    <div class="absolute bottom-0 w-full bg-blue-600" style="height: 75%"></div>
+                  </div>
+                  <div class="text-center text-xs font-medium mt-1">9.0h</div>
+                </div>
+                <div>
+                  <div class="text-center text-xs text-gray-500 mb-1">Thu</div>
+                  <div class="h-16 bg-blue-200 rounded-md relative overflow-hidden">
+                    <div class="absolute bottom-0 w-full bg-blue-600" style="height: 65%"></div>
+                  </div>
+                  <div class="text-center text-xs font-medium mt-1">7.8h</div>
+                </div>
+                <div>
+                  <div class="text-center text-xs text-gray-500 mb-1">Fri</div>
+                  <div class="h-16 bg-blue-200 rounded-md relative overflow-hidden">
+                    <div class="absolute bottom-0 w-full bg-blue-600" style="height: 55%"></div>
+                  </div>
+                  <div class="text-center text-xs font-medium mt-1">6.6h</div>
+                </div>
+                <div>
+                  <div class="text-center text-xs text-gray-500 mb-1">Sat</div>
+                  <div class="h-16 bg-blue-200 rounded-md relative overflow-hidden">
+                    <div class="absolute bottom-0 w-full bg-blue-600" style="height: 0%"></div>
+                  </div>
+                  <div class="text-center text-xs font-medium mt-1">0h</div>
+                </div>
+                <div>
+                  <div class="text-center text-xs text-gray-500 mb-1">Sun</div>
+                  <div class="h-16 bg-blue-200 rounded-md relative overflow-hidden">
+                    <div class="absolute bottom-0 w-full bg-blue-600" style="height: 0%"></div>
+                  </div>
+                  <div class="text-center text-xs font-medium mt-1">0h</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inclusion Setting -->
+          <div class="col-span-1 md:col-span-2 mt-4 border-t pt-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h4 class="text-sm font-medium text-gray-900">Analysis Inclusion</h4>
+                <p class="text-xs text-gray-500 mt-1">Choose whether to include this employee's data in the workplace
+                  analysis</p>
+              </div>
+              <div class="flex items-center">
+                <span class="mr-3 text-sm font-medium text-gray-500">Exclude</span>
+                <!-- Toggle Switch -->
+                <button type="button" id="toggle-inclusion"
+                  class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-blue-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  role="switch" aria-checked="true">
+                  <span class="sr-only">Toggle inclusion</span>
+                  <span aria-hidden="true"
+                    class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-5"
+                    id="toggle-knob">
+                  </span>
+                </button>
+                <span class="ml-3 text-sm font-medium text-gray-900">Include</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="mt-6 flex justify-end space-x-3">
+          <button type="button"
+            class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            id="closeEmployeeDetails">
+            Close
+          </button>
+          <button type="button"
+            class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            id="saveEmployeeDetails">
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Simple interaction for discovery button
-    document.getElementById('runDiscoveryBtn').addEventListener('click', function() {
+    // Run Discovery Button functionality
+    document.getElementById('runDiscoveryBtn').addEventListener('click', function () {
       this.innerText = 'Running...';
       this.disabled = true;
-      
+
       // Simulate API call
       setTimeout(() => {
         document.getElementById('discoveryResults').classList.remove('hidden');
@@ -367,6 +1554,334 @@
         this.disabled = false;
       }, 2000);
     });
+
+    // Manage Employees Modal
+      document.getElementById('manageEmployeesBtn').addEventListener('click', function () {
+        document.getElementById('manageEmployeesModal').classList.remove('hidden');
+      });
+
+      document.getElementById('closeManageEmployeesModal').addEventListener('click', function () {
+        document.getElementById('manageEmployeesModal').classList.add('hidden');
+      });
+
+      document.getElementById('cancelManageEmployees').addEventListener('click', function () {
+        document.getElementById('manageEmployeesModal').classList.add('hidden');
+      });
+
+      document.getElementById('confirmManageEmployees').addEventListener('click', function () {
+        // Simulate saving changes
+        document.getElementById('manageEmployeesModal').classList.add('hidden');
+
+        // Show a success notification (could be implemented)
+        alert('Employee settings updated successfully!');
+      });
+
+      // Tab switching
+        document.getElementById('manualEntryTab').addEventListener('click', function () {
+          // Highlight active tab
+          this.classList.add('border-blue-500', 'text-blue-600');
+          this.classList.remove('border-transparent', 'text-gray-500');
+          document.getElementById('csvUploadTab').classList.add('border-transparent', 'text-gray-500');
+          document.getElementById('csvUploadTab').classList.remove('border-blue-500', 'text-blue-600');
+
+          // Show/hide content
+          document.getElementById('manualEntryContent').classList.remove('hidden');
+          document.getElementById('csvUploadContent').classList.add('hidden');
+
+          // Update button text
+          document.getElementById('submitAddEmployee').textContent = 'Add Employee';
+        });
+
+        document.getElementById('csvUploadTab').addEventListener('click', function () {
+          // Highlight active tab
+          this.classList.add('border-blue-500', 'text-blue-600');
+          this.classList.remove('border-transparent', 'text-gray-500');
+          document.getElementById('manualEntryTab').classList.add('border-transparent', 'text-gray-500');
+          document.getElementById('manualEntryTab').classList.remove('border-blue-500', 'text-blue-600');
+
+          // Show/hide content
+          document.getElementById('csvUploadContent').classList.remove('hidden');
+          document.getElementById('manualEntryContent').classList.add('hidden');
+
+          // Update button text
+          document.getElementById('submitAddEmployee').textContent = 'Upload';
+        });
+
+        // Toggle switch for inclusion/exclusion
+        document.getElementById('new-employee-toggle').addEventListener('click', function () {
+          const isIncluded = this.getAttribute('aria-checked') === 'true';
+
+          if (isIncluded) {
+            // Switch to excluded
+            this.setAttribute('aria-checked', 'false');
+            this.classList.remove('bg-blue-600');
+            this.classList.add('bg-gray-200');
+            document.getElementById('new-toggle-knob').classList.remove('translate-x-5');
+            document.getElementById('new-toggle-knob').classList.add('translate-x-0');
+          } else {
+            // Switch to included
+            this.setAttribute('aria-checked', 'true');
+            this.classList.remove('bg-gray-200');
+            this.classList.add('bg-blue-600');
+            document.getElementById('new-toggle-knob').classList.remove('translate-x-0');
+            document.getElementById('new-toggle-knob').classList.add('translate-x-5');
+          }
+        });
+
+        // CSV file upload handling
+        document.getElementById('csv-upload').addEventListener('change', function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            // Simple file validation
+            if (file.type !== 'text/csv' && !file.name.endsWith('.csv')) {
+              alert('Please upload a CSV file.');
+              return;
+            }
+
+            // Show preview
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const contents = e.target.result;
+              displayCSVPreview(contents);
+            };
+            reader.readAsText(file);
+          }
+        });
+
+        function displayCSVPreview(csvContent) {
+          const lines = csvContent.split('\n');
+          if (lines.length < 2) {
+            alert('CSV file appears to be empty or invalid.');
+            return;
+          }
+
+          // Parse headers
+          const headers = lines[0].split(',');
+          const headerRow = document.getElementById('csv-header');
+          headerRow.innerHTML = '';
+
+          headers.forEach(header => {
+            const th = document.createElement('th');
+            th.className = 'px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider';
+            th.textContent = header.trim();
+            headerRow.appendChild(th);
+          });
+
+          // Parse rows (limit to 5 for preview)
+          const bodyElement = document.getElementById('csv-body');
+          bodyElement.innerHTML = '';
+
+          const maxRows = Math.min(lines.length - 1, 5);
+          for (let i = 1; i <= maxRows; i++) {
+            if (lines[i].trim() === '') continue;
+
+            const rowData = lines[i].split(',');
+            const tr = document.createElement('tr');
+
+            rowData.forEach(cell => {
+              const td = document.createElement('td');
+              td.className = 'px-6 py-4 whitespace-nowrap text-sm text-gray-500';
+              td.textContent = cell.trim();
+              tr.appendChild(td);
+            });
+
+            bodyElement.appendChild(tr);
+          }
+
+          // Show preview section
+          document.getElementById('csv-preview').classList.remove('hidden');
+        }
+
+        // Add Employee Modal open/close
+        document.getElementById('addEmployeeBtn').addEventListener('click', function () {
+          document.getElementById('addEmployeeModal').classList.remove('hidden');
+        });
+
+        document.getElementById('closeAddEmployeeModal').addEventListener('click', function () {
+          document.getElementById('addEmployeeModal').classList.add('hidden');
+        });
+
+        document.getElementById('cancelAddEmployee').addEventListener('click', function () {
+          document.getElementById('addEmployeeModal').classList.add('hidden');
+        });
+
+        // Form submission
+        document.getElementById('submitAddEmployee').addEventListener('click', function () {
+          // Get active tab
+          const isManualEntry = !document.getElementById('manualEntryContent').classList.contains('hidden');
+
+          if (isManualEntry) {
+            // Handle manual form submission
+            // In a real application, you would validate the form fields here
+            alert('Employee added successfully!');
+          } else {
+            // Handle CSV upload
+            const fileInput = document.getElementById('csv-upload');
+            if (fileInput.files.length === 0) {
+              alert('Please select a CSV file to upload.');
+              return;
+            }
+
+            alert('Employees imported successfully!');
+          }
+
+          // Close modal
+          document.getElementById('addEmployeeModal').classList.add('hidden');
+        });
+
+    // Employee Details Modal
+    const openEmployeeDetailsModal = function (employeeId) {
+      // In a real app, you would fetch employee details using the ID
+      console.log('Opening details for employee ID:', employeeId);
+
+      // For demo, we'll just show the modal with the mock data
+      document.getElementById('employeeDetailsModal').classList.remove('hidden');
+
+      // We could have different data for each employee ID
+      if (employeeId == "2") { // John Smith
+        document.getElementById('employee-detail-name').textContent = 'John Smith';
+        document.getElementById('employee-detail-position').textContent = 'Software Engineer';
+        document.getElementById('employee-detail-avatar').src = 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60';
+        document.getElementById('employee-full-name').textContent = 'John Smith';
+        document.getElementById('employee-email').textContent = 'john.smith@example.com';
+        document.getElementById('employee-department').textContent = 'Engineering';
+        document.getElementById('employee-position-detail').textContent = 'Software Engineer';
+        document.getElementById('employee-location').textContent = 'San Francisco';
+        document.getElementById('employee-work-model').textContent = 'Remote';
+        document.getElementById('employee-age').textContent = '29';
+        document.getElementById('employee-gender').textContent = 'Male';
+        document.getElementById('employee-ethnicity').textContent = 'Asian';
+        document.getElementById('employee-timezone').textContent = 'Pacific Time (PT)';
+        document.getElementById('employee-tenure').textContent = '2 years, 5 months';
+        document.getElementById('employee-language').textContent = 'English (Primary), Mandarin';
+      }
+    };
+
+    // Add click handler to all "View Details" buttons
+    document.querySelectorAll('.employee-details').forEach(button => {
+      button.addEventListener('click', function () {
+        const employeeId = this.getAttribute('data-id');
+        openEmployeeDetailsModal(employeeId);
+      });
+    });
+
+    document.getElementById('closeEmployeeDetailsModal').addEventListener('click', function () {
+      document.getElementById('employeeDetailsModal').classList.add('hidden');
+    });
+
+    document.getElementById('closeEmployeeDetails').addEventListener('click', function () {
+      document.getElementById('employeeDetailsModal').classList.add('hidden');
+    });
+
+    document.getElementById('saveEmployeeDetails').addEventListener('click', function () {
+      // Simulate saving changes
+      document.getElementById('employeeDetailsModal').classList.add('hidden');
+
+      // Show a success notification (could be implemented)
+      alert('Employee details saved successfully!');
+    });
+
+    // Toggle switch for inclusion/exclusion
+    document.getElementById('toggle-inclusion').addEventListener('click', function () {
+      const isIncluded = this.getAttribute('aria-checked') === 'true';
+
+      if (isIncluded) {
+        // Switch to excluded
+        this.setAttribute('aria-checked', 'false');
+        this.classList.remove('bg-blue-600');
+        this.classList.add('bg-gray-200');
+        document.getElementById('toggle-knob').classList.remove('translate-x-5');
+        document.getElementById('toggle-knob').classList.add('translate-x-0');
+      } else {
+        // Switch to included
+        this.setAttribute('aria-checked', 'true');
+        this.classList.remove('bg-gray-200');
+        this.classList.add('bg-blue-600');
+        document.getElementById('toggle-knob').classList.remove('translate-x-0');
+        document.getElementById('toggle-knob').classList.add('translate-x-5');
+      }
+    });
+
+    // Manual add toggle switch
+    document.getElementById('inclusion-toggle').addEventListener('click', function () {
+      const isIncluded = this.getAttribute('aria-checked') === 'true';
+
+      if (isIncluded) {
+        // Switch to excluded
+        this.setAttribute('aria-checked', 'false');
+        this.classList.remove('bg-blue-600');
+        this.classList.add('bg-gray-200');
+        document.getElementById('toggle-handle').classList.remove('translate-x-5');
+        document.getElementById('toggle-handle').classList.add('translate-x-0');
+      } else {
+        // Switch to included
+        this.setAttribute('aria-checked', 'true');
+        this.classList.remove('bg-gray-200');
+        this.classList.add('bg-blue-600');
+        document.getElementById('toggle-handle').classList.remove('translate-x-0');
+        document.getElementById('toggle-handle').classList.add('translate-x-5');
+      }
+    });
+
+    // Checkbox selection handling
+    document.getElementById('select-all').addEventListener('change', function () {
+      const checkboxes = document.querySelectorAll('.employee-checkbox');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = this.checked;
+      });
+
+      updateSelectedCount();
+    });
+
+    // Add event listeners to all employee checkboxes
+    document.querySelectorAll('.employee-checkbox').forEach(checkbox => {
+      checkbox.addEventListener('change', function () {
+        updateSelectedCount();
+
+        // Check if all checkboxes are checked
+        const allChecked = Array.from(document.querySelectorAll('.employee-checkbox')).every(cb => cb.checked);
+        document.getElementById('select-all').checked = allChecked;
+      });
+    });
+
+    function updateSelectedCount() {
+      const selectedCount = document.querySelectorAll('.employee-checkbox:checked').length;
+
+      if (selectedCount > 0) {
+        document.getElementById('selected-actions').classList.remove('hidden');
+        document.getElementById('selected-count').textContent = selectedCount;
+      } else {
+        document.getElementById('selected-actions').classList.add('hidden');
+      }
+    }
+
+    // Include/Exclude buttons
+    document.getElementById('include-selected').addEventListener('click', function () {
+      // In a real app, you would update the status of selected employees
+      alert('Selected employees have been included in the analysis.');
+
+      // Reset checkboxes
+      document.querySelectorAll('.employee-checkbox').forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      document.getElementById('select-all').checked = false;
+
+      updateSelectedCount();
+    });
+
+    document.getElementById('exclude-selected').addEventListener('click', function () {
+      // In a real app, you would update the status of selected employees
+      alert('Selected employees have been excluded from the analysis.');
+
+      // Reset checkboxes
+      document.querySelectorAll('.employee-checkbox').forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      document.getElementById('select-all').checked = false;
+
+      updateSelectedCount();
+    });
   </script>
 </body>
+
 </html>
