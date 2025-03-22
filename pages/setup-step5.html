@@ -107,6 +107,14 @@
                                         </svg>
                                         <span>Slack</span>
                                     </li>
+                                    <li class="flex items-center">
+                                        <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span>Zoom</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -114,22 +122,138 @@
                         <!-- Employee Data Summary -->
                         <div>
                             <h3 class="text-md font-medium text-gray-900">Employee Data</h3>
-                            <div class="mt-2 bg-gray-50 p-4 rounded-md">
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-500">Total Employees:</span>
-                                    <span class="font-medium">45</span>
+                        
+                            <!-- High-level summary with stat cards -->
+                            <div class="mt-2 grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="bg-white p-4 rounded-lg shadow border border-gray-100">
+                                    <div class="flex items-center">
+                                        <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-sm font-medium text-gray-500">Total Employees</h4>
+                                            <div class="text-2xl font-semibold">242</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-500">Included in Analysis:</span>
-                                    <span class="font-medium">43</span>
+                        
+                                <div class="bg-white p-4 rounded-lg shadow border border-gray-100">
+                                    <div class="flex items-center">
+                                        <div class="p-3 rounded-full bg-green-100 text-green-600">
+                                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-sm font-medium text-gray-500">Included in Analysis</h4>
+                                            <div class="text-2xl font-semibold text-green-600">242</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="flex justify-between mb-2">
-                                    <span class="text-gray-500">Excluded from Analysis:</span>
-                                    <span class="font-medium">2</span>
+                        
+                                <div class="bg-white p-4 rounded-lg shadow border border-gray-100">
+                                    <div class="flex items-center">
+                                        <div class="p-3 rounded-full bg-gray-100 text-gray-600">
+                                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-4">
+                                            <h4 class="text-sm font-medium text-gray-500">Excluded from Analysis</h4>
+                                            <div class="text-2xl font-semibold text-gray-600">0</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="flex justify-between">
-                                    <span class="text-gray-500">Departments:</span>
-                                    <span class="font-medium">Engineering, Marketing, Sales, Product, Finance, HR</span>
+                            </div>
+                        
+                            <!-- Department breakdown -->
+                            <div class="mt-4 bg-white p-4 rounded-lg shadow border border-gray-100">
+                                <h4 class="font-medium text-gray-700 mb-3">Department Breakdown</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-sm font-medium">Engineering</span>
+                                            <span class="text-sm text-gray-600">67 employees</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 27%"></div>
+                                        </div>
+                                    </div>
+                        
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-sm font-medium">Sales</span>
+                                            <span class="text-sm text-gray-600">54 employees</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 22%"></div>
+                                        </div>
+                                    </div>
+                        
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-sm font-medium">Marketing</span>
+                                            <span class="text-sm text-gray-600">32 employees</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 13%"></div>
+                                        </div>
+                                    </div>
+                        
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-sm font-medium">Finance</span>
+                                            <span class="text-sm text-gray-600">28 employees</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 11%"></div>
+                                        </div>
+                                    </div>
+                        
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-sm font-medium">Product</span>
+                                            <span class="text-sm text-gray-600">26 employees</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 10%"></div>
+                                        </div>
+                                    </div>
+                        
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-sm font-medium">Customer Support</span>
+                                            <span class="text-sm text-gray-600">15 employees</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 6%"></div>
+                                        </div>
+                                    </div>
+                        
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-sm font-medium">HR</span>
+                                            <span class="text-sm text-gray-600">12 employees</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 5%"></div>
+                                        </div>
+                                    </div>
+                        
+                                    <div>
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-sm font-medium">Legal</span>
+                                            <span class="text-sm text-gray-600">8 employees</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 3%"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -142,21 +266,21 @@
                                     <div>
                                         <div class="flex justify-between mb-2">
                                             <span class="text-gray-500">Emails:</span>
-                                            <span class="font-medium">15,768</span>
+                                            <span class="font-medium">78,432</span>
                                         </div>
                                         <div class="flex justify-between">
                                             <span class="text-gray-500">Chat Messages:</span>
-                                            <span class="font-medium">24,354</span>
+                                            <span class="font-medium">121,548</span>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-2">
                                             <span class="text-gray-500">Meetings:</span>
-                                            <span class="font-medium">2,145</span>
+                                            <span class="font-medium">10,762</span>
                                         </div>
                                         <div class="flex justify-between">
                                             <span class="text-gray-500">File Accesses:</span>
-                                            <span class="font-medium">8,721</span>
+                                            <span class="font-medium">43,684</span>
                                         </div>
                                     </div>
                                 </div>
@@ -170,8 +294,8 @@
                                 <div class="flex items-center mb-2">
                                     <svg class="h-5 w-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd"></path>
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
                                     </svg>
                                     <span class="text-gray-900">All PII successfully anonymized</span>
                                 </div>
@@ -227,6 +351,25 @@
                     </div>
                 </div>
 
+                <div id="validationAlert" class="hidden mb-4 p-4 rounded-md bg-red-50 border border-red-200">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-red-800">Required confirmations missing</h3>
+                            <div class="mt-2 text-sm text-red-700">
+                                <p>Please check all confirmation boxes before proceeding.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Complete Setup -->
                 <div class="bg-white shadow rounded-lg p-6 mb-6">
                     <div class="flex items-start">
@@ -234,9 +377,12 @@
                             <h2 class="text-lg font-medium">Complete Setup</h2>
                             <p class="text-gray-500 mt-1">Ready to deploy to the Glynac analysis engine?</p>
                         </div>
+                        <div id="completeButtonTooltip"
+                            class="hidden absolute bottom-full mb-2 transform -translate-x-1/2 p-2 bg-gray-800 text-white text-xs rounded shadow-lg">
+                            Please check all three confirmation boxes above to continue.
+                        </div>
                         <button id="completeSetupBtn"
-                            class="ml-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
-                            disabled>
+                            class="ml-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed relative">
                             Complete Setup
                         </button>
                     </div>
@@ -271,34 +417,65 @@
     <script>
         // Check if all privacy checkboxes are checked
         function updateCompleteButton() {
-            const privacy1 = document.getElementById('privacy1').checked;
-            const privacy2 = document.getElementById('privacy2').checked;
-            const privacy3 = document.getElementById('privacy3').checked;
+                const privacy1 = document.getElementById('privacy1').addEventListener('change', updateCompleteButton);
+                const privacy2 = document.getElementById('privacy2').addEventListener('change', updateCompleteButton);
+                const privacy3 = document.getElementById('privacy3').addEventListener('change', updateCompleteButton);
 
-            const completeBtn = document.getElementById('completeSetupBtn');
-            completeBtn.disabled = !(privacy1 && privacy2 && privacy3);
-        }
+                const completeBtn = document.getElementById('completeSetupBtn');
+                // Enable the button always, we'll handle validation when clicked
+                completeBtn.disabled = false;
 
-        // Add event listeners to privacy checkboxes
-        document.getElementById('privacy1').addEventListener('change', updateCompleteButton);
-        document.getElementById('privacy2').addEventListener('change', updateCompleteButton);
-        document.getElementById('privacy3').addEventListener('change', updateCompleteButton);
+                // Hide validation alert if it was previously shown
+                document.getElementById('validationAlert').classList.add('hidden');
 
-        // Complete setup button
-        document.getElementById('completeSetupBtn').addEventListener('click', function () {
-            this.innerText = 'Processing...';
-            this.disabled = true;
+                // Remove highlight from any previously highlighted checkboxes
+                document.querySelectorAll('.privacy-highlight').forEach(el => {
+                    el.classList.remove('privacy-highlight', 'bg-red-50', 'border', 'border-red-200', 'rounded-md', 'p-2');
+                });
+            }
 
-            // Simulate API call
-            setTimeout(() => {
-                document.getElementById('setupComplete').classList.remove('hidden');
+        // Complete setup button with validation
+            document.getElementById('completeSetupBtn').addEventListener('click', function () {
+                const privacy1 = document.getElementById('privacy1').checked;
+                const privacy2 = document.getElementById('privacy2').checked;
+                const privacy3 = document.getElementById('privacy3').checked;
 
-                // Redirect to admin dashboard after 3 seconds
+                // Check if all boxes are checked
+                if (!(privacy1 && privacy2 && privacy3)) {
+                    // Show the validation alert
+                    document.getElementById('validationAlert').classList.remove('hidden');
+
+                    // Scroll to it
+                    document.getElementById('validationAlert').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Highlight unchecked boxes
+                    if (!privacy1) {
+                        document.getElementById('privacy1').closest('.flex.items-start').classList.add('privacy-highlight', 'bg-red-50', 'border', 'border-red-200', 'rounded-md', 'p-2');
+                    }
+                    if (!privacy2) {
+                        document.getElementById('privacy2').closest('.flex.items-start').classList.add('privacy-highlight', 'bg-red-50', 'border', 'border-red-200', 'rounded-md', 'p-2');
+                    }
+                    if (!privacy3) {
+                        document.getElementById('privacy3').closest('.flex.items-start').classList.add('privacy-highlight', 'bg-red-50', 'border', 'border-red-200', 'rounded-md', 'p-2');
+                    }
+
+                    return; // Stop execution
+                }
+
+                // If all are checked, proceed
+                this.innerText = 'Processing...';
+                this.disabled = true;
+
+                // Simulate API call
                 setTimeout(() => {
-                    window.location.href = "admin-dashboard.html";
-                }, 3000);
-            }, 2000);
-        });
+                    document.getElementById('setupComplete').classList.remove('hidden');
+
+                    // Redirect to admin dashboard after 3 seconds
+                    setTimeout(() => {
+                        window.location.href = "admin-dashboard.html";
+                    }, 3000);
+                }, 2000);
+            });
     </script>
 </body>
 
