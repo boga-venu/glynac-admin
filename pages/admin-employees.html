@@ -106,10 +106,9 @@
                         <div class="flex space-x-3">
                             <button
                                 class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                                id="addEmployeeBtn">
+                                id="addSingleEmployee">
                                 <svg class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                 </svg>
                                 Add Employee
                             </button>
@@ -122,16 +121,30 @@
                                 </svg>
                                 Delete
                             </button>
-                            <button
-                                class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                                id="importCSVBtn">
-                                <svg class="-ml-1 mr-2 h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                                </svg>
-                                Import CSV
-                            </button>
+                            <div class="relative inline-block text-left">
+                                <button id="exportDropdownBtn"
+                                    class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                    <svg class="-ml-1 mr-2 h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 14v-6m0 0l3 3m-3-3l-3 3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+
+                                    Export CSV
+                                </button>
+                            
+                                <div id="exportDropdown"
+                                    class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none z-10">
+                                    <div class="py-1">
+                                        <button id="exportSelected"
+                                            class="text-gray-700 block px-4 py-2 text-sm w-full text-left hover:bg-gray-100">Export
+                                            Selected</button>
+                                    </div>
+                                    <div class="py-1">
+                                        <button id="exportAll"
+                                            class="text-gray-700 block px-4 py-2 text-sm w-full text-left hover:bg-gray-100">Export All</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -140,8 +153,7 @@
                         <div class="mb-2 sm:mb-0 flex-1">
                             <div class="relative rounded-md shadow-sm">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
+                                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
@@ -173,14 +185,32 @@
                             </select>
                         </div>
                     </div>
+                    <div id="bulk-actions"
+                        class="mt-4 bg-gray-50 p-3 rounded-md flex justify-between items-center hidden">
+                        <div>
+                            <span class="text-sm text-gray-700">Selected <span id="selected-count"
+                                    class="font-medium">0</span>
+                                employees</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button id="include-selected"
+                                class="px-3 py-1.5 bg-green-600 text-white text-sm rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                Include Selected
+                            </button>
+                            <button id="exclude-selected"
+                                class="px-3 py-1.5 bg-red-600 text-white text-sm rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                Exclude Selected
+                            </button>
+                        </div>
+                    </div>
                     <!-- Employee Table -->
-                    <div class="mt-6 bg-white shadow overflow-hidden rounded-md">
+                    <div class="mt-6 overflow-x-auto bg-white shadow rounded-md">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col"
+                                    <th scope="col" 
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        <input type="checkbox"
+                                        <input type="checkbox" id="select-all-checkbox"
                                             class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
                                     </th>
                                     <th scope="col"
@@ -658,11 +688,11 @@
         aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-
+    
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
+    
             <div
-                class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-5xl sm:w-full sm:p-6">
                 <div class="absolute top-0 right-0 pt-4 pr-4">
                     <button type="button"
                         class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
@@ -675,190 +705,279 @@
                         </svg>
                     </button>
                 </div>
+    
                 <div>
-                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                    <div class="mt-3 text-center sm:mt-0 sm:text-left">
                         <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
                             Add New Employee
                         </h3>
-                        <div class="mt-4">
-                            <form>
-                                <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-                                    <div class="sm:col-span-3">
-                                        <label for="first-name" class="block text-sm font-medium text-gray-700">
-                                            First name
-                                        </label>
-                                        <div class="mt-1">
-                                            <input type="text" name="first-name" id="first-name"
-                                                autocomplete="given-name"
-                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                        </div>
-                                    </div>
-
-                                    <div class="sm:col-span-3">
-                                        </label>
-                                        <div class="mt-1">
-                                            <input type="text" name="last-name" id="last-name"
-                                                autocomplete="family-name"
-                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                        </div>
-                                    </div>
-
+    
+                        <!-- Tab Navigation -->
+                        <div class="mt-4 border-b border-gray-200">
+                            <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                                <button id="manualEntryTab"
+                                    class="border-blue-500 text-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
+                                    aria-current="page">
+                                    Manual Entry
+                                </button>
+                                <button id="csvUploadTab"
+                                    class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                                    CSV Upload
+                                </button>
+                            </nav>
+                        </div>
+    
+                        <!-- Manual Entry Tab Content -->
+                        <div id="manualEntryContent" class="mt-6">
+                            <form id="addEmployeeForm">
+                                <div class="grid grid-cols-1 sm:grid-cols-6 gap-6">
+                                    <!-- Personal Information Section -->
                                     <div class="sm:col-span-6">
-                                        <label for="email" class="block text-sm font-medium text-gray-700">
-                                            Email address
-                                        </label>
-                                        <div class="mt-1">
-                                            <input type="email" name="email" id="email" autocomplete="email"
-                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                        </div>
+                                        <h4 class="text-base font-medium text-gray-900">Personal Information</h4>
                                     </div>
-
+    
                                     <div class="sm:col-span-3">
-                                        <label for="department" class="block text-sm font-medium text-gray-700">
-                                            Department
-                                        </label>
-                                        <div class="mt-1">
-                                            <select id="department" name="department" autocomplete="department"
-                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                                <option>Engineering</option>
-                                                <option>Marketing</option>
-                                                <option>Sales</option>
-                                                <option>Product</option>
-                                                <option>Finance</option>
-                                                <option>HR</option>
-                                            </select>
-                                        </div>
+                                        <label for="first-name" class="block text-sm font-medium text-gray-700">First
+                                            name</label>
+                                        <input type="text" name="first-name" id="first-name"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
                                     </div>
-
+    
                                     <div class="sm:col-span-3">
-                                        <label for="position" class="block text-sm font-medium text-gray-700">
-                                            Position
-                                        </label>
-                                        <div class="mt-1">
-                                            <input type="text" name="position" id="position"
-                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                        <label for="last-name" class="block text-sm font-medium text-gray-700">Last
+                                            name</label>
+                                        <input type="text" name="last-name" id="last-name"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="email" class="block text-sm font-medium text-gray-700">Email
+                                            address</label>
+                                        <input type="email" name="email" id="email"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone
+                                            number</label>
+                                        <input type="tel" name="phone" id="phone"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                    </div>
+    
+                                    <!-- Work Information Section -->
+                                    <div class="sm:col-span-6 pt-2 border-t border-gray-200">
+                                        <h4 class="text-base font-medium text-gray-900">Work Information</h4>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="department"
+                                            class="block text-sm font-medium text-gray-700">Department</label>
+                                        <select id="department" name="department"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                            <option value="">Select a department</option>
+                                            <option value="engineering">Engineering</option>
+                                            <option value="marketing">Marketing</option>
+                                            <option value="sales">Sales</option>
+                                            <option value="product">Product</option>
+                                            <option value="finance">Finance</option>
+                                            <option value="hr">HR</option>
+                                            <option value="customer-support">Customer Support</option>
+                                            <option value="legal">Legal</option>
+                                        </select>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="position"
+                                            class="block text-sm font-medium text-gray-700">Position</label>
+                                        <input type="text" name="position" id="position"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="location"
+                                            class="block text-sm font-medium text-gray-700">Location</label>
+                                        <select id="location" name="location"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                            <option value="">Select a location</option>
+                                            <option value="new-york">New York</option>
+                                            <option value="san-francisco">San Francisco</option>
+                                            <option value="chicago">Chicago</option>
+                                            <option value="austin">Austin</option>
+                                            <option value="london">London</option>
+                                            <option value="remote">Remote</option>
+                                        </select>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="work-model" class="block text-sm font-medium text-gray-700">Work
+                                            Model</label>
+                                        <select id="work-model" name="work-model"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                            <option value="">Select a work model</option>
+                                            <option value="onsite">Onsite (5 days in office)</option>
+                                            <option value="hybrid-3">Hybrid (3 days in office)</option>
+                                            <option value="hybrid-2">Hybrid (2 days in office)</option>
+                                            <option value="remote">Remote</option>
+                                        </select>
+                                    </div>
+    
+                                    <!-- Demographic Information Section -->
+                                    <div class="sm:col-span-6 pt-2 border-t border-gray-200">
+                                        <h4 class="text-base font-medium text-gray-900">Demographic Information</h4>
+                                        <p class="mt-1 text-sm text-gray-500">This information helps analyze workplace
+                                            patterns. All data is
+                                            anonymized.</p>
+                                    </div>
+    
+                                    <div class="sm:col-span-2">
+                                        <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+                                        <input type="number" name="age" id="age" min="18" max="100"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                    </div>
+    
+                                    <div class="sm:col-span-2">
+                                        <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                                        <select id="gender" name="gender"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                            <option value="">Select gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="non-binary">Non-binary</option>
+                                            <option value="other">Other</option>
+                                            <option value="prefer-not-to-say">Prefer not to say</option>
+                                        </select>
+                                    </div>
+    
+                                    <div class="sm:col-span-2">
+                                        <label for="ethnicity"
+                                            class="block text-sm font-medium text-gray-700">Race/Ethnicity</label>
+                                        <select id="ethnicity" name="ethnicity"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                            <option value="">Select ethnicity</option>
+                                            <option value="asian">Asian</option>
+                                            <option value="black">Black or African American</option>
+                                            <option value="hispanic">Hispanic or Latino</option>
+                                            <option value="native-american">Native American</option>
+                                            <option value="pacific-islander">Pacific Islander</option>
+                                            <option value="white">White</option>
+                                            <option value="multiple">Two or More Races</option>
+                                            <option value="prefer-not-to-say">Prefer not to say</option>
+                                        </select>
+                                    </div>
+    
+                                    <!-- Inclusion Setting -->
+                                    <div class="sm:col-span-6 pt-2 border-t border-gray-200">
+                                        <div class="flex justify-between items-center mt-4">
+                                            <div>
+                                                <h4 class="text-base font-medium text-gray-900">Analysis Inclusion</h4>
+                                                <p class="text-sm text-gray-500 mt-1">Choose whether to include this
+                                                    employee's data in the
+                                                    workplace analysis</p>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="mr-3 text-sm font-medium text-gray-500">Exclude</span>
+                                                <!-- Toggle Switch -->
+                                                <button type="button" id="new-employee-toggle"
+                                                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-blue-600 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                                    role="switch" aria-checked="true">
+                                                    <span class="sr-only">Toggle inclusion</span>
+                                                    <span aria-hidden="true"
+                                                        class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out translate-x-5"
+                                                        id="new-toggle-knob">
+                                                    </span>
+                                                </button>
+                                                <span class="ml-3 text-sm font-medium text-gray-900">Include</span>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="sm:col-span-6">
-                                        <div class="flex items-start">
-                                            <div class="flex items-center h-5">
-                                                <input id="include-in-analysis" name="include-in-analysis"
-                                                    type="checkbox"
-                                                    class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
-                                                    checked>
-                                            </div>
-                                            <div class="ml-3 text-sm">
-                                                <label for="include-in-analysis"
-                                                    class="font-medium text-gray-700">Include in analysis</label>
-                                                <p class="text-gray-500">This employee's data will be included in the
-                                                    Glynac analysis engine.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
-                                    <button type="submit"
-                                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:col-start-2 sm:text-sm">
-                                        Add
-                                    </button>
-                                    <button type="button"
-                                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:col-start-1 sm:text-sm"
-                                        id="cancelAddEmployee">
-                                        Cancel
-                                    </button>
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Import CSV Modal -->
-    <div id="importCSVModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
-        aria-modal="true">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-            <div
-                class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-                <div class="absolute top-0 right-0 pt-4 pr-4">
-                    <button type="button"
-                        class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                        id="closeImportCSVModal">
-                        <span class="sr-only">Close</span>
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-                <div>
-                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-                            Import Employees from CSV
-                        </h3>
-                        <div class="mt-2">
-                            <p class="text-sm text-gray-500">
-                                Upload a CSV file with employee data. The file should include columns for first name,
-                                last
-                                name, email, department, and position.
-                            </p>
-                        </div>
-                        <div class="mt-4">
-                            <div
-                                class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                                <div class="space-y-1 text-center">
-                                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none"
-                                        viewBox="0 0 48 48" aria-hidden="true">
-                                        <path
-                                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                    <div class="flex text-sm text-gray-600">
-                                        <label for="file-upload"
-                                            class="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
-                                            <span>Upload a file</span>
-                                            <input id="file-upload" name="file-upload" type="file" class="sr-only"
-                                                accept=".csv">
-                                        </label>
-                                        <p class="pl-1">or drag and drop</p>
+    
+                        <!-- CSV Upload Tab Content -->
+                        <div id="csvUploadContent" class="mt-6 hidden">
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="text-base font-medium text-gray-900">Upload Employee Data</h4>
+                                    <p class="mt-1 text-sm text-gray-500">Upload a CSV file with employee data. The file
+                                        should include
+                                        columns for name, email, department, position, etc.</p>
+                                </div>
+    
+                                <div
+                                    class="mt-4 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+                                    <div class="space-y-1 text-center">
+                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none"
+                                            viewBox="0 0 48 48" aria-hidden="true">
+                                            <path
+                                                d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <div class="flex text-sm text-gray-600">
+                                            <label for="csv-upload"
+                                                class="relative cursor-pointer rounded-md bg-white font-medium text-blue-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 hover:text-blue-500">
+                                                <span>Upload a file</span>
+                                                <input id="csv-upload" name="csv-upload" type="file" class="sr-only"
+                                                    accept=".csv">
+                                            </label>
+                                            <p class="pl-1">or drag and drop</p>
+                                        </div>
+                                        <p class="text-xs text-gray-500">CSV up to 10MB</p>
                                     </div>
-                                    <p class="text-xs text-gray-500">
-                                        CSV up to 10MB
+                                </div>
+    
+                                <div>
+                                    <h4 class="text-base font-medium text-gray-900">CSV Format Guide</h4>
+                                    <p class="mt-1 text-sm text-gray-500">Your CSV file should have the following columns:
                                     </p>
+                                    <div class="mt-3 bg-gray-50 p-4 rounded-md">
+                                        <pre
+                                            class="text-xs text-gray-700">first_name,last_name,email,phone,department,position,location,work_model,age,gender,ethnicity,language,timezone,include_in_analysis</pre>
+                                    </div>
+                                    <a href="#" class="mt-2 inline-flex text-sm text-blue-600 hover:text-blue-500">
+                                        Download template
+                                    </a>
+                                </div>
+    
+                                <div id="csv-preview" class="hidden">
+                                    <h4 class="text-base font-medium text-gray-900">File Preview</h4>
+                                    <p class="text-sm text-gray-500 mb-2">Displaying the first few rows of your CSV file.
+                                    </p>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                            <thead class="bg-gray-50">
+                                                <tr id="csv-header">
+                                                    <!-- CSV headers will be inserted here -->
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200" id="csv-body">
+                                                <!-- CSV rows will be inserted here -->
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="mt-4">
-                                <a href="#" class="text-sm text-blue-600 hover:text-blue-500">
-                                    Download CSV template
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
-                    <button type="button"
-                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:col-start-2 sm:text-sm"
-                        id="uploadCSV">
-                        Upload
-                    </button>
-                    <button type="button"
-                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:col-start-1 sm:text-sm"
-                        id="cancelImportCSV">
+    
+                <!-- Modal footer -->
+                <div class="mt-6 flex justify-end space-x-3">
+                    <button type="button" id="cancelAddEmployee"
+                        class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                         Cancel
+                    </button>
+                    <button type="button" id="submitAddEmployee"
+                        class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Add Employee
                     </button>
                 </div>
             </div>
         </div>
     </div>
+
+
+    
 
     <!-- Delete Confirmation Modal -->
     <div id="deleteConfirmationModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title"
@@ -1370,10 +1489,42 @@
             }
         });
 
-        // Modal Toggle Functions
-        document.getElementById('addEmployeeBtn').addEventListener('click', function () {
-            document.getElementById('addEmployeeModal').classList.remove('hidden');
-        });
+        // Export dropdown functionality
+            document.getElementById('exportDropdownBtn').addEventListener('click', function () {
+                document.getElementById('exportDropdown').classList.toggle('hidden');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                const dropdown = document.getElementById('exportDropdown');
+                const button = document.getElementById('exportDropdownBtn');
+
+                if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+
+            // Export functionality
+            document.getElementById('exportSelected').addEventListener('click', function () {
+                const selectedRows = document.querySelectorAll('tbody input[type="checkbox"]:checked');
+                if (selectedRows.length === 0) {
+                    alert('Please select at least one employee to export.');
+                    return;
+                }
+
+                // In a real app, you would generate CSV here
+                alert(`Exporting ${selectedRows.length} selected employees to CSV.`);
+                document.getElementById('exportDropdown').classList.add('hidden');
+            });
+
+            document.getElementById('exportAll').addEventListener('click', function () {
+                // In a real app, you would generate CSV here
+                alert('Exporting all employees to CSV.');
+                document.getElementById('exportDropdown').classList.add('hidden');
+            });
+
+       
+       
 
         document.getElementById('closeAddEmployeeModal').addEventListener('click', function () {
             document.getElementById('addEmployeeModal').classList.add('hidden');
@@ -1383,17 +1534,7 @@
             document.getElementById('addEmployeeModal').classList.add('hidden');
         });
 
-        document.getElementById('importCSVBtn').addEventListener('click', function () {
-            document.getElementById('importCSVModal').classList.remove('hidden');
-        });
-
-        document.getElementById('closeImportCSVModal').addEventListener('click', function () {
-            document.getElementById('importCSVModal').classList.add('hidden');
-        });
-
-        document.getElementById('cancelImportCSV').addEventListener('click', function () {
-            document.getElementById('importCSVModal').classList.add('hidden');
-        });
+       
 
         // Department Filter Function
         document.getElementById('departmentFilter').addEventListener('change', function () {
@@ -1441,12 +1582,27 @@
             });
         });
 
+        function updateSelectedCount() {
+            const selectedCount = document.querySelectorAll('tbody input[type="checkbox"]:checked').length;
+
+            if (selectedCount > 0) {
+                document.getElementById('bulk-actions').classList.remove('hidden');
+                document.getElementById('selected-count').textContent = selectedCount;
+            } else {
+                document.getElementById('bulk-actions').classList.add('hidden');
+            }
+        }
         document.querySelector('thead input[type="checkbox"]').addEventListener('change', function () {
-            const isChecked = this.checked;
-            document.querySelectorAll('tbody input[type="checkbox"]').forEach(checkbox => {
-                checkbox.checked = isChecked;
+                const isChecked = this.checked;
+                document.querySelectorAll('tbody input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = isChecked;
+                });
+                updateDeleteButton();
+                updateSelectedCount();
             });
-            updateDeleteButton();
+
+        document.querySelectorAll('tbody input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', updateSelectedCount);
         });
 
         document.querySelectorAll('tbody input[type="checkbox"]').forEach(checkbox => {
@@ -1455,8 +1611,188 @@
 
                 const allChecked = Array.from(document.querySelectorAll('tbody input[type="checkbox"]')).every(cb => cb.checked);
                 document.querySelector('thead input[type="checkbox"]').checked = allChecked;
+                updateSelectedCount();
+            });
+            // Include/exclude button functionality
+            document.getElementById('include-selected').addEventListener('click', function () {
+                document.querySelectorAll('tbody input[type="checkbox"]:checked').forEach(checkbox => {
+                    const row = checkbox.closest('tr');
+                    const statusCell = row.querySelector('td:nth-child(6) span');
+
+                    statusCell.textContent = 'Included';
+                    statusCell.classList.remove('bg-red-100', 'text-red-800');
+                    statusCell.classList.add('bg-green-100', 'text-green-800');
+                });
+
+                // Reset checkboxes after operation
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                updateSelectedCount();
+            });
+
+            document.getElementById('exclude-selected').addEventListener('click', function () {
+                document.querySelectorAll('tbody input[type="checkbox"]:checked').forEach(checkbox => {
+                    const row = checkbox.closest('tr');
+                    const statusCell = row.querySelector('td:nth-child(6) span');
+
+                    statusCell.textContent = 'Excluded';
+                    statusCell.classList.remove('bg-green-100', 'text-green-800');
+                    statusCell.classList.add('bg-red-100', 'text-red-800');
+                });
+
+                // Reset checkboxes after operation
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                updateSelectedCount();
             });
         });
+
+       
+
+            // Add Single Employee action
+            document.getElementById('addSingleEmployee').addEventListener('click', function () {
+                document.getElementById('addEmployeeModal').classList.remove('hidden');
+            });
+
+            
+
+            // Tab switching
+                document.getElementById('manualEntryTab').addEventListener('click', function () {
+                    // Highlight active tab
+                    this.classList.add('border-blue-500', 'text-blue-600');
+                    this.classList.remove('border-transparent', 'text-gray-500');
+                    document.getElementById('csvUploadTab').classList.add('border-transparent', 'text-gray-500');
+                    document.getElementById('csvUploadTab').classList.remove('border-blue-500', 'text-blue-600');
+
+                    // Show/hide content
+                    document.getElementById('manualEntryContent').classList.remove('hidden');
+                    document.getElementById('csvUploadContent').classList.add('hidden');
+
+                    // Update button text
+                    document.getElementById('submitAddEmployee').textContent = 'Add Employee';
+                });
+
+                document.getElementById('csvUploadTab').addEventListener('click', function () {
+                    // Highlight active tab
+                    this.classList.add('border-blue-500', 'text-blue-600');
+                    this.classList.remove('border-transparent', 'text-gray-500');
+                    document.getElementById('manualEntryTab').classList.add('border-transparent', 'text-gray-500');
+                    document.getElementById('manualEntryTab').classList.remove('border-blue-500', 'text-blue-600');
+
+                    // Show/hide content
+                    document.getElementById('csvUploadContent').classList.remove('hidden');
+                    document.getElementById('manualEntryContent').classList.add('hidden');
+
+                    // Update button text
+                    document.getElementById('submitAddEmployee').textContent = 'Upload';
+                });
+
+                // Toggle switch for inclusion/exclusion
+                document.getElementById('new-employee-toggle').addEventListener('click', function () {
+                    const isIncluded = this.getAttribute('aria-checked') === 'true';
+
+                    if (isIncluded) {
+                        // Switch to excluded
+                        this.setAttribute('aria-checked', 'false');
+                        this.classList.remove('bg-blue-600');
+                        this.classList.add('bg-gray-200');
+                        document.getElementById('new-toggle-knob').classList.remove('translate-x-5');
+                        document.getElementById('new-toggle-knob').classList.add('translate-x-0');
+                    } else {
+                        // Switch to included
+                        this.setAttribute('aria-checked', 'true');
+                        this.classList.remove('bg-gray-200');
+                        this.classList.add('bg-blue-600');
+                        document.getElementById('new-toggle-knob').classList.remove('translate-x-0');
+                        document.getElementById('new-toggle-knob').classList.add('translate-x-5');
+                    }
+                });
+
+                            // CSV file upload handling
+                            document.getElementById('csv-upload').addEventListener('change', function (event) {
+                                const file = event.target.files[0];
+                                if (file) {
+                                    // Simple file validation
+                                    if (file.type !== 'text/csv' && !file.name.endsWith('.csv')) {
+                                        alert('Please upload a CSV file.');
+                                        return;
+                                    }
+
+                                    // Show preview
+                                    const reader = new FileReader();
+                                    reader.onload = function (e) {
+                                        const contents = e.target.result;
+                                        displayCSVPreview(contents);
+                                    };
+                                    reader.readAsText(file);
+                                }
+                            });
+
+                            function displayCSVPreview(csvContent) {
+                                const lines = csvContent.split('\n');
+                                if (lines.length < 2) {
+                                    alert('CSV file appears to be empty or invalid.');
+                                    return;
+                                }
+
+                                // Parse headers
+                                const headers = lines[0].split(',');
+                                const headerRow = document.getElementById('csv-header');
+                                headerRow.innerHTML = '';
+
+                                headers.forEach(header => {
+                                    const th = document.createElement('th');
+                                    th.className = 'px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider';
+                                    th.textContent = header.trim();
+                                    headerRow.appendChild(th);
+                                });
+
+                                // Parse rows (limit to 5 for preview)
+                                const bodyElement = document.getElementById('csv-body');
+                                bodyElement.innerHTML = '';
+
+                                const maxRows = Math.min(lines.length - 1, 5);
+                                for (let i = 1; i <= maxRows; i++) {
+                                    if (lines[i].trim() === '') continue;
+
+                                    const rowData = lines[i].split(',');
+                                    const tr = document.createElement('tr');
+
+                                    rowData.forEach(cell => {
+                                        const td = document.createElement('td');
+                                        td.className = 'px-6 py-4 whitespace-nowrap text-sm text-gray-500';
+                                        td.textContent = cell.trim();
+                                        tr.appendChild(td);
+                                    });
+
+                                    bodyElement.appendChild(tr);
+                                }
+
+                                // Show preview section
+                                document.getElementById('csv-preview').classList.remove('hidden');
+                            }
+
+                            // Form submission
+                            document.getElementById('submitAddEmployee').addEventListener('click', function () {
+                                // Get active tab
+                                const isManualEntry = !document.getElementById('manualEntryContent').classList.contains('hidden');
+
+                                if (isManualEntry) {
+                                    // Handle manual form submission
+                                    // In a real application, you would validate the form fields here
+                                    alert('Employee added successfully!');
+                                } else {
+                                    // Handle CSV upload
+                                    const fileInput = document.getElementById('csv-upload');
+                                    if (fileInput.files.length === 0) {
+                                        alert('Please select a CSV file to upload.');
+                                        return;
+                                    }
+
+                                    alert('Employees imported successfully!');
+                                }
+
+                                // Close modal
+                                document.getElementById('addEmployeeModal').classList.add('hidden');
+                            });
 
         // Update delete selected checkboxes
         function updateDeleteButton() {
