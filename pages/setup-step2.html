@@ -1557,24 +1557,32 @@
 
     // Manage Employees Modal
       document.getElementById('manageEmployeesBtn').addEventListener('click', function () {
-        document.getElementById('manageEmployeesModal').classList.remove('hidden');
-      });
+          document.getElementById('manageEmployeesModal').classList.remove('hidden');
+          // Set up the checkbox handlers when the modal is opened
+          setupCheckboxHandlers();
+          // Make sure the selected actions div is in the right state
+          updateSelectedCount();
+        });
 
       document.getElementById('closeManageEmployeesModal').addEventListener('click', function () {
-        document.getElementById('manageEmployeesModal').classList.add('hidden');
-      });
+          document.getElementById('manageEmployeesModal').classList.add('hidden');
+        });
 
-      document.getElementById('cancelManageEmployees').addEventListener('click', function () {
-        document.getElementById('manageEmployeesModal').classList.add('hidden');
-      });
+        document.getElementById('cancelManageEmployees').addEventListener('click', function () {
+          document.getElementById('manageEmployeesModal').classList.add('hidden');
+        });
 
-      document.getElementById('confirmManageEmployees').addEventListener('click', function () {
-        // Simulate saving changes
-        document.getElementById('manageEmployeesModal').classList.add('hidden');
+        document.getElementById('confirmManageEmployees').addEventListener('click', function () {
+          // Simulate saving changes
+          document.getElementById('manageEmployeesModal').classList.add('hidden');
 
-        // Show a success notification (could be implemented)
-        alert('Employee settings updated successfully!');
-      });
+          // Show a success notification
+          alert('Employee settings updated successfully!');
+        }); 
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // You can set up any initial state here
+          });
 
       // Tab switching
         document.getElementById('manualEntryTab').addEventListener('click', function () {
@@ -1823,64 +1831,90 @@
       }
     });
 
-    // Checkbox selection handling
-    document.getElementById('select-all').addEventListener('change', function () {
-      const checkboxes = document.querySelectorAll('.employee-checkbox');
-      checkboxes.forEach(checkbox => {
-        checkbox.checked = this.checked;
-      });
+    // Function to set up checkbox interactions
+      function setupCheckboxHandlers() {
+        // Checkbox selection handling
+        const selectAllCheckbox = document.getElementById('select-all');
+        if (selectAllCheckbox) {
+          selectAllCheckbox.addEventListener('change', function () {
+            const checkboxes = document.querySelectorAll('.employee-checkbox');
+            checkboxes.forEach(checkbox => {
+              checkbox.checked = this.checked;
+            });
+            updateSelectedCount();
+          });
+        }
 
-      updateSelectedCount();
-    });
+        // Add event listeners to all employee checkboxes
+        document.querySelectorAll('.employee-checkbox').forEach(checkbox => {
+          checkbox.addEventListener('change', function () {
+            updateSelectedCount();
 
-    // Add event listeners to all employee checkboxes
-    document.querySelectorAll('.employee-checkbox').forEach(checkbox => {
-      checkbox.addEventListener('change', function () {
-        updateSelectedCount();
+            // Check if all checkboxes are checked
+            const allChecked = Array.from(document.querySelectorAll('.employee-checkbox')).every(cb => cb.checked);
+            const selectAll = document.getElementById('select-all');
+            if (selectAll) {
+              selectAll.checked = allChecked;
+            }
+          });
+        });
 
-        // Check if all checkboxes are checked
-        const allChecked = Array.from(document.querySelectorAll('.employee-checkbox')).every(cb => cb.checked);
-        document.getElementById('select-all').checked = allChecked;
-      });
-    });
+        // Include/Exclude buttons event listeners
+        const includeButton = document.getElementById('include-selected');
+        if (includeButton) {
+          includeButton.addEventListener('click', function () {
+            // In a real app, you would update the status of selected employees
+            alert('Selected employees have been included in the analysis.');
 
-    function updateSelectedCount() {
-      const selectedCount = document.querySelectorAll('.employee-checkbox:checked').length;
+            // Reset checkboxes
+            document.querySelectorAll('.employee-checkbox').forEach(checkbox => {
+              checkbox.checked = false;
+            });
+            if (selectAllCheckbox) {
+              selectAllCheckbox.checked = false;
+            }
+            updateSelectedCount();
+          });
+        }
 
-      if (selectedCount > 0) {
-        document.getElementById('selected-actions').classList.remove('hidden');
-        document.getElementById('selected-count').textContent = selectedCount;
-      } else {
-        document.getElementById('selected-actions').classList.add('hidden');
+        const excludeButton = document.getElementById('exclude-selected');
+        if (excludeButton) {
+          excludeButton.addEventListener('click', function () {
+            // In a real app, you would update the status of selected employees
+            alert('Selected employees have been excluded from the analysis.');
+
+            // Reset checkboxes
+            document.querySelectorAll('.employee-checkbox').forEach(checkbox => {
+              checkbox.checked = false;
+            });
+            if (selectAllCheckbox) {
+              selectAllCheckbox.checked = false;
+            }
+            updateSelectedCount();
+          });
+        }
       }
-    }
 
-    // Include/Exclude buttons
-    document.getElementById('include-selected').addEventListener('click', function () {
-      // In a real app, you would update the status of selected employees
-      alert('Selected employees have been included in the analysis.');
+      function updateSelectedCount() {
+        const selectedCount = document.querySelectorAll('.employee-checkbox:checked').length;
+        const selectedActionsDiv = document.getElementById('selected-actions');
 
-      // Reset checkboxes
-      document.querySelectorAll('.employee-checkbox').forEach(checkbox => {
-        checkbox.checked = false;
-      });
-      document.getElementById('select-all').checked = false;
+        console.log("Selected count:", selectedCount); // For debugging
 
-      updateSelectedCount();
-    });
-
-    document.getElementById('exclude-selected').addEventListener('click', function () {
-      // In a real app, you would update the status of selected employees
-      alert('Selected employees have been excluded from the analysis.');
-
-      // Reset checkboxes
-      document.querySelectorAll('.employee-checkbox').forEach(checkbox => {
-        checkbox.checked = false;
-      });
-      document.getElementById('select-all').checked = false;
-
-      updateSelectedCount();
-    });
+        if (selectedActionsDiv) {
+          if (selectedCount > 0) {
+            selectedActionsDiv.classList.remove('hidden');
+            const countSpan = document.getElementById('selected-count');
+            if (countSpan) {
+              countSpan.textContent = selectedCount;
+            }
+          } else {
+            selectedActionsDiv.classList.add('hidden');
+          }
+        } else {
+          console.error("Could not find selected-actions element");
+        }
+      }
   </script>
 </body>
 
