@@ -1054,7 +1054,7 @@
     </div>
     
     <!-- 3. Active Users Modal -->
-    <div id="activeUsersModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
+    <div id="activeSessionsModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
         aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -1065,249 +1065,307 @@
                 class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full sm:p-6">
                 <div class="absolute top-0 right-0 pt-4 pr-4">
                     <button type="button"
-                        class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 close-modal"
-                        data-modal="activeUsersModal">
+                        class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        id="closeActiveSessionsModal">
                         <span class="sr-only">Close</span>
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M 6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-
-            <div>
-                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Active Users</h3>
-                    <div class="mt-2">
-                        <p class="text-sm text-gray-500">
-                            Users currently active in the Glynac Analytics platform.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Active Users Content -->
-            <div class="mt-5">
-                <!-- Active Users Stats -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
-                        <div class="text-sm font-medium text-gray-500 mb-1">Total Active</div>
-                        <div class="text-3xl font-semibold text-gray-900">4</div>
-                        <div class="mt-1 text-sm text-green-600">
-                            <span class="flex items-center">
-                                <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                                </svg>
-                                12% from yesterday
-                            </span>
-                        </div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
-                        <div class="text-sm font-medium text-gray-500 mb-1">Department Coverage</div>
-                        <div class="text-3xl font-semibold text-gray-900">7/8</div>
-                        <div class="mt-1 text-sm text-gray-600">
-                            <span>All except Legal dept.</span>
-                        </div>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-200">
-                        <div class="text-sm font-medium text-gray-500 mb-1">Avg. Session Duration</div>
-                        <div class="text-3xl font-semibold text-gray-900">32m</div>
-                        <div class="mt-1 text-sm text-red-600">
-                            <span class="flex items-center">
-                                <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                </svg>
-                                5% from yesterday
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Active Users Table -->
-                <div class="mt-4 overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    User
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Role
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Department
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Location
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Status
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Activity
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                Jane Cooper
-                                            </div>
-                                            <div class="text-sm text-gray-500">
-                                                jane.cooper@example.com
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">Admin</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">Marketing</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-500">New York</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        Active Now
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    Viewing dashboard
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                John Smith
-                                            </div>
-                                            <div class="text-sm text-gray-500">
-                                                john.smith@example.com
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">User</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">Engineering</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-500">San Francisco</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        Active Now
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    Analyzing data
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                Robert Johnson
-                                            </div>
-                                            <div class="text-sm text-gray-500">
-                                                robert.johnson@example.com
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">Department admin</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">Sales</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-500">Austin</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-                                        Idle (5m)
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    Last: Viewing reports
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                David Kim
-                                            </div>
-                                            <div class="text-sm text-gray-500">
-                                                david.kim@example.com
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">User</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900">Finance</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-500">London</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        Active Now
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    Reviewing data
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Show More Button -->
-                <div class="mt-4 text-center">
-                    <button type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                        View All Users
-                        <svg class="ml-2 -mr-1 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
-            </div>
-
-            <div class="mt-5 sm:mt-6 flex justify-end">
-                <button type="button" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 close-modal" data-modal="activeUsersModal">
-                    Close
-                </button>
+    
+                <div>
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Active Sessions</h3>
+                        <div class="mt-2">
+                            <p class="text-sm text-gray-500">
+                                Admin users currently logged in to the Glynac Analytics platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Active Users Content -->
+                <div class="mt-5">
+                    <!-- Active Users Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Total Active Sessions</div>
+                            <div class="text-3xl font-semibold text-gray-900">4</div>
+                            <div class="mt-1 text-sm text-green-600">
+                                <span class="flex items-center">
+                                    <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 15l7-7 7 7" />
+                                    </svg>
+                                    50% of admin users
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Role Distribution</div>
+                            <div class="mt-1 text-sm text-gray-600">
+                                <div class="flex justify-between py-1">
+                                    <span>System Admin:</span>
+                                    <span class="font-medium">1</span>
+                                </div>
+                                <div class="flex justify-between py-1">
+                                    <span>Department Admin:</span>
+                                    <span class="font-medium">2</span>
+                                </div>
+                                <div class="flex justify-between py-1">
+                                    <span>Analytics User:</span>
+                                    <span class="font-medium">1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Avg. Session Duration</div>
+                            <div class="text-3xl font-semibold text-gray-900">38m</div>
+                            <div class="mt-1 text-sm text-red-600">
+                                <span class="flex items-center">
+                                    <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                    5% from yesterday
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Active Users Table -->
+                    <div class="mt-4 overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        User
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Role
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Department
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        IP Address
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Status
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Actions
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full"
+                                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                    alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    Admin User
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    admin@company.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                            System Admin
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">All Departments</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">192.168.1.105</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Active Now
+                                        </span>
+                                        <div class="text-xs text-gray-500 mt-1">Duration: 1h 12m</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <button class="text-red-600 hover:text-red-900 font-medium terminate-session-btn"
+                                            data-id="1">
+                                            Terminate
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full"
+                                                    src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                    alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    Sarah Johnson
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    sarah.johnson@company.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
+                                            Department Admin
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">Marketing</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">192.168.1.107</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Active Now
+                                        </span>
+                                        <div class="text-xs text-gray-500 mt-1">Duration: 45m</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <button class="text-red-600 hover:text-red-900 font-medium terminate-session-btn"
+                                            data-id="2">
+                                            Terminate
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full"
+                                                    src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                    alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    Michael Chen
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    michael.chen@company.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
+                                            Department Admin
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">Engineering</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">192.168.1.109</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                            Idle (5m)
+                                        </span>
+                                        <div class="text-xs text-gray-500 mt-1">Duration: 27m</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <button class="text-red-600 hover:text-red-900 font-medium terminate-session-btn"
+                                            data-id="3">
+                                            Terminate
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full"
+                                                    src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                                    alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    Emily Rodriguez
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    emily.rodriguez@company.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Analytics User
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">Product</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">192.168.1.112</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Active Now
+                                        </span>
+                                        <div class="text-xs text-gray-500 mt-1">Duration: 18m</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <button class="text-red-600 hover:text-red-900 font-medium terminate-session-btn"
+                                            data-id="4">
+                                            Terminate
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+    
+    
+                </div>
+    
+                <div class="mt-5 flex justify-between">
+                    <button type="button"
+                        class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                        id="terminateAllSessions">
+                        Terminate All Sessions
+                    </button>
+                    <button type="button"
+                        class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        id="closeSessionsBtn">
+                        Close
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <!-- 4. Slack Reauthorization Modal -->
 <div id="slackReauthModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
@@ -1866,6 +1924,73 @@
     });
 });
 
+    document.addEventListener('DOMContentLoaded', function () {
+        // Modal Toggle Functions
+        const viewSessionsBtn = document.getElementById('view-active-users');
+        if (viewSessionsBtn) {
+            viewSessionsBtn.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default link behavior
+                document.getElementById('activeSessionsModal').classList.remove('hidden');
+            });
+        }
+
+        document.getElementById('closeActiveSessionsModal').addEventListener('click', function () {
+            document.getElementById('activeSessionsModal').classList.add('hidden');
+        });
+
+        document.getElementById('closeSessionsBtn').addEventListener('click', function () {
+            document.getElementById('activeSessionsModal').classList.add('hidden');
+        });
+
+        // Terminate Individual Session
+        const terminateButtons = document.querySelectorAll('.terminate-session-btn');
+        terminateButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const sessionId = this.getAttribute('data-id');
+                if (confirm('Are you sure you want to terminate this session?')) {
+                    // Here you would typically make an API call to terminate the session
+                    console.log(`Terminating session: ${sessionId}`);
+
+                    // For demo, remove the row
+                    this.closest('tr').remove();
+
+                    // Update counts
+                    updateSessionCounts();
+                }
+            });
+        });
+
+        // Terminate All Sessions
+        document.getElementById('terminateAllSessions').addEventListener('click', function () {
+            if (confirm('Are you sure you want to terminate ALL active sessions? This will log out all admin users.')) {
+                // Here you would make an API call to terminate all sessions
+                console.log('Terminating all sessions');
+
+                // For demo, remove all rows and update counts
+                const rows = document.querySelectorAll('#activeSessionsModal tbody tr');
+                rows.forEach(row => row.remove());
+
+                updateSessionCounts();
+
+                // Optionally close the modal
+                setTimeout(() => {
+                    document.getElementById('activeSessionsModal').classList.add('hidden');
+                }, 1000);
+            }
+        });
+
+        function updateSessionCounts() {
+            // Count remaining rows
+            const remainingCount = document.querySelectorAll('#activeSessionsModal tbody tr').length;
+
+            // Update the count display
+            const countElement = document.querySelector('#activeSessionsModal .text-3xl.font-semibold');
+            if (countElement) {
+                countElement.textContent = remainingCount;
+            }
+        }
+    });
+
 // Modal open functions
 // System Health
 document.getElementById('view-system-health').addEventListener('click', function() {
@@ -1877,10 +2002,7 @@ document.getElementById('view-sync-history').addEventListener('click', function(
     document.getElementById('syncHistoryModal').classList.remove('hidden');
 });
 
-// Active Users
-document.getElementById('view-active-users').addEventListener('click', function() {
-    document.getElementById('activeUsersModal').classList.remove('hidden');
-});
+
 
 // Fix Slack Reauthorization
 document.getElementById('fix-slack-auth').addEventListener('click', function() {

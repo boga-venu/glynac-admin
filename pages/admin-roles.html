@@ -1107,88 +1107,7 @@
         </div>
     </div>
     
-    <!-- JavaScript for activity log toggle -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-                // Modal Toggle Functions
-                const viewSessionsBtn = document.getElementById('viewActiveSessionsBtn');
-                if (viewSessionsBtn) {
-                    viewSessionsBtn.addEventListener('click', function (e) {
-                        e.preventDefault(); // Prevent default link behavior
-                        document.getElementById('activeSessionsModal').classList.remove('hidden');
-                    });
-                }
-
-                document.getElementById('closeActiveSessionsModal').addEventListener('click', function () {
-                    document.getElementById('activeSessionsModal').classList.add('hidden');
-                });
-
-                document.getElementById('closeSessionsBtn').addEventListener('click', function () {
-                    document.getElementById('activeSessionsModal').classList.add('hidden');
-                });
-
-                // Terminate Individual Session
-                const terminateButtons = document.querySelectorAll('.terminate-session-btn');
-                terminateButtons.forEach(button => {
-                    button.addEventListener('click', function () {
-                        const sessionId = this.getAttribute('data-id');
-                        if (confirm('Are you sure you want to terminate this session?')) {
-                            // Here you would typically make an API call to terminate the session
-                            console.log(`Terminating session: ${sessionId}`);
-
-                            // For demo, remove the row
-                            this.closest('tr').remove();
-
-                            // Update counts
-                            updateSessionCounts();
-                        }
-                    });
-                });
-
-                // Terminate All Sessions
-                document.getElementById('terminateAllSessions').addEventListener('click', function () {
-                    if (confirm('Are you sure you want to terminate ALL active sessions? This will log out all admin users.')) {
-                        // Here you would make an API call to terminate all sessions
-                        console.log('Terminating all sessions');
-
-                        // For demo, remove all rows and update counts
-                        const rows = document.querySelectorAll('#activeSessionsModal tbody tr');
-                        rows.forEach(row => row.remove());
-
-                        updateSessionCounts();
-
-                        // Optionally close the modal
-                        setTimeout(() => {
-                            document.getElementById('activeSessionsModal').classList.add('hidden');
-                        }, 1000);
-                    }
-                });
-
-                function updateSessionCounts() {
-                    // Count remaining rows
-                    const remainingCount = document.querySelectorAll('#activeSessionsModal tbody tr').length;
-
-                    // Update the count display
-                    const countElement = document.querySelector('#activeSessionsModal .text-3xl.font-semibold');
-                    if (countElement) {
-                        countElement.textContent = remainingCount;
-                    }
-                }
-            });
-
-        document.getElementById('toggleActivityLog').addEventListener('click', function () {
-            const activityLog = document.getElementById('activityLogContent');
-            const isHidden = activityLog.classList.contains('hidden');
-
-            if (isHidden) {
-                activityLog.classList.remove('hidden');
-                this.textContent = 'Hide Activity';
-            } else {
-                activityLog.classList.add('hidden');
-                this.textContent = 'View All Activity';
-            }
-        });
-    </script>
+ 
 
     <!-- Add Admin User Modal -->
     <div id="addRoleModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
@@ -1700,6 +1619,86 @@
                 // Show the modal
                 document.getElementById('editUserModal').classList.remove('hidden');
             }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                    // Modal Toggle Functions
+                    const viewSessionsBtn = document.getElementById('viewActiveSessionsBtn');
+                    if (viewSessionsBtn) {
+                        viewSessionsBtn.addEventListener('click', function (e) {
+                            e.preventDefault(); // Prevent default link behavior
+                            document.getElementById('activeSessionsModal').classList.remove('hidden');
+                        });
+                    }
+
+                    document.getElementById('closeActiveSessionsModal').addEventListener('click', function () {
+                        document.getElementById('activeSessionsModal').classList.add('hidden');
+                    });
+
+                    document.getElementById('closeSessionsBtn').addEventListener('click', function () {
+                        document.getElementById('activeSessionsModal').classList.add('hidden');
+                    });
+
+                    // Terminate Individual Session
+                    const terminateButtons = document.querySelectorAll('.terminate-session-btn');
+                    terminateButtons.forEach(button => {
+                        button.addEventListener('click', function () {
+                            const sessionId = this.getAttribute('data-id');
+                            if (confirm('Are you sure you want to terminate this session?')) {
+                                // Here you would typically make an API call to terminate the session
+                                console.log(`Terminating session: ${sessionId}`);
+
+                                // For demo, remove the row
+                                this.closest('tr').remove();
+
+                                // Update counts
+                                updateSessionCounts();
+                            }
+                        });
+                    });
+
+                    // Terminate All Sessions
+                    document.getElementById('terminateAllSessions').addEventListener('click', function () {
+                        if (confirm('Are you sure you want to terminate ALL active sessions? This will log out all admin users.')) {
+                            // Here you would make an API call to terminate all sessions
+                            console.log('Terminating all sessions');
+
+                            // For demo, remove all rows and update counts
+                            const rows = document.querySelectorAll('#activeSessionsModal tbody tr');
+                            rows.forEach(row => row.remove());
+
+                            updateSessionCounts();
+
+                            // Optionally close the modal
+                            setTimeout(() => {
+                                document.getElementById('activeSessionsModal').classList.add('hidden');
+                            }, 1000);
+                        }
+                    });
+
+                    function updateSessionCounts() {
+                        // Count remaining rows
+                        const remainingCount = document.querySelectorAll('#activeSessionsModal tbody tr').length;
+
+                        // Update the count display
+                        const countElement = document.querySelector('#activeSessionsModal .text-3xl.font-semibold');
+                        if (countElement) {
+                            countElement.textContent = remainingCount;
+                        }
+                    }
+                });
+
+                document.getElementById('toggleActivityLog').addEventListener('click', function () {
+                    const activityLog = document.getElementById('activityLogContent');
+                    const isHidden = activityLog.classList.contains('hidden');
+
+                    if (isHidden) {
+                        activityLog.classList.remove('hidden');
+                        this.textContent = 'Hide Activity';
+                    } else {
+                        activityLog.classList.add('hidden');
+                        this.textContent = 'View All Activity';
+                    }
+                });
 
             // Initialize search and filter functionality
             function initSearchAndFilter() {
