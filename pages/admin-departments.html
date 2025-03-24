@@ -211,6 +211,41 @@
 
                     </div>
 
+                    <!-- Search and filters -->
+                    <div class="mt-4 flex flex-col sm:flex-row sm:space-x-4">
+                        <div class="mb-2 sm:mb-0 flex-1">
+                            <div class="relative rounded-md shadow-sm">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </div>
+                                <input type="text" name="search" id="departmentSearch"
+                                    class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-2 border-gray-300 rounded-md"
+                                    placeholder="Search departments">
+                            </div>
+                        </div>
+                        <div class="flex-initial flex space-x-2">
+                            <select id="sizeFilter"
+                                class="max-w-xs block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                <option value="">All Sizes</option>
+                                <option value="small">Small (< 10)</option>
+                                <option value="medium">Medium (10-30)</option>
+                                <option value="large">Large (> 30)</option>
+                            </select>
+                            <select id="locationFilter"
+                                class="max-w-xs block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
+                                <option value="">All Locations</option>
+                                <option value="newyork">New York</option>
+                                <option value="sanfrancisco">San Francisco</option>
+                                <option value="austin">Austin</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                    </div>
+
 
 
                     <!-- Departments list and Org Chart tabs -->
@@ -265,274 +300,181 @@
                     <!-- Departments List View -->
 
                     <div id="departmentListView" class="mt-6 bg-white shadow overflow-hidden rounded-md">
-
                         <table class="min-w-full divide-y divide-gray-200">
-
                             <thead class="bg-gray-50">
-
                                 <tr>
-
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Department Name
-
                                     </th>
-
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Employee Count
-
                                     </th>
-
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Department Head
-
                                     </th>
-
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-
-                                        Created Date
-
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Location
                                     </th>
-
-                                    <th scope="col"
-                                        class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-
+                                    <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Actions
-
                                     </th>
-
                                 </tr>
-
                             </thead>
-
                             <tbody class="bg-white divide-y divide-gray-200">
-
                                 <tr>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
                                         <div class="text-sm font-medium text-gray-900">Engineering</div>
-
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">12</div>
-
+                                        <div class="text-sm text-gray-500">67</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
                                         <div class="text-sm text-gray-500">Michael Chen</div>
-
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">Jan 15, 2023</div>
-
+                                        <div class="text-sm text-gray-500">San Francisco</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-
+                                        <button class="text-blue-600 hover:text-blue-900 mr-2">View Details</button>
+                                        <button class="text-indigo-600 hover:text-indigo-900 mr-2">Edit</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
                                     </td>
-
                                 </tr>
-
                                 <tr>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm font-medium text-gray-900">Marketing</div>
-
-                                    </td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">8</div>
-
-                                    </td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">Sarah Johnson</div>
-
-                                    </td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">Jan 15, 2023</div>
-
-                                    </td>
-
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-
-                                    <td class="px-6 py-4 whitespace-nowrap">
-
                                         <div class="text-sm font-medium text-gray-900">Sales</div>
-
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">9</div>
-
+                                        <div class="text-sm text-gray-500">54</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
                                         <div class="text-sm text-gray-500">Alex Thompson</div>
-
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">Jan 16, 2023</div>
-
+                                        <div class="text-sm text-gray-500">Austin</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-
+                                        <button class="text-blue-600 hover:text-blue-900 mr-2">View Details</button>
+                                        <button class="text-indigo-600 hover:text-indigo-900 mr-2">Edit</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
                                     </td>
-
                                 </tr>
-
                                 <tr>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm font-medium text-gray-900">Product</div>
-
+                                        <div class="text-sm font-medium text-gray-900">Marketing</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">6</div>
-
+                                        <div class="text-sm text-gray-500">32</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">Emily Rodriguez</div>
-
+                                        <div class="text-sm text-gray-500">Sarah Johnson</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">Jan 16, 2023</div>
-
+                                        <div class="text-sm text-gray-500">New York</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-
+                                        <button class="text-blue-600 hover:text-blue-900 mr-2">View Details</button>
+                                        <button class="text-indigo-600 hover:text-indigo-900 mr-2">Edit</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
                                     </td>
-
                                 </tr>
-
                                 <tr>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
                                         <div class="text-sm font-medium text-gray-900">Finance</div>
-
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">5</div>
-
+                                        <div class="text-sm text-gray-500">28</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
                                         <div class="text-sm text-gray-500">David Kim</div>
-
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">Jan 17, 2023</div>
-
+                                        <div class="text-sm text-gray-500">London</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-
+                                        <button class="text-blue-600 hover:text-blue-900 mr-2">View Details</button>
+                                        <button class="text-indigo-600 hover:text-indigo-900 mr-2">Edit</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
                                     </td>
-
                                 </tr>
-
                                 <tr>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm font-medium text-gray-900">HR</div>
-
+                                        <div class="text-sm font-medium text-gray-900">Product</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">5</div>
-
+                                        <div class="text-sm text-gray-500">26</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">Jessica Lee</div>
-
+                                        <div class="text-sm text-gray-500">Emily Rodriguez</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap">
-
-                                        <div class="text-sm text-gray-500">Jan 17, 2023</div>
-
+                                        <div class="text-sm text-gray-500">Remote</div>
                                     </td>
-
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-
+                                        <button class="text-blue-600 hover:text-blue-900 mr-2">View Details</button>
+                                        <button class="text-indigo-600 hover:text-indigo-900 mr-2">Edit</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
                                     </td>
-
                                 </tr>
-
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">Customer Support</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">15</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">Robert Taylor</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">Chicago</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900 mr-2">View Details</button>
+                                        <button class="text-indigo-600 hover:text-indigo-900 mr-2">Edit</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">HR</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">12</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">Jessica Lee</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">New York</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900 mr-2">View Details</button>
+                                        <button class="text-indigo-600 hover:text-indigo-900 mr-2">Edit</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900">Legal</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">8</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">Amanda Wilson</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">Boston</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-blue-600 hover:text-blue-900 mr-2">View Details</button>
+                                        <button class="text-indigo-600 hover:text-indigo-900 mr-2">Edit</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                                    </td>
+                                </tr>
                             </tbody>
-
                         </table>
-
                     </div>
 
 
@@ -1124,538 +1066,1272 @@
 
     <!-- Add Department Modal -->
 
-    <div id="addDepartmentModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title"
-        role="dialog" aria-modal="true">
-
+    <div id="addDepartmentModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-
-
-
+    
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-
-
+    
             <div
                 class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-
                 <div class="absolute top-0 right-0 pt-4 pr-4">
-
                     <button type="button"
                         class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         id="closeAddDepartmentModal">
-
                         <span class="sr-only">Close</span>
-
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" aria-hidden="true">
-
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12" />
-
                         </svg>
-
                     </button>
-
                 </div>
-
                 <div>
-
                     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-
                         <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
-
                             Add New Department
-
                         </h3>
-
                         <div class="mt-4">
-
-                            <form>
-
+                            <form id="departmentForm">
                                 <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-
+                                    <!-- Basic Information -->
                                     <div class="sm:col-span-6">
-
+                                        <h4 class="text-sm font-medium text-gray-500 mb-4 pb-2 border-b">Basic Information
+                                        </h4>
+                                    </div>
+    
+                                    <div class="sm:col-span-6">
                                         <label for="department-name" class="block text-sm font-medium text-gray-700">
-
-                                            Department Name
-
+                                            Department Name <span class="text-red-500">*</span>
                                         </label>
-
                                         <div class="mt-1">
-
-                                            <input type="text" name="department-name" id="department-name"
+                                            <input type="text" name="department-name" id="department-name" required
                                                 class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
-
                                         </div>
-
                                     </div>
-
-
-
+    
                                     <div class="sm:col-span-6">
-
                                         <label for="department-head" class="block text-sm font-medium text-gray-700">
-
-                                            Department Head
-
+                                            Department Head <span class="text-red-500">*</span>
                                         </label>
-
                                         <div class="mt-1">
-
-                                            <select id="department-head" name="department-head"
+                                            <select id="department-head" name="department-head" required
                                                 class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
-
-                                                <option>Select an employee</option>
-
-                                                <option>Michael Chen</option>
-
-                                                <option>Sarah Johnson</option>
-
-                                                <option>Alex Thompson</option>
-
-                                                <option>Emily Rodriguez</option>
-
-                                                <option>David Kim</option>
-
-                                                <option>Jessica Lee</option>
-
+                                                <option value="">Select an employee</option>
+                                                <option value="Michael Chen">Michael Chen</option>
+                                                <option value="Sarah Johnson">Sarah Johnson</option>
+                                                <option value="Alex Thompson">Alex Thompson</option>
+                                                <option value="Emily Rodriguez">Emily Rodriguez</option>
+                                                <option value="David Kim">David Kim</option>
+                                                <option value="Jessica Lee">Jessica Lee</option>
                                             </select>
-
                                         </div>
-
                                     </div>
-
-
-
-                                    <div class="sm:col-span-6">
-
-                                        <label for="parent-department" class="block text-sm font-medium text-gray-700">
-
-                                            Parent Department (Optional)
-
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="parent-organization" class="block text-sm font-medium text-gray-700">
+                                            Organization
                                         </label>
-
                                         <div class="mt-1">
-
+                                            <select id="parent-organization" name="parent-organization"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <option value="Product Development">Product Development</option>
+                                                <option value="Business Operations">Business Operations</option>
+                                                <option value="Corporate">Corporate</option>
+                                                <option value="Customer Support">Customer Support</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="parent-department" class="block text-sm font-medium text-gray-700">
+                                            Parent Department
+                                        </label>
+                                        <div class="mt-1">
                                             <select id="parent-department" name="parent-department"
                                                 class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
-
-                                                <option>None</option>
-
-                                                <option>Engineering</option>
-
-                                                <option>Marketing</option>
-
-                                                <option>Sales</option>
-
-                                                <option>Product</option>
-
-                                                <option>Finance</option>
-
-                                                <option>HR</option>
-
+                                                <option value="">None</option>
+                                                <option value="Engineering">Engineering</option>
+                                                <option value="Marketing">Marketing</option>
+                                                <option value="Sales">Sales</option>
+                                                <option value="Product">Product</option>
+                                                <option value="Finance">Finance</option>
+                                                <option value="HR">HR</option>
                                             </select>
-
                                         </div>
-
                                     </div>
-
-
-
+    
+                                    <!-- Additional Details -->
                                     <div class="sm:col-span-6">
-
-                                        <label for="description" class="block text-sm font-medium text-gray-700">
-
-                                            Description
-
+                                        <h4 class="text-sm font-medium text-gray-500 mb-4 pb-2 border-b mt-4">Additional
+                                            Details</h4>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="department-location" class="block text-sm font-medium text-gray-700">
+                                            Primary Location
                                         </label>
-
                                         <div class="mt-1">
-
+                                            <select id="department-location" name="department-location"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <option value="New York">New York</option>
+                                                <option value="San Francisco">San Francisco</option>
+                                                <option value="Austin">Austin</option>
+                                                <option value="Remote">Remote</option>
+                                                <option value="London">London</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="department-status" class="block text-sm font-medium text-gray-700">
+                                            Status
+                                        </label>
+                                        <div class="mt-1">
+                                            <select id="department-status" name="department-status"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <option value="Active">Active</option>
+                                                <option value="New">New</option>
+                                                <option value="Restructuring">Restructuring</option>
+                                                <option value="Inactive">Inactive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="sm:col-span-6">
+                                        <label for="description" class="block text-sm font-medium text-gray-700">
+                                            Description
+                                        </label>
+                                        <div class="mt-1">
                                             <textarea id="description" name="description" rows="3"
                                                 class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
-
                                         </div>
-
                                     </div>
-
+    
+                                    <!-- Team Composition -->
+                                    <div class="sm:col-span-6">
+                                        <h4 class="text-sm font-medium text-gray-500 mb-4 pb-2 border-b mt-4">Initial Team
+                                            Structure</h4>
+                                    </div>
+    
+                                    <div class="sm:col-span-6">
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <!-- Roles -->
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Role
+                                                    Breakdown</label>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-center">
+                                                        <input type="text" name="role-title-1" placeholder="Role title"
+                                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-2/3 sm:text-sm border-gray-300 rounded-md">
+                                                        <input type="number" name="role-count-1" placeholder="Count" min="0"
+                                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                                    </div>
+                                                    <div class="flex items-center">
+                                                        <input type="text" name="role-title-2" placeholder="Role title"
+                                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-2/3 sm:text-sm border-gray-300 rounded-md">
+                                                        <input type="number" name="role-count-2" placeholder="Count" min="0"
+                                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                                    </div>
+                                                    <div class="flex items-center">
+                                                        <input type="text" name="role-title-3" placeholder="Role title"
+                                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-2/3 sm:text-sm border-gray-300 rounded-md">
+                                                        <input type="number" name="role-count-3" placeholder="Count" min="0"
+                                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <!-- Work Model -->
+                                            <div>
+                                                <label class="block text-sm font-medium text-gray-700 mb-2">Work
+                                                    Model</label>
+                                                <div class="space-y-2">
+                                                    <div class="flex items-center">
+                                                        <label class="block w-2/3 sm:text-sm text-gray-700">On-site</label>
+                                                        <input type="number" name="onsite-count" placeholder="Count" min="0"
+                                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                                    </div>
+                                                    <div class="flex items-center">
+                                                        <label class="block w-2/3 sm:text-sm text-gray-700">Hybrid</label>
+                                                        <input type="number" name="hybrid-count" placeholder="Count" min="0"
+                                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                                    </div>
+                                                    <div class="flex items-center">
+                                                        <label class="block w-2/3 sm:text-sm text-gray-700">Remote</label>
+                                                        <input type="number" name="remote-count" placeholder="Count" min="0"
+                                                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
-
-
+    
                                 <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
-
                                     <button type="submit"
                                         class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:col-start-2 sm:text-sm">
-
-                                        Add
-
+                                        Add Department
                                     </button>
-
                                     <button type="button"
                                         class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:col-start-1 sm:text-sm"
                                         id="cancelAddDepartment">
-
                                         Cancel
-
                                     </button>
-
                                 </div>
-
                             </form>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
+    </div>
 
+    <!-- Department Details Modal -->
+    <div id="departmentDetailsModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title"
+        role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+    
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    
+            <div
+                class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
+                <!-- Modal Header -->
+                <div class="flex justify-between items-start mb-4 border-b pb-4">
+                    <div>
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="department-detail-name">
+                            Engineering
+                        </h3>
+                        <p class="text-sm text-gray-500" id="department-detail-head">
+                            Michael Chen, Department Head
+                        </p>
+                    </div>
+                    <button type="button"
+                        class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        id="closeDepartmentDetailsModal">
+                        <span class="sr-only">Close</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+    
+                <!-- View Mode Content -->
+                <div id="viewModeContent">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                        <!-- Basic Info Section -->
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-500 mb-2">Department Information</h4>
+                            <dl class="text-sm">
+                                <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                                    <dt class="font-medium text-gray-500">Department Name</dt>
+                                    <dd class="col-span-2 text-gray-900" id="department-name">Engineering</dd>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                                    <dt class="font-medium text-gray-500">Department Head</dt>
+                                    <dd class="col-span-2 text-gray-900" id="department-head">Michael Chen</dd>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                                    <dt class="font-medium text-gray-500">Employee Count</dt>
+                                    <dd class="col-span-2 text-gray-900" id="department-count">12</dd>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                                    <dt class="font-medium text-gray-500">Organization</dt>
+                                    <dd class="col-span-2 text-gray-900" id="department-org">Product Development</dd>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                                    <dt class="font-medium text-gray-500">Location</dt>
+                                    <dd class="col-span-2 text-gray-900" id="department-location">San Francisco</dd>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 py-2 border-b border-gray-100">
+                                    <dt class="font-medium text-gray-500">Status</dt>
+                                    <dd class="col-span-2" id="department-status">
+                                        <span
+                                            class="px-2 py-1 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Active
+                                        </span>
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
+    
+                        <!-- Team Composition -->
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-500 mb-2">Team Composition</h4>
+                            <div class="bg-gray-50 p-4 rounded-md">
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <p class="text-xs text-gray-500">Roles</p>
+                                        <div class="mt-1 space-y-1" id="roles-list">
+                                            <div class="flex justify-between">
+                                                <span class="text-sm">Engineers</span>
+                                                <span class="text-sm font-medium">8</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-sm">Managers</span>
+                                                <span class="text-sm font-medium">2</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-sm">Support</span>
+                                                <span class="text-sm font-medium">2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-500">Work Model</p>
+                                        <div class="mt-1 space-y-1" id="work-model-list">
+                                            <div class="flex justify-between">
+                                                <span class="text-sm">On-site</span>
+                                                <span class="text-sm font-medium">4</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-sm">Hybrid</span>
+                                                <span class="text-sm font-medium">5</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-sm">Remote</span>
+                                                <span class="text-sm font-medium">3</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Department Description Section -->
+                        <div class="col-span-1 md:col-span-2 mt-4 pt-4 border-t">
+                            <h4 class="text-sm font-medium text-gray-500 mb-2">Department Description</h4>
+                            <p class="text-sm text-gray-700" id="department-description">
+                                The Engineering department is responsible for all software development, infrastructure, and
+                                technical innovation at the company. The team consists of frontend developers, backend
+                                engineers, DevOps specialists, and QA engineers working across multiple product lines.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <!-- Team Members Preview -->
+                    <div class="mt-6 pt-6 border-t">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-sm font-medium text-gray-500">Team Members</h4>
+                            <a href="#" class="text-sm text-blue-600 hover:text-blue-800">View All</a>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="flex items-center p-2 border rounded-md">
+                                <img class="h-8 w-8 rounded-full mr-3"
+                                    src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="">
+                                <div class="text-sm">
+                                    <p class="font-medium">James Wilson</p>
+                                    <p class="text-gray-500">Frontend Lead</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-2 border rounded-md">
+                                <img class="h-8 w-8 rounded-full mr-3"
+                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="">
+                                <div class="text-sm">
+                                    <p class="font-medium">Sophia Garcia</p>
+                                    <p class="text-gray-500">Backend Lead</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-2 border rounded-md">
+                                <img class="h-8 w-8 rounded-full mr-3"
+                                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="">
+                                <div class="text-sm">
+                                    <p class="font-medium">Daniel Smith</p>
+                                    <p class="text-gray-500">DevOps</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-2 border rounded-md">
+                                <img class="h-8 w-8 rounded-full mr-3"
+                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="">
+                                <div class="text-sm">
+                                    <p class="font-medium">Amanda Lopez</p>
+                                    <p class="text-gray-500">QA Lead</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Modal Footer - View Mode -->
+                    <div class="mt-6 flex justify-end space-x-3">
+                        <button type="button"
+                            class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            id="closeDepartmentDetails">
+                            Close
+                        </button>
+                        <button type="button"
+                            class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            id="toggleEditMode">
+                            Edit Department
+                        </button>
+                    </div>
+                </div>
+    
+                <!-- Edit Mode Content -->
+                <div id="editModeContent" class="hidden">
+                    <form id="editDepartmentForm">
+                        <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                            <!-- Basic Information -->
+                            <div class="sm:col-span-6">
+                                <h4 class="text-sm font-medium text-gray-500 mb-4 pb-2 border-b">Basic Information</h4>
+                            </div>
+    
+                            <div class="sm:col-span-6">
+                                <label for="edit-department-name" class="block text-sm font-medium text-gray-700">
+                                    Department Name <span class="text-red-500">*</span>
+                                </label>
+                                <div class="mt-1">
+                                    <input type="text" name="edit-department-name" id="edit-department-name" required
+                                        class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                            </div>
+    
+                            <div class="sm:col-span-6">
+                                <label for="edit-department-head" class="block text-sm font-medium text-gray-700">
+                                    Department Head <span class="text-red-500">*</span>
+                                </label>
+                                <div class="mt-1">
+                                    <select id="edit-department-head" name="edit-department-head" required
+                                        class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                        <option value="">Select an employee</option>
+                                        <option value="Michael Chen">Michael Chen</option>
+                                        <option value="Sarah Johnson">Sarah Johnson</option>
+                                        <option value="Alex Thompson">Alex Thompson</option>
+                                        <option value="Emily Rodriguez">Emily Rodriguez</option>
+                                        <option value="David Kim">David Kim</option>
+                                        <option value="Jessica Lee">Jessica Lee</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <div class="sm:col-span-3">
+                                <label for="edit-parent-organization" class="block text-sm font-medium text-gray-700">
+                                    Organization
+                                </label>
+                                <div class="mt-1">
+                                    <select id="edit-parent-organization" name="edit-parent-organization"
+                                        class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                        <option value="Product Development">Product Development</option>
+                                        <option value="Business Operations">Business Operations</option>
+                                        <option value="Corporate">Corporate</option>
+                                        <option value="Customer Support">Customer Support</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <div class="sm:col-span-3">
+                                <label for="edit-department-location" class="block text-sm font-medium text-gray-700">
+                                    Primary Location
+                                </label>
+                                <div class="mt-1">
+                                    <select id="edit-department-location" name="edit-department-location"
+                                        class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                        <option value="New York">New York</option>
+                                        <option value="San Francisco">San Francisco</option>
+                                        <option value="Austin">Austin</option>
+                                        <option value="Remote">Remote</option>
+                                        <option value="London">London</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <div class="sm:col-span-3">
+                                <label for="edit-department-status" class="block text-sm font-medium text-gray-700">
+                                    Status
+                                </label>
+                                <div class="mt-1">
+                                    <select id="edit-department-status" name="edit-department-status"
+                                        class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                        <option value="Active">Active</option>
+                                        <option value="New">New</option>
+                                        <option value="Restructuring">Restructuring</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <!-- Team Composition -->
+                            <div class="sm:col-span-6">
+                                <h4 class="text-sm font-medium text-gray-500 mb-4 pb-2 border-b mt-4">Team Structure</h4>
+                            </div>
+    
+                            <div class="sm:col-span-6">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <!-- Roles -->
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Role Breakdown</label>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <input type="text" name="edit-role-title-1" id="edit-role-title-1"
+                                                    placeholder="Role title"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-2/3 sm:text-sm border-gray-300 rounded-md">
+                                                <input type="number" name="edit-role-count-1" id="edit-role-count-1"
+                                                    placeholder="Count" min="0"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="text" name="edit-role-title-2" id="edit-role-title-2"
+                                                    placeholder="Role title"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-2/3 sm:text-sm border-gray-300 rounded-md">
+                                                <input type="number" name="edit-role-count-2" id="edit-role-count-2"
+                                                    placeholder="Count" min="0"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="text" name="edit-role-title-3" id="edit-role-title-3"
+                                                    placeholder="Role title"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-2/3 sm:text-sm border-gray-300 rounded-md">
+                                                <input type="number" name="edit-role-count-3" id="edit-role-count-3"
+                                                    placeholder="Count" min="0"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Work Model -->
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Work Model</label>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center">
+                                                <label class="block w-2/3 sm:text-sm text-gray-700">On-site</label>
+                                                <input type="number" name="edit-onsite-count" id="edit-onsite-count"
+                                                    placeholder="Count" min="0"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+                                            <div class="flex items-center">
+                                                <label class="block w-2/3 sm:text-sm text-gray-700">Hybrid</label>
+                                                <input type="number" name="edit-hybrid-count" id="edit-hybrid-count"
+                                                    placeholder="Count" min="0"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+                                            <div class="flex items-center">
+                                                <label class="block w-2/3 sm:text-sm text-gray-700">Remote</label>
+                                                <input type="number" name="edit-remote-count" id="edit-remote-count"
+                                                    placeholder="Count" min="0"
+                                                    class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-1/3 ml-2 sm:text-sm border-gray-300 rounded-md">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Department Description -->
+                            <div class="sm:col-span-6">
+                                <h4 class="text-sm font-medium text-gray-500 mb-4 pb-2 border-b mt-4">Department Description
+                                </h4>
+                            </div>
+    
+                            <div class="sm:col-span-6">
+                                <label for="edit-description" class="block text-sm font-medium text-gray-700">
+                                    Description
+                                </label>
+                                <div class="mt-1">
+                                    <textarea id="edit-description" name="edit-description" rows="4"
+                                        class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Modal Footer - Edit Mode -->
+                        <div class="mt-6 flex justify-end space-x-3">
+                            <button type="button"
+                                class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                id="cancelEditMode">
+                                Cancel
+                            </button>
+                            <button type="submit"
+                                class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 
 
     <script>
 
-        // Zoom functionality
-
-        let currentZoom = 100;
-
-        const zoomStep = 10;
-
-        const minZoom = 50;
-
-        const maxZoom = 150;
-
-        const orgChartContainer = document.getElementById('orgChartContainer');
-
-        const zoomLevelDisplay = document.getElementById('zoomLevel');
-
-
-
-        document.getElementById('zoomInBtn').addEventListener('click', function () {
-
-            if (currentZoom < maxZoom) {
-
-                currentZoom += zoomStep;
-
-                updateZoom();
-
+      const departmentData = {
+            "Engineering": {
+                name: "Engineering",
+                head: "Michael Chen",
+                count: 67,
+                org: "Product Development",
+                location: "San Francisco",
+                status: "Active",
+                roles: {
+                    "Software Engineers": 42,
+                    "DevOps Engineers": 12,
+                    "QA Engineers": 8,
+                    "Engineering Managers": 5
+                },
+                workModel: {
+                    "On-site": 24,
+                    "Hybrid": 30,
+                    "Remote": 13
+                },
+                description: "The Engineering department is responsible for all software development, infrastructure, and technical innovation at the company. The team consists of frontend developers, backend engineers, DevOps specialists, and QA engineers working across multiple product lines."
+            },
+            "Sales": {
+                name: "Sales",
+                head: "Alex Thompson",
+                count: 54,
+                org: "Business Operations",
+                location: "Austin",
+                status: "Active",
+                roles: {
+                    "Account Executives": 28,
+                    "Sales Development": 15,
+                    "Sales Ops": 7,
+                    "Sales Leadership": 4
+                },
+                workModel: {
+                    "On-site": 35,
+                    "Hybrid": 15,
+                    "Remote": 4
+                },
+                description: "The Sales department is responsible for revenue generation, client relationships, and business development. The team includes account executives, sales representatives, and customer success managers organized by geographic regions and market segments."
+            },
+            "Marketing": {
+                name: "Marketing",
+                head: "Sarah Johnson",
+                count: 32,
+                org: "Business Operations",
+                location: "New York",
+                status: "Active",
+                roles: {
+                    "Digital Marketing": 12,
+                    "Content": 9,
+                    "Brand": 6,
+                    "Analytics": 3,
+                    "Management": 2
+                },
+                workModel: {
+                    "On-site": 16,
+                    "Hybrid": 12,
+                    "Remote": 4
+                },
+                description: "The Marketing department oversees all branding, digital marketing, content creation, and go-to-market strategies. The team works closely with the Sales and Product teams to ensure consistent messaging and effective customer acquisition."
+            },
+            "Finance": {
+                name: "Finance",
+                head: "David Kim",
+                count: 28,
+                org: "Corporate",
+                location: "London",
+                status: "Active",
+                roles: {
+                    "Financial Analysts": 10,
+                    "Accounting": 12,
+                    "FP&A": 4,
+                    "Management": 2
+                },
+                workModel: {
+                    "On-site": 18,
+                    "Hybrid": 8,
+                    "Remote": 2
+                },
+                description: "The Finance department manages all accounting, financial planning, analysis, and compliance operations. The team ensures financial stability, optimizes resource allocation, and provides strategic insights to support business decisions."
+            },
+            "Product": {
+                name: "Product",
+                head: "Emily Rodriguez",
+                count: 26,
+                org: "Product Development",
+                location: "Remote",
+                status: "Active",
+                roles: {
+                    "Product Managers": 14,
+                    "UX Researchers": 5,
+                    "UI/UX Designers": 5,
+                    "Management": 2
+                },
+                workModel: {
+                    "On-site": 0,
+                    "Hybrid": 6,
+                    "Remote": 20
+                },
+                description: "The Product department oversees product strategy, roadmap planning, and feature development. Working closely with Engineering and Design, the team focuses on user experience, market fit, and product innovation to drive business growth."
+            },
+            "Customer Support": {
+                name: "Customer Support",
+                head: "Robert Taylor",
+                count: 15,
+                org: "Business Operations",
+                location: "Chicago",
+                status: "Restructuring",
+                roles: {
+                    "Customer Support Agents": 12,
+                    "Technical Support": 2,
+                    "Management": 1
+                },
+                workModel: {
+                    "On-site": 10,
+                    "Hybrid": 5,
+                    "Remote": 0
+                },
+                description: "The Customer Support department handles all customer inquiries, technical troubleshooting, and client success initiatives. The team ensures high customer satisfaction through responsive support and proactive engagement."
+            },
+            "HR": {
+                name: "HR",
+                head: "Jessica Lee",
+                count: 12,
+                org: "Corporate",
+                location: "New York",
+                status: "Active",
+                roles: {
+                    "Recruiters": 4,
+                    "HR Business Partners": 3,
+                    "HR Operations": 3,
+                    "Learning & Development": 1,
+                    "Management": 1
+                },
+                workModel: {
+                    "On-site": 6,
+                    "Hybrid": 5,
+                    "Remote": 1
+                },
+                description: "The Human Resources department handles talent acquisition, employee development, compensation, benefits, and workplace culture. The team strives to create a positive employee experience and foster an inclusive environment that attracts and retains top talent."
+            },
+            "Legal": {
+                name: "Legal",
+                head: "Amanda Wilson",
+                count: 8,
+                org: "Corporate",
+                location: "Boston",
+                status: "Active",
+                roles: {
+                    "Corporate Counsel": 3,
+                    "IP Attorneys": 2,
+                    "Compliance": 2,
+                    "Management": 1
+                },
+                workModel: {
+                    "On-site": 3,
+                    "Hybrid": 4,
+                    "Remote": 1
+                },
+                description: "The Legal department manages all legal matters including contracts, intellectual property, compliance, and regulatory affairs. The team provides strategic legal counsel to minimize risk and support business operations."
             }
+        };
+        
+        // Initialize all event listeners when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Department Search and Filter functionality
+            initSearchAndFilters();
 
+            // Tab switching
+            initTabSwitching();
+
+            // Organization chart controls
+            initOrgChartControls();
+
+            // Modal controls
+            initModalControls();
+
+            // Add event listeners to all "View Details" buttons
+            initDepartmentButtons();
         });
 
+        // Initialize search and filter functionality
+        function initSearchAndFilters() {
+            // Department search
+            document.getElementById('departmentSearch').addEventListener('input', function () {
+                const searchTerm = this.value.toLowerCase().trim();
+                const rows = document.querySelectorAll('#departmentListView tbody tr');
 
+                rows.forEach(row => {
+                    const departmentName = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+                    const departmentHead = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
 
-        document.getElementById('zoomOutBtn').addEventListener('click', function () {
+                    const isMatch = departmentName.includes(searchTerm) || departmentHead.includes(searchTerm);
+                    row.style.display = isMatch ? '' : 'none';
+                });
+            });
 
-            if (currentZoom > minZoom) {
+            // Size filter
+            document.getElementById('sizeFilter').addEventListener('change', function () {
+                const selectedSize = this.value;
+                const rows = document.querySelectorAll('#departmentListView tbody tr');
 
-                currentZoom -= zoomStep;
-
-                updateZoom();
-
-            }
-
-        });
-
-
-
-        document.getElementById('resetViewBtn').addEventListener('click', function () {
-
-            currentZoom = 100;
-
-            updateZoom();
-
-        });
-
-
-
-        function updateZoom() {
-
-            const scale = currentZoom / 100;
-
-            orgChartContainer.style.transform = `scale(${scale})`;
-
-            zoomLevelDisplay.textContent = `${currentZoom}%`;
-
-        }
-
-
-
-        // Expand/collapse functionality
-
-        const expandCollapseButtons = document.querySelectorAll('.expand-collapse-btn');
-
-        expandCollapseButtons.forEach(button => {
-
-            const targetId = button.getAttribute('data-target');
-
-            const targetEl = document.getElementById(targetId);
-
-
-
-            button.addEventListener('click', function () {
-
-                if (targetEl.classList.contains('hidden')) {
-
-                    targetEl.classList.remove('hidden');
-
-                    // Change icon to collapse (up arrow)
-
-                    button.innerHTML = `
-
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-
-                    <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-
-                </svg>
-
-            `;
-
-                } else {
-
-                    targetEl.classList.add('hidden');
-
-                    // Change icon to expand (down arrow)
-
-                    button.innerHTML = `
-
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-
-                </svg>
-
-            `;
-
+                if (selectedSize === '') {
+                    rows.forEach(row => { row.style.display = ''; });
+                    return;
                 }
 
+                rows.forEach(row => {
+                    const employeeCount = parseInt(row.querySelector('td:nth-child(2)').textContent);
+
+                    if (selectedSize === 'small' && employeeCount < 10) {
+                        row.style.display = '';
+                    } else if (selectedSize === 'medium' && employeeCount >= 10 && employeeCount <= 30) {
+                        row.style.display = '';
+                    } else if (selectedSize === 'large' && employeeCount > 30) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
             });
 
-        });
+            // Location filter
+            document.getElementById('locationFilter').addEventListener('change', function () {
+                const selectedLocation = this.value.toLowerCase();
+                const rows = document.querySelectorAll('#departmentListView tbody tr');
 
+                if (selectedLocation === '') {
+                    rows.forEach(row => {
+                        row.style.display = '';
+                    });
+                    return;
+                }
 
+                rows.forEach(row => {
+                    // Get the location from the location column (4th column)
+                    const locationCell = row.querySelector('td:nth-child(4)');
+                    const departmentLocation = locationCell ? locationCell.textContent.trim().toLowerCase() : '';
 
-        // Expand all / collapse all
+                    row.style.display = departmentLocation.includes(selectedLocation) ? '' : 'none';
+                });
+            });
+        }
 
-        document.getElementById('expandAllBtn').addEventListener('click', function () {
-
-            const allCollapsibleSections = document.querySelectorAll('[id$="-team"]');
-
-            allCollapsibleSections.forEach(section => {
-
-                section.classList.remove('hidden');
-
+        // Initialize tab switching functionality
+        function initTabSwitching() {
+            document.getElementById('listTab').addEventListener('click', function () {
+                document.getElementById('listTab').classList.add('border-blue-500', 'text-blue-600');
+                document.getElementById('listTab').classList.remove('border-transparent', 'text-gray-500');
+                document.getElementById('orgChartTab').classList.add('border-transparent', 'text-gray-500');
+                document.getElementById('orgChartTab').classList.remove('border-blue-500', 'text-blue-600');
+                document.getElementById('departmentListView').classList.remove('hidden');
+                document.getElementById('orgChartView').classList.add('hidden');
             });
 
+            document.getElementById('orgChartTab').addEventListener('click', function () {
+                document.getElementById('orgChartTab').classList.add('border-blue-500', 'text-blue-600');
+                document.getElementById('orgChartTab').classList.remove('border-transparent', 'text-gray-500');
+                document.getElementById('listTab').classList.add('border-transparent', 'text-gray-500');
+                document.getElementById('listTab').classList.remove('border-blue-500', 'text-blue-600');
+                document.getElementById('orgChartView').classList.remove('hidden');
+                document.getElementById('departmentListView').classList.add('hidden');
+            });
+        }
 
+        // Initialize organization chart controls
+        function initOrgChartControls() {
+            // Zoom functionality
+            let currentZoom = 100;
+            const zoomStep = 10;
+            const minZoom = 50;
+            const maxZoom = 150;
+            const orgChartContainer = document.getElementById('orgChartContainer');
+            const zoomLevelDisplay = document.getElementById('zoomLevel');
 
-            // Update all buttons to collapse icon
+            document.getElementById('zoomInBtn').addEventListener('click', function () {
+                if (currentZoom < maxZoom) {
+                    currentZoom += zoomStep;
+                    updateZoom();
+                }
+            });
 
+            document.getElementById('zoomOutBtn').addEventListener('click', function () {
+                if (currentZoom > minZoom) {
+                    currentZoom -= zoomStep;
+                    updateZoom();
+                }
+            });
+
+            document.getElementById('resetViewBtn').addEventListener('click', function () {
+                currentZoom = 100;
+                updateZoom();
+            });
+
+            function updateZoom() {
+                const scale = currentZoom / 100;
+                orgChartContainer.style.transform = `scale(${scale})`;
+                zoomLevelDisplay.textContent = `${currentZoom}%`;
+            }
+
+            // Expand/collapse functionality
+            const expandCollapseButtons = document.querySelectorAll('.expand-collapse-btn');
             expandCollapseButtons.forEach(button => {
+                const targetId = button.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
 
-                button.innerHTML = `
-
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-
-                <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-
-            </svg>
-
-        `;
-
+                button.addEventListener('click', function () {
+                    if (targetEl.classList.contains('hidden')) {
+                        targetEl.classList.remove('hidden');
+                        // Change icon to collapse (up arrow)
+                        button.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                `;
+                    } else {
+                        targetEl.classList.add('hidden');
+                        // Change icon to expand (down arrow)
+                        button.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                `;
+                    }
+                });
             });
 
-        });
+            // Expand all / collapse all
+            document.getElementById('expandAllBtn').addEventListener('click', function () {
+                const allCollapsibleSections = document.querySelectorAll('[id$="-team"]');
+                allCollapsibleSections.forEach(section => {
+                    section.classList.remove('hidden');
+                });
 
-
-
-        document.getElementById('collapseAllBtn').addEventListener('click', function () {
-
-            const allCollapsibleSections = document.querySelectorAll('[id$="-team"]');
-
-            allCollapsibleSections.forEach(section => {
-
-                section.classList.add('hidden');
-
+                // Update all buttons to collapse icon
+                expandCollapseButtons.forEach(button => {
+                    button.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+            `;
+                });
             });
 
+            document.getElementById('collapseAllBtn').addEventListener('click', function () {
+                const allCollapsibleSections = document.querySelectorAll('[id$="-team"]');
+                allCollapsibleSections.forEach(section => {
+                    section.classList.add('hidden');
+                });
 
-
-            // Update all buttons to expand icon
-
-            expandCollapseButtons.forEach(button => {
-
-                button.innerHTML = `
-
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-
-            </svg>
-
-        `;
-
+                // Update all buttons to expand icon
+                expandCollapseButtons.forEach(button => {
+                    button.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            `;
+                });
             });
 
-        });
+            // Enable panning (dragging) of the organization chart
+            let isDragging = false;
+            let startPosX = 0;
+            let startPosY = 0;
+            let startScrollLeft = 0;
+            let startScrollTop = 0;
 
+            const chartContainer = document.querySelector('.relative.overflow-auto');
 
+            chartContainer.addEventListener('mousedown', function (e) {
+                isDragging = true;
+                startPosX = e.clientX;
+                startPosY = e.clientY;
+                startScrollLeft = chartContainer.scrollLeft;
+                startScrollTop = chartContainer.scrollTop;
+                chartContainer.style.cursor = 'grabbing';
+            });
 
-        // Enable panning (dragging) of the organization chart
+            chartContainer.addEventListener('mousemove', function (e) {
+                if (!isDragging) return;
 
-        let isDragging = false;
+                // Calculate how far the mouse has moved
+                const dx = e.clientX - startPosX;
+                const dy = e.clientY - startPosY;
 
-        let startPosX = 0;
+                // Scroll the container
+                chartContainer.scrollLeft = startScrollLeft - dx;
+                chartContainer.scrollTop = startScrollTop - dy;
+            });
 
-        let startPosY = 0;
+            chartContainer.addEventListener('mouseup', function () {
+                isDragging = false;
+                chartContainer.style.cursor = 'grab';
+            });
 
-        let startScrollLeft = 0;
+            chartContainer.addEventListener('mouseleave', function () {
+                isDragging = false;
+                chartContainer.style.cursor = 'grab';
+            });
 
-        let startScrollTop = 0;
-
-
-
-        const chartContainer = document.querySelector('.relative.overflow-auto');
-
-
-
-        chartContainer.addEventListener('mousedown', function (e) {
-
-            isDragging = true;
-
-            startPosX = e.clientX;
-
-            startPosY = e.clientY;
-
-            startScrollLeft = chartContainer.scrollLeft;
-
-            startScrollTop = chartContainer.scrollTop;
-
-            chartContainer.style.cursor = 'grabbing';
-
-        });
-
-
-
-        chartContainer.addEventListener('mousemove', function (e) {
-
-            if (!isDragging) return;
-
-
-
-            // Calculate how far the mouse has moved
-
-            const dx = e.clientX - startPosX;
-
-            const dy = e.clientY - startPosY;
-
-
-
-            // Scroll the container
-
-            chartContainer.scrollLeft = startScrollLeft - dx;
-
-            chartContainer.scrollTop = startScrollTop - dy;
-
-        });
-
-
-
-        chartContainer.addEventListener('mouseup', function () {
-
-            isDragging = false;
-
+            // Set initial cursor style
             chartContainer.style.cursor = 'grab';
+        }
 
-        });
+        // Initialize modal controls
+        function initModalControls() {
+            // Add Department Modal
+            document.getElementById('addDepartmentBtn').addEventListener('click', function () {
+                document.getElementById('addDepartmentModal').classList.remove('hidden');
+            });
 
+            document.getElementById('closeAddDepartmentModal').addEventListener('click', function () {
+                document.getElementById('addDepartmentModal').classList.add('hidden');
+            });
 
+            document.getElementById('cancelAddDepartment').addEventListener('click', function () {
+                document.getElementById('addDepartmentModal').classList.add('hidden');
+            });
 
-        chartContainer.addEventListener('mouseleave', function () {
+            // Handle form submission for Add Department
+            document.getElementById('departmentForm')?.addEventListener('submit', function (e) {
+                e.preventDefault();
 
-            isDragging = false;
+                // Here you would normally process the form data and save to backend
+                const formData = new FormData(this);
+                const newDepartment = {
+                    name: formData.get('department-name'),
+                    head: formData.get('department-head'),
+                    // Add all other fields...
+                };
 
-            chartContainer.style.cursor = 'grab';
+                console.log('New department data:', newDepartment);
 
-        });
+                // Close the modal
+                document.getElementById('addDepartmentModal').classList.add('hidden');
 
+                // Provide user feedback (e.g., notification or refresh list)
+                alert('Department added successfully!');
+            });
 
+            // Department Details Modal
+            document.getElementById('closeDepartmentDetailsModal').addEventListener('click', function () {
+                document.getElementById('departmentDetailsModal').classList.add('hidden');
+            });
 
-        // Set initial cursor style
+            document.getElementById('closeDepartmentDetails').addEventListener('click', function () {
+                document.getElementById('departmentDetailsModal').classList.add('hidden');
+            });
 
-        chartContainer.style.cursor = 'grab';
+            // Toggle between view mode and edit mode
+            document.getElementById('toggleEditMode').addEventListener('click', function () {
+                const viewMode = document.getElementById('viewModeContent');
+                const editMode = document.getElementById('editModeContent');
 
+                // Switch to edit mode
+                viewMode.classList.add('hidden');
+                editMode.classList.remove('hidden');
 
+                // Get current department name
+                const departmentName = document.getElementById('department-detail-name').textContent.trim();
+                const dept = departmentData[departmentName];
 
-        // Tab switching
+                // Populate form with current data
+                populateEditForm(dept);
+            });
 
-        document.getElementById('listTab').addEventListener('click', function () {
+            // Cancel edit mode
+            document.getElementById('cancelEditMode').addEventListener('click', function () {
+                const viewMode = document.getElementById('viewModeContent');
+                const editMode = document.getElementById('editModeContent');
 
-            document.getElementById('listTab').classList.add('border-blue-500', 'text-blue-600');
+                // Switch back to view mode
+                editMode.classList.add('hidden');
+                viewMode.classList.remove('hidden');
+            });
 
-            document.getElementById('listTab').classList.remove('border-transparent', 'text-gray-500');
+            // Handle form submission for Edit Department
+            document.getElementById('editDepartmentForm')?.addEventListener('submit', function (e) {
+                e.preventDefault();
 
-            document.getElementById('orgChartTab').classList.add('border-transparent', 'text-gray-500');
+                // Here you would normally process the form data and save to backend
+                const formData = new FormData(this);
+                const updatedDepartment = {
+                    name: formData.get('edit-department-name'),
+                    head: formData.get('edit-department-head'),
+                    // Add all other fields...
+                };
 
-            document.getElementById('orgChartTab').classList.remove('border-blue-500', 'text-blue-600');
+                console.log('Updated department data:', updatedDepartment);
 
-            document.getElementById('departmentListView').classList.remove('hidden');
+                // Simulate updating the department data
+                const departmentName = document.getElementById('department-detail-name').textContent.trim();
+                departmentData[departmentName] = {
+                    ...departmentData[departmentName],
+                    name: updatedDepartment.name,
+                    head: updatedDepartment.head,
+                    org: formData.get('edit-parent-organization'),
+                    location: formData.get('edit-department-location'),
+                    status: formData.get('edit-department-status'),
+                    description: formData.get('edit-description'),
+                    // Update roles and work model...
+                };
 
-            document.getElementById('orgChartView').classList.add('hidden');
+                // Switch back to view mode and update the displayed information
+                document.getElementById('viewModeContent').classList.remove('hidden');
+                document.getElementById('editModeContent').classList.add('hidden');
 
-        });
+                // Update the department details view
+                updateDepartmentDetailsView(departmentName);
 
+                // Provide user feedback
+                alert('Department updated successfully!');
+            });
+        }
 
+        // Initialize department buttons functionality
+        function initDepartmentButtons() {
+            const departmentTable = document.querySelector('#departmentListView table tbody');
+            const departmentRows = departmentTable.querySelectorAll('tr');
 
-        document.getElementById('orgChartTab').addEventListener('click', function () {
+            departmentRows.forEach(row => {
+                const departmentName = row.querySelector('td:first-child div').textContent.trim();
 
-            document.getElementById('orgChartTab').classList.add('border-blue-500', 'text-blue-600');
+                // View Details button
+                const viewDetailsBtn = row.querySelector('td:last-child button:first-child');
+                if (viewDetailsBtn) {
+                    viewDetailsBtn.addEventListener('click', function () {
+                        openDepartmentDetailsModal(departmentName);
+                    });
+                }
 
-            document.getElementById('orgChartTab').classList.remove('border-transparent', 'text-gray-500');
+                // Edit button
+                const editBtn = row.querySelector('td:last-child button:nth-child(2)');
+                if (editBtn) {
+                    editBtn.addEventListener('click', function () {
+                        openDepartmentDetailsModal(departmentName, true);
+                    });
+                }
 
-            document.getElementById('listTab').classList.add('border-transparent', 'text-gray-500');
+                // Delete button
+                const deleteBtn = row.querySelector('td:last-child button:last-child');
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', function () {
+                        if (confirm(`Are you sure you want to delete the ${departmentName} department?`)) {
+                            // Here you would normally send a request to delete the department
+                            console.log(`Deleting department: ${departmentName}`);
 
-            document.getElementById('listTab').classList.remove('border-blue-500', 'text-blue-600');
+                            // Simulate removal from UI
+                            row.remove();
 
-            document.getElementById('orgChartView').classList.remove('hidden');
+                            // Provide user feedback
+                            alert('Department deleted successfully!');
+                        }
+                    });
+                }
+            });
+        }
 
-            document.getElementById('departmentListView').classList.add('hidden');
+        // Function to open department details modal
+        function openDepartmentDetailsModal(departmentName, editMode = false) {
+            const dept = departmentData[departmentName] || departmentData["Engineering"]; // Default to Engineering if not found
 
-        });
+            // Update modal header
+            document.getElementById('department-detail-name').textContent = dept.name;
+            document.getElementById('department-detail-head').textContent = `${dept.head}, Department Head`;
 
+            // Update department info
+            document.getElementById('department-name').textContent = dept.name;
+            document.getElementById('department-head').textContent = dept.head;
+            document.getElementById('department-count').textContent = dept.count;
+            document.getElementById('department-org').textContent = dept.org;
+            document.getElementById('department-location').textContent = dept.location;
 
+            // Update status with appropriate color
+            const statusElement = document.getElementById('department-status');
+            statusElement.innerHTML = '';
+            const statusSpan = document.createElement('span');
+            statusSpan.className = 'px-2 py-1 text-xs leading-5 font-semibold rounded-full';
 
-        // Modal Toggle Functions
+            if (dept.status === 'Active') {
+                statusSpan.classList.add('bg-green-100', 'text-green-800');
+            } else if (dept.status === 'Restructuring') {
+                statusSpan.classList.add('bg-yellow-100', 'text-yellow-800');
+            } else if (dept.status === 'New') {
+                statusSpan.classList.add('bg-blue-100', 'text-blue-800');
+            } else if (dept.status === 'Inactive') {
+                statusSpan.classList.add('bg-red-100', 'text-red-800');
+            }
 
-        document.getElementById('addDepartmentBtn').addEventListener('click', function () {
+            statusSpan.textContent = dept.status;
+            statusElement.appendChild(statusSpan);
 
-            document.getElementById('addDepartmentModal').classList.remove('hidden');
+            // Update team composition - roles
+            const rolesContainer = document.getElementById('roles-list');
+            rolesContainer.innerHTML = '';
 
-        });
+            for (const [role, count] of Object.entries(dept.roles)) {
+                const roleDiv = document.createElement('div');
+                roleDiv.className = 'flex justify-between';
+                roleDiv.innerHTML = `
+            <span class="text-sm">${role}</span>
+            <span class="text-sm font-medium">${count}</span>
+        `;
+                rolesContainer.appendChild(roleDiv);
+            }
 
+            // Update team composition - work model
+            const workModelContainer = document.getElementById('work-model-list');
+            workModelContainer.innerHTML = '';
 
+            for (const [model, count] of Object.entries(dept.workModel)) {
+                const modelDiv = document.createElement('div');
+                modelDiv.className = 'flex justify-between';
+                modelDiv.innerHTML = `
+            <span class="text-sm">${model}</span>
+            <span class="text-sm font-medium">${count}</span>
+        `;
+                workModelContainer.appendChild(modelDiv);
+            }
 
-        document.getElementById('closeAddDepartmentModal').addEventListener('click', function () {
+            // Update description
+            document.getElementById('department-description').textContent = dept.description;
 
-            document.getElementById('addDepartmentModal').classList.add('hidden');
+            // Show modal
+            document.getElementById('departmentDetailsModal').classList.remove('hidden');
 
-        });
+            // If editMode is true, immediately switch to edit mode
+            if (editMode) {
+                document.getElementById('toggleEditMode').click();
+            } else {
+                // Ensure we're in view mode
+                document.getElementById('viewModeContent').classList.remove('hidden');
+                document.getElementById('editModeContent').classList.add('hidden');
+            }
+        }
 
+        // Function to populate edit form with current department data
+        function populateEditForm(dept) {
+            // Basic information
+            document.getElementById('edit-department-name').value = dept.name;
+            document.getElementById('edit-department-head').value = dept.head;
+            document.getElementById('edit-parent-organization').value = dept.org;
+            document.getElementById('edit-department-location').value = dept.location;
+            document.getElementById('edit-department-status').value = dept.status;
 
+            // Roles
+            const roleEntries = Object.entries(dept.roles);
+            for (let i = 0; i < 3; i++) {
+                if (i < roleEntries.length) {
+                    document.getElementById(`edit-role-title-${i + 1}`).value = roleEntries[i][0];
+                    document.getElementById(`edit-role-count-${i + 1}`).value = roleEntries[i][1];
+                } else {
+                    document.getElementById(`edit-role-title-${i + 1}`).value = '';
+                    document.getElementById(`edit-role-count-${i + 1}`).value = '';
+                }
+            }
 
-        document.getElementById('cancelAddDepartment').addEventListener('click', function () {
+            // Work model
+            document.getElementById('edit-onsite-count').value = dept.workModel['On-site'] || 0;
+            document.getElementById('edit-hybrid-count').value = dept.workModel['Hybrid'] || 0;
+            document.getElementById('edit-remote-count').value = dept.workModel['Remote'] || 0;
 
-            document.getElementById('addDepartmentModal').classList.add('hidden');
+            // Description
+            document.getElementById('edit-description').value = dept.description;
+        }
 
-        });
+        // Function to update department details view after edit
+        function updateDepartmentDetailsView(departmentName) {
+            openDepartmentDetailsModal(departmentName, false);
+        }
 
     </script>
 

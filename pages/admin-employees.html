@@ -112,15 +112,7 @@
                                 </svg>
                                 Add Employee
                             </button>
-                            <button
-                                class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                                id="deleteEmployeesBtn" disabled>
-                                <svg class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                                Delete
-                            </button>
+                            
                             <div class="relative inline-block text-left">
                                 <button id="exportDropdownBtn"
                                     class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -146,6 +138,61 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Department Summary Statistics -->
+                    <div class="max-w-7xl mx-auto mt-6">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mb-6">
+                            <!-- Total Employees Card -->
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="px-4 py-5 sm:p-6">
+                                    <dt class="text-sm font-medium text-gray-500 truncate">
+                                        Total Employees
+                                    </dt>
+                                    <dd class="mt-1 text-3xl font-semibold text-gray-900">
+                                        248
+                                    </dd>
+                                </div>
+                            </div>
+                    
+                            <!-- Analyzed Employees Card -->
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="px-4 py-5 sm:p-6">
+                                    <dt class="text-sm font-medium text-gray-500 truncate">
+                                        Included in Analysis
+                                    </dt>
+                                    <dd class="mt-1 text-3xl font-semibold text-green-600">
+                                        242
+                                    </dd>
+                                </div>
+                            </div>
+                    
+                            <!-- Excluded Employees Card -->
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="px-4 py-5 sm:p-6">
+                                    <dt class="text-sm font-medium text-gray-500 truncate">
+                                        Excluded from Analysis
+                                    </dt>
+                                    <dd class="mt-1 text-3xl font-semibold text-red-600">
+                                        6
+                                    </dd>
+                                </div>
+                            </div>
+                    
+                            <!-- Departments Count Card -->
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="px-4 py-5 sm:p-6">
+                                    <dt class="text-sm font-medium text-gray-500 truncate">
+                                        Total Departments
+                                    </dt>
+                                    <dd class="mt-1 text-3xl font-semibold text-blue-600">
+                                        8
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        
                     </div>
 
                     <!-- Search and filters -->
@@ -200,6 +247,15 @@
                             <button id="exclude-selected"
                                 class="px-3 py-1.5 bg-red-600 text-white text-sm rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                                 Exclude Selected
+                            </button>
+                            <button
+                                class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                                id="deleteEmployeesBtn" disabled>
+                                <svg class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                                Delete
                             </button>
                         </div>
                     </div>

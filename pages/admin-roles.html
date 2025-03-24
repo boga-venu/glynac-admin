@@ -116,33 +116,145 @@
                         </div>
                     </div>
 
-                    <!-- Role Description -->
-                    <div class="mt-4 bg-white shadow sm:rounded-lg">
-                        <div class="px-4 py-5 sm:p-6">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">
-                                Admin Access Roles
-                            </h3>
-                            <div class="mt-2 max-w-xl text-sm text-gray-500">
-                                <p>
-                                    Admin users have different levels of access to the Glynac analytics system. Assign
-                                    roles based on responsibilities.
-                                </p>
+                    
+
+
+                    <!-- Admin User Statistics -->
+                    <div class="mt-4 mb-6">
+                        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                            <!-- Total Admins Card -->
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-5 w-0 flex-1">
+                                            <dl>
+                                                <dt class="text-sm font-medium text-gray-500 truncate">
+                                                    Total Admin Users
+                                                </dt>
+                                                <dd>
+                                                    <div class="text-lg font-medium text-gray-900">
+                                                        5
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-5 py-3">
+                                    <div class="text-sm">
+                                        <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
+                                            View all users
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                                <div class="border rounded-md p-3">
-                                    <h4 class="font-medium text-gray-900">System Admin</h4>
-                                    <p class="mt-1 text-sm text-gray-500">Full access to all features, including user
-                                        management, data sources, and system settings.</p>
+                    
+                            <!-- Active Sessions Card -->
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-5 w-0 flex-1">
+                                            <dl>
+                                                <dt class="text-sm font-medium text-gray-500 truncate">
+                                                    Active Sessions
+                                                </dt>
+                                                <dd>
+                                                    <div class="text-lg font-medium text-gray-900">
+                                                        4
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="border rounded-md p-3">
-                                    <h4 class="font-medium text-gray-900">Department Admin</h4>
-                                    <p class="mt-1 text-sm text-gray-500">Access limited to specific departments.
-                                        Can view analytics and manage employees within assigned departments.</p>
+                                <div class="bg-gray-50 px-5 py-3">
+                                    <div class="text-sm">
+                                        <a href="#" class="font-medium text-blue-600 hover:text-blue-500" id="viewActiveSessionsBtn">
+                                            View all sessions
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="border rounded-md p-3">
-                                    <h4 class="font-medium text-gray-900">Analytics User</h4>
-                                    <p class="mt-1 text-sm text-gray-500">View-only access to analytics dashboards.
-                                        Cannot manage employees or system settings.</p>
+                            </div>
+                    
+                            <!-- 2FA Status Card -->
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-5 w-0 flex-1">
+                                            <dl>
+                                                <dt class="text-sm font-medium text-gray-500 truncate">
+                                                    2FA Enabled
+                                                </dt>
+                                                <dd>
+                                                    <div class="text-lg font-medium text-gray-900">
+                                                        3 / 5 (60%)
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-5 py-3">
+                                    <div class="text-sm">
+                                        <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
+                                            View security report
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Suspended Accounts Card -->
+                            <div class="bg-white overflow-hidden shadow rounded-lg">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-red-500 rounded-md p-3">
+                                            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                            </svg>
+                                        </div>
+                                        <div class="ml-5 w-0 flex-1">
+                                            <dl>
+                                                <dt class="text-sm font-medium text-gray-500 truncate">
+                                                    Suspended/Inactive
+                                                </dt>
+                                                <dd>
+                                                    <div class="text-lg font-medium text-gray-900">
+                                                        2
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-5 py-3">
+                                    <div class="text-sm">
+                                        <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
+                                            Review accounts
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -150,213 +262,327 @@
 
                     <!-- Admin Users Table -->
                     <div class="mt-6 bg-white shadow overflow-hidden rounded-md">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Name
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Email
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Role
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Department Access
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Last Active
-                                    </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Actions
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <img class="h-10 w-10 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
-                                                    alt="">
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    Admin User
+                        <!-- Table Filters -->
+                        <div
+                            class="p-4 border-b border-gray-200 flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0 sm:items-center">
+                            <div class="flex items-center space-x-2">
+                                <div>
+                                    <label for="role-filter" class="sr-only">Filter by Role</label>
+                                    <select id="role-filter"
+                                        class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                                        <option value="">All Roles</option>
+                                        <option value="System Admin">System Admin</option>
+                                        <option value="Department Admin">Department Admin</option>
+                                        <option value="Analytics User">Analytics User</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="status-filter" class="sr-only">Filter by Status</label>
+                                    <select id="status-filter"
+                                        class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                                        <option value="">All Statuses</option>
+                                        <option value="active">Active</option>
+                                        <option value="suspended">Suspended</option>
+                                        <option value="inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="relative rounded-md shadow-sm max-w-xs w-full">
+                                <input type="text" id="search-admin-users" name="search-admin-users"
+                                    class="focus:ring-blue-500 focus:border-blue-500 block w-full pr-10 sm:text-sm border-gray-300 rounded-md"
+                                    placeholder="Search users...">
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                        fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Table Content -->
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Name
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Email
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Role
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Department Access
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Status
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Last Active
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="h-10 w-10 flex-shrink-0">
+                                                    <img class="h-10 w-10 rounded-full"
+                                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                        alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Admin User
+                                                    </div>
+                                                    <div class="text-xs text-gray-500">
+                                                        <span class="inline-flex items-center">
+                                                            <svg class="mr-1.5 h-3 w-3 text-green-500" fill="currentColor" viewBox="0 0 8 8">
+                                                                <circle cx="4" cy="4" r="3" />
+                                                            </svg>
+                                                            2FA Enabled
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">admin@company.com</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                                            System Admin
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">All Departments</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">Today, 10:23 AM</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <img class="h-10 w-10 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
-                                                    alt="">
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    Sarah Johnson
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">admin@company.com</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                                System Admin
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">All Departments</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                Active
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">Today, 10:23 AM</div>
+                                            <div class="text-xs text-gray-500">2 active sessions</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-blue-600 hover:text-blue-900 mr-4 edit-user-btn" data-id="1">Edit</a>
+                                            <a href="#" class="text-red-600 hover:text-red-900 delete-user-btn" data-id="1">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="h-10 w-10 flex-shrink-0">
+                                                    <img class="h-10 w-10 rounded-full"
+                                                        src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                        alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Sarah Johnson
+                                                    </div>
+                                                    <div class="text-xs text-gray-500">
+                                                        <span class="inline-flex items-center">
+                                                            <svg class="mr-1.5 h-3 w-3 text-green-500" fill="currentColor" viewBox="0 0 8 8">
+                                                                <circle cx="4" cy="4" r="3" />
+                                                            </svg>
+                                                            2FA Enabled
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">sarah.johnson@company.com</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
-                                            Department Admin
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">Marketing</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">Today, 9:41 AM</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <img class="h-10 w-10 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
-                                                    alt="">
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    Michael Chen
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">sarah.johnson@company.com</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
+                                                Department Admin
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">Marketing</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                Active
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">Today, 9:41 AM</div>
+                                            <div class="text-xs text-gray-500">1 active session</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-blue-600 hover:text-blue-900 mr-4 edit-user-btn" data-id="2">Edit</a>
+                                            <a href="#" class="text-red-600 hover:text-red-900 delete-user-btn" data-id="2">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="h-10 w-10 flex-shrink-0">
+                                                    <img class="h-10 w-10 rounded-full"
+                                                        src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                        alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Michael Chen
+                                                    </div>
+                                                    <div class="text-xs text-gray-500">
+                                                        <span class="inline-flex items-center">
+                                                            <svg class="mr-1.5 h-3 w-3 text-green-500" fill="currentColor" viewBox="0 0 8 8">
+                                                                <circle cx="4" cy="4" r="3" />
+                                                            </svg>
+                                                            2FA Enabled
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">michael.chen@company.com</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
-                                            Department Admin
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">Engineering</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">Yesterday, 4:23 PM</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <img class="h-10 w-10 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
-                                                    alt="">
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    Emily Rodriguez
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">michael.chen@company.com</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
+                                                Department Admin
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">Engineering</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                Active
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">Yesterday, 4:23 PM</div>
+                                            <div class="text-xs text-gray-500">1 active session</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-blue-600 hover:text-blue-900 mr-4 edit-user-btn" data-id="3">Edit</a>
+                                            <a href="#" class="text-red-600 hover:text-red-900 delete-user-btn" data-id="3">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="h-10 w-10 flex-shrink-0">
+                                                    <img class="h-10 w-10 rounded-full"
+                                                        src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                                        alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        Emily Rodriguez
+                                                    </div>
+                                                    <div class="text-xs text-gray-500">
+                                                        <span class="inline-flex items-center">
+                                                            <svg class="mr-1.5 h-3 w-3 text-gray-400" fill="currentColor" viewBox="0 0 8 8">
+                                                                <circle cx="4" cy="4" r="3" />
+                                                            </svg>
+                                                            2FA Disabled
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">emily.rodriguez@company.com</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Analytics User
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">Product</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">3 days ago</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="h-10 w-10 flex-shrink-0">
-                                                <img class="h-10 w-10 rounded-full"
-                                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
-                                                    alt="">
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    David Kim
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">emily.rodriguez@company.com</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                Analytics User
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">Product</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                                Suspended
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">3 days ago</div>
+                                            <div class="text-xs text-gray-500">0 active sessions</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-blue-600 hover:text-blue-900 mr-4 edit-user-btn" data-id="4">Edit</a>
+                                            <a href="#" class="text-red-600 hover:text-red-900 delete-user-btn" data-id="4">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="h-10 w-10 flex-shrink-0">
+                                                    <img class="h-10 w-10 rounded-full"
+                                                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                                        alt="">
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        David Kim
+                                                    </div>
+                                                    <div class="text-xs text-gray-500">
+                                                        <span class="inline-flex items-center">
+                                                            <svg class="mr-1.5 h-3 w-3 text-gray-400" fill="currentColor" viewBox="0 0 8 8">
+                                                                <circle cx="4" cy="4" r="3" />
+                                                            </svg>
+                                                            2FA Disabled
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">david.kim@company.com</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Analytics User
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">Finance</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">1 week ago</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-4">Edit</a>
-                                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">david.kim@company.com</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span
+                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                Analytics User
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">Finance</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                Inactive
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-500">1 week ago</div>
+                                            <div class="text-xs text-gray-500">0 active sessions</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="#" class="text-blue-600 hover:text-blue-900 mr-4 edit-user-btn" data-id="5">Edit</a>
+                                            <a href="#" class="text-red-600 hover:text-red-900 delete-user-btn" data-id="5">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <!-- Pagination -->
@@ -410,9 +636,559 @@
                         </div>
                     </div>
                 </div>
+                <!-- User Activity Log -->
+                <div class="mt-6 bg-white shadow overflow-hidden rounded-md">
+                    <div class="px-4 py-5 border-b border-gray-200 sm:px-6 flex justify-between items-center">
+                        <div>
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                                Recent Admin Activity
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-500">
+                                A log of recent actions performed by admin users.
+                            </p>
+                        </div>
+                        <button id="toggleActivityLog" class="text-sm font-medium text-blue-600 hover:text-blue-500 focus:outline-none">
+                            View All Activity
+                        </button>
+                    </div>
+                    <div id="activityLogContent" class="hidden">
+                        <ul class="divide-y divide-gray-200">
+                            <li class="px-4 py-4 sm:px-6">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-8 w-8 rounded-full"
+                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                alt="">
+                                        </div>
+                                        <div class="ml-3">
+                                            <div class="flex items-center">
+                                                <span class="text-sm font-medium text-gray-900">Admin User</span>
+                                                <span
+                                                    class="ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">System
+                                                    Admin</span>
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                Updated role permissions for Sarah Johnson
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right text-sm whitespace-nowrap text-gray-500">
+                                        Today at 10:34 AM
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="px-4 py-4 sm:px-6">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-8 w-8 rounded-full"
+                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                alt="">
+                                        </div>
+                                        <div class="ml-3">
+                                            <div class="flex items-center">
+                                                <span class="text-sm font-medium text-gray-900">Admin User</span>
+                                                <span
+                                                    class="ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">System
+                                                    Admin</span>
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                Added new admin user: Robert Taylor
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right text-sm whitespace-nowrap text-gray-500">
+                                        Today at 9:15 AM
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="px-4 py-4 sm:px-6">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-8 w-8 rounded-full"
+                                                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                alt="">
+                                        </div>
+                                        <div class="ml-3">
+                                            <div class="flex items-center">
+                                                <span class="text-sm font-medium text-gray-900">Sarah Johnson</span>
+                                                <span
+                                                    class="ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">Department
+                                                    Admin</span>
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                Updated Marketing department analytics settings
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right text-sm whitespace-nowrap text-gray-500">
+                                        Yesterday at 4:23 PM
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="px-4 py-4 sm:px-6">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-8 w-8 rounded-full"
+                                                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                alt="">
+                                        </div>
+                                        <div class="ml-3">
+                                            <div class="flex items-center">
+                                                <span class="text-sm font-medium text-gray-900">Admin User</span>
+                                                <span
+                                                    class="ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">System
+                                                    Admin</span>
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                Suspended user access for Emily Rodriguez
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right text-sm whitespace-nowrap text-gray-500">
+                                        Yesterday at 2:31 PM
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="px-4 py-4 sm:px-6">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-8 w-8 rounded-full"
+                                                src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                alt="">
+                                        </div>
+                                        <div class="ml-3">
+                                            <div class="flex items-center">
+                                                <span class="text-sm font-medium text-gray-900">Michael Chen</span>
+                                                <span
+                                                    class="ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">Department
+                                                    Admin</span>
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                Generated Engineering performance report
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right text-sm whitespace-nowrap text-gray-500">
+                                        3 days ago
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button type="button"
+                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                Export Activity Log
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
     </div>
+
+    
+
+    <!-- Active Users Modal -->
+    <div id="activeSessionsModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+    
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    
+            <div
+                class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full sm:p-6">
+                <div class="absolute top-0 right-0 pt-4 pr-4">
+                    <button type="button"
+                        class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        id="closeActiveSessionsModal">
+                        <span class="sr-only">Close</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+    
+                <div>
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Active Sessions</h3>
+                        <div class="mt-2">
+                            <p class="text-sm text-gray-500">
+                                Admin users currently logged in to the Glynac Analytics platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Active Users Content -->
+                <div class="mt-5">
+                    <!-- Active Users Stats -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Total Active Sessions</div>
+                            <div class="text-3xl font-semibold text-gray-900">4</div>
+                            <div class="mt-1 text-sm text-green-600">
+                                <span class="flex items-center">
+                                    <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 15l7-7 7 7" />
+                                    </svg>
+                                    50% of admin users
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Role Distribution</div>
+                            <div class="mt-1 text-sm text-gray-600">
+                                <div class="flex justify-between py-1">
+                                    <span>System Admin:</span>
+                                    <span class="font-medium">1</span>
+                                </div>
+                                <div class="flex justify-between py-1">
+                                    <span>Department Admin:</span>
+                                    <span class="font-medium">2</span>
+                                </div>
+                                <div class="flex justify-between py-1">
+                                    <span>Analytics User:</span>
+                                    <span class="font-medium">1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <div class="text-sm font-medium text-gray-500 mb-1">Avg. Session Duration</div>
+                            <div class="text-3xl font-semibold text-gray-900">38m</div>
+                            <div class="mt-1 text-sm text-red-600">
+                                <span class="flex items-center">
+                                    <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                    5% from yesterday
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Active Users Table -->
+                    <div class="mt-4 overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        User
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Role
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Department
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        IP Address
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Status
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Actions
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full"
+                                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                    alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    Admin User
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    admin@company.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                            System Admin
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">All Departments</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">192.168.1.105</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Active Now
+                                        </span>
+                                        <div class="text-xs text-gray-500 mt-1">Duration: 1h 12m</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <button class="text-red-600 hover:text-red-900 font-medium terminate-session-btn"
+                                            data-id="1">
+                                            Terminate
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full"
+                                                    src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                    alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    Sarah Johnson
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    sarah.johnson@company.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
+                                            Department Admin
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">Marketing</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">192.168.1.107</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Active Now
+                                        </span>
+                                        <div class="text-xs text-gray-500 mt-1">Duration: 45m</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <button class="text-red-600 hover:text-red-900 font-medium terminate-session-btn"
+                                            data-id="2">
+                                            Terminate
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full"
+                                                    src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=60"
+                                                    alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    Michael Chen
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    michael.chen@company.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
+                                            Department Admin
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">Engineering</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">192.168.1.109</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                            Idle (5m)
+                                        </span>
+                                        <div class="text-xs text-gray-500 mt-1">Duration: 27m</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <button class="text-red-600 hover:text-red-900 font-medium terminate-session-btn"
+                                            data-id="3">
+                                            Terminate
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full"
+                                                    src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+                                                    alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    Emily Rodriguez
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    emily.rodriguez@company.com
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Analytics User
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">Product</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-500">192.168.1.112</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                            Active Now
+                                        </span>
+                                        <div class="text-xs text-gray-500 mt-1">Duration: 18m</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                        <button class="text-red-600 hover:text-red-900 font-medium terminate-session-btn"
+                                            data-id="4">
+                                            Terminate
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+    
+                    
+                </div>
+    
+                <div class="mt-5 flex justify-between">
+                    <button type="button"
+                        class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                        id="terminateAllSessions">
+                        Terminate All Sessions
+                    </button>
+                    <button type="button"
+                        class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        id="closeSessionsBtn">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript for activity log toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+                // Modal Toggle Functions
+                const viewSessionsBtn = document.getElementById('viewActiveSessionsBtn');
+                if (viewSessionsBtn) {
+                    viewSessionsBtn.addEventListener('click', function (e) {
+                        e.preventDefault(); // Prevent default link behavior
+                        document.getElementById('activeSessionsModal').classList.remove('hidden');
+                    });
+                }
+
+                document.getElementById('closeActiveSessionsModal').addEventListener('click', function () {
+                    document.getElementById('activeSessionsModal').classList.add('hidden');
+                });
+
+                document.getElementById('closeSessionsBtn').addEventListener('click', function () {
+                    document.getElementById('activeSessionsModal').classList.add('hidden');
+                });
+
+                // Terminate Individual Session
+                const terminateButtons = document.querySelectorAll('.terminate-session-btn');
+                terminateButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const sessionId = this.getAttribute('data-id');
+                        if (confirm('Are you sure you want to terminate this session?')) {
+                            // Here you would typically make an API call to terminate the session
+                            console.log(`Terminating session: ${sessionId}`);
+
+                            // For demo, remove the row
+                            this.closest('tr').remove();
+
+                            // Update counts
+                            updateSessionCounts();
+                        }
+                    });
+                });
+
+                // Terminate All Sessions
+                document.getElementById('terminateAllSessions').addEventListener('click', function () {
+                    if (confirm('Are you sure you want to terminate ALL active sessions? This will log out all admin users.')) {
+                        // Here you would make an API call to terminate all sessions
+                        console.log('Terminating all sessions');
+
+                        // For demo, remove all rows and update counts
+                        const rows = document.querySelectorAll('#activeSessionsModal tbody tr');
+                        rows.forEach(row => row.remove());
+
+                        updateSessionCounts();
+
+                        // Optionally close the modal
+                        setTimeout(() => {
+                            document.getElementById('activeSessionsModal').classList.add('hidden');
+                        }, 1000);
+                    }
+                });
+
+                function updateSessionCounts() {
+                    // Count remaining rows
+                    const remainingCount = document.querySelectorAll('#activeSessionsModal tbody tr').length;
+
+                    // Update the count display
+                    const countElement = document.querySelector('#activeSessionsModal .text-3xl.font-semibold');
+                    if (countElement) {
+                        countElement.textContent = remainingCount;
+                    }
+                }
+            });
+
+        document.getElementById('toggleActivityLog').addEventListener('click', function () {
+            const activityLog = document.getElementById('activityLogContent');
+            const isHidden = activityLog.classList.contains('hidden');
+
+            if (isHidden) {
+                activityLog.classList.remove('hidden');
+                this.textContent = 'Hide Activity';
+            } else {
+                activityLog.classList.add('hidden');
+                this.textContent = 'View All Activity';
+            }
+        });
+    </script>
 
     <!-- Add Admin User Modal -->
     <div id="addRoleModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
@@ -538,7 +1314,461 @@
         </div>
     </div>
 
+    <!-- Edit Admin User Modal -->
+    <div id="editUserModal" class="fixed inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+    
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    
+            <div
+                class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                <div class="absolute top-0 right-0 pt-4 pr-4">
+                    <button type="button"
+                        class="bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        id="closeEditUserModal">
+                        <span class="sr-only">Close</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div>
+                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="edit-modal-title">
+                            Edit Admin User
+                        </h3>
+                        <div class="mt-4">
+                            <form id="editUserForm">
+                                <input type="hidden" id="edit-user-id" name="edit-user-id" value="">
+    
+                                <!-- Basic Info -->
+                                <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                                    <div class="sm:col-span-6">
+                                        <h4 class="text-sm font-medium text-gray-500 mb-4 pb-2 border-b">Basic Information
+                                        </h4>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="edit-first-name" class="block text-sm font-medium text-gray-700">
+                                            First name
+                                        </label>
+                                        <div class="mt-1">
+                                            <input type="text" name="edit-first-name" id="edit-first-name"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                        </div>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="edit-last-name" class="block text-sm font-medium text-gray-700">
+                                            Last name
+                                        </label>
+                                        <div class="mt-1">
+                                            <input type="text" name="edit-last-name" id="edit-last-name"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                        </div>
+                                    </div>
+    
+                                    <div class="sm:col-span-6">
+                                        <label for="edit-email" class="block text-sm font-medium text-gray-700">
+                                            Email address
+                                        </label>
+                                        <div class="mt-1">
+                                            <input type="email" name="edit-email" id="edit-email"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                        </div>
+                                    </div>
+    
+                                    <!-- Role Settings -->
+                                    <div class="sm:col-span-6">
+                                        <h4 class="text-sm font-medium text-gray-500 mb-4 pb-2 border-b mt-4">Role Settings
+                                        </h4>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="edit-role-type" class="block text-sm font-medium text-gray-700">
+                                            Role Type
+                                        </label>
+                                        <div class="mt-1">
+                                            <select id="edit-role-type" name="edit-role-type"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <option value="system-admin">System Admin</option>
+                                                <option value="department-admin">Department Admin</option>
+                                                <option value="analytics-user">Analytics User</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="sm:col-span-3">
+                                        <label for="edit-department-access" class="block text-sm font-medium text-gray-700">
+                                            Department Access
+                                        </label>
+                                        <div class="mt-1">
+                                            <select id="edit-department-access" name="edit-department-access"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <option value="all">All Departments</option>
+                                                <option value="engineering">Engineering</option>
+                                                <option value="marketing">Marketing</option>
+                                                <option value="sales">Sales</option>
+                                                <option value="product">Product</option>
+                                                <option value="finance">Finance</option>
+                                                <option value="hr">HR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Account Status -->
+                                    <div class="sm:col-span-6">
+                                        <h4 class="text-sm font-medium text-gray-500 mb-4 pb-2 border-b mt-4">Account Status
+                                        </h4>
+                                    </div>
+    
+                                    <div class="sm:col-span-6">
+                                        <label for="account-status" class="block text-sm font-medium text-gray-700">
+                                            Account Status
+                                        </label>
+                                        <div class="mt-1">
+                                            <select id="account-status" name="account-status"
+                                                class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <option value="active">Active</option>
+                                                <option value="suspended">Suspended</option>
+                                                <option value="inactive">Inactive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+    
+                                    <div class="sm:col-span-6">
+                                        <div class="mt-2 flex items-center justify-between">
+                                            <div>
+                                                <h5 class="text-sm font-medium text-gray-700">Two-Factor Authentication</h5>
+                                                <p class="text-sm text-gray-500">User has 2FA enabled</p>
+                                            </div>
+                                            <button type="button" id="reset2fa"
+                                                class="ml-3 inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                                Reset 2FA
+                                            </button>
+                                        </div>
+                                    </div>
+    
+                                    <div class="sm:col-span-6">
+                                        <div class="mt-1 flex items-center justify-between">
+                                            <div>
+                                                <h5 class="text-sm font-medium text-gray-700">Password Management</h5>
+                                                <p class="text-sm text-gray-500">Last changed: <span
+                                                        id="last-password-change">2 months ago</span></p>
+                                            </div>
+                                            <button type="button" id="resetPasswordBtn"
+                                                class="ml-3 inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                                Force Reset
+                                            </button>
+                                        </div>
+                                    </div>
+    
+                                    <div class="sm:col-span-6">
+                                        <div class="mt-1 flex items-center justify-between">
+                                            <div>
+                                                <h5 class="text-sm font-medium text-gray-700">Active Sessions</h5>
+                                                <p class="text-sm text-gray-500"><span id="active-sessions-count">2</span>
+                                                    active sessions</p>
+                                            </div>
+                                            <button type="button" id="terminateSessionsBtn"
+                                                class="ml-3 inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                                Terminate All
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
+                                    <button type="submit"
+                                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:col-start-2 sm:text-sm">
+                                        Save Changes
+                                    </button>
+                                    <button type="button"
+                                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:col-start-1 sm:text-sm"
+                                        id="cancelEditUser">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Sample admin user data - In a real application, this would come from a database
+            const adminUsers = [
+                {
+                    id: 1,
+                    firstName: "Admin",
+                    lastName: "User",
+                    email: "admin@company.com",
+                    role: "System Admin",
+                    departments: "All Departments",
+                    status: "Active",
+                    lastActive: "Today, 10:23 AM",
+                    twoFactorEnabled: true,
+                    activeSessions: 2,
+                    lastPasswordChange: "2 months ago"
+                },
+                {
+                    id: 2,
+                    firstName: "Sarah",
+                    lastName: "Johnson",
+                    email: "sarah.johnson@company.com",
+                    role: "Department Admin",
+                    departments: "Marketing",
+                    status: "Active",
+                    lastActive: "Today, 9:41 AM",
+                    twoFactorEnabled: true,
+                    activeSessions: 1,
+                    lastPasswordChange: "3 weeks ago"
+                },
+                {
+                    id: 3,
+                    firstName: "Michael",
+                    lastName: "Chen",
+                    email: "michael.chen@company.com",
+                    role: "Department Admin",
+                    departments: "Engineering",
+                    status: "Active",
+                    lastActive: "Yesterday, 4:23 PM",
+                    twoFactorEnabled: true,
+                    activeSessions: 1,
+                    lastPasswordChange: "1 month ago"
+                },
+                {
+                    id: 4,
+                    firstName: "Emily",
+                    lastName: "Rodriguez",
+                    email: "emily.rodriguez@company.com",
+                    role: "Analytics User",
+                    departments: "Product",
+                    status: "Suspended",
+                    lastActive: "3 days ago",
+                    twoFactorEnabled: false,
+                    activeSessions: 0,
+                    lastPasswordChange: "2 months ago"
+                },
+                {
+                    id: 5,
+                    firstName: "David",
+                    lastName: "Kim",
+                    email: "david.kim@company.com",
+                    role: "Analytics User",
+                    departments: "Finance",
+                    status: "Inactive",
+                    lastActive: "1 week ago",
+                    twoFactorEnabled: false,
+                    activeSessions: 0,
+                    lastPasswordChange: "3 months ago"
+                }
+            ];
+
+            // Initialize event listeners when the DOM is fully loaded
+            document.addEventListener('DOMContentLoaded', function () {
+                // Modal Toggle Functions for Add User
+                document.getElementById('addRoleBtn').addEventListener('click', function () {
+                    document.getElementById('addRoleModal').classList.remove('hidden');
+                });
+
+                document.getElementById('closeAddRoleModal').addEventListener('click', function () {
+                    document.getElementById('addRoleModal').classList.add('hidden');
+                });
+
+                document.getElementById('cancelAddRole').addEventListener('click', function () {
+                    document.getElementById('addRoleModal').classList.add('hidden');
+                });
+
+                // Edit User Modal
+                initEditUserModal();
+
+                // Search and Filter Functionality
+                initSearchAndFilter();
+            });
+
+            // Initialize the edit user modal
+            function initEditUserModal() {
+                // Add event listeners to all edit buttons
+                const editButtons = document.querySelectorAll('.edit-user-btn');
+                editButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const userId = this.getAttribute('data-id');
+                        openEditUserModal(userId);
+                    });
+                });
+
+                // Close edit modal
+                document.getElementById('closeEditUserModal').addEventListener('click', function () {
+                    document.getElementById('editUserModal').classList.add('hidden');
+                });
+
+                document.getElementById('cancelEditUser').addEventListener('click', function () {
+                    document.getElementById('editUserModal').classList.add('hidden');
+                });
+
+                // Handle edit form submission
+                document.getElementById('editUserForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const userId = document.getElementById('edit-user-id').value;
+                    const formData = new FormData(this);
+
+                    // Here you would normally send the data to your backend
+                    console.log('Updating user ID:', userId);
+                    console.log('Form data:', Object.fromEntries(formData));
+
+                    // Show success message
+                    alert('User updated successfully!');
+
+                    // Close the modal
+                    document.getElementById('editUserModal').classList.add('hidden');
+                });
+
+                // Handle password reset
+                document.getElementById('resetPasswordBtn').addEventListener('click', function () {
+                    const userId = document.getElementById('edit-user-id').value;
+                    // In a real app, this would trigger a password reset email
+                    alert(`Password reset email sent to user ID: ${userId}`);
+                });
+
+                // Handle 2FA reset
+                document.getElementById('reset2fa').addEventListener('click', function () {
+                    const userId = document.getElementById('edit-user-id').value;
+                    // In a real app, this would reset the user's 2FA settings
+                    alert(`Two-factor authentication has been reset for user ID: ${userId}`);
+                });
+
+                // Handle session termination
+                document.getElementById('terminateSessionsBtn').addEventListener('click', function () {
+                    const userId = document.getElementById('edit-user-id').value;
+                    // In a real app, this would terminate all active sessions
+                    alert(`All active sessions have been terminated for user ID: ${userId}`);
+                    document.getElementById('active-sessions-count').textContent = '0';
+                });
+            }
+
+            // Function to open the edit user modal and populate it with user data
+            function openEditUserModal(userId) {
+                // Find the user in our data
+                const user = adminUsers.find(user => user.id == userId);
+                if (!user) {
+                    console.error('User not found with ID:', userId);
+                    return;
+                }
+
+                // Populate the form with user data
+                document.getElementById('edit-user-id').value = user.id;
+                document.getElementById('edit-first-name').value = user.firstName;
+                document.getElementById('edit-last-name').value = user.lastName;
+                document.getElementById('edit-email').value = user.email;
+
+                // Set select fields
+                const roleSelect = document.getElementById('edit-role-type');
+                for (let i = 0; i < roleSelect.options.length; i++) {
+                    if (roleSelect.options[i].text === user.role) {
+                        roleSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+
+                const departmentSelect = document.getElementById('edit-department-access');
+                for (let i = 0; i < departmentSelect.options.length; i++) {
+                    if (departmentSelect.options[i].text === user.departments) {
+                        departmentSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+
+                const statusSelect = document.getElementById('account-status');
+                for (let i = 0; i < statusSelect.options.length; i++) {
+                    if (statusSelect.options[i].value.toLowerCase() === user.status.toLowerCase()) {
+                        statusSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+
+                // Update other information
+                document.getElementById('last-password-change').textContent = user.lastPasswordChange;
+                document.getElementById('active-sessions-count').textContent = user.activeSessions;
+
+                // Show the modal
+                document.getElementById('editUserModal').classList.remove('hidden');
+            }
+
+            // Initialize search and filter functionality
+            function initSearchAndFilter() {
+                // Search functionality
+                document.getElementById('search-admin-users').addEventListener('input', function () {
+                    const searchTerm = this.value.toLowerCase().trim();
+                    const rows = document.querySelectorAll('tbody tr');
+
+                    rows.forEach(row => {
+                        const name = row.querySelector('td:nth-child(1)').textContent.toLowerCase();
+                        const email = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                        const department = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+
+                        const isMatch = name.includes(searchTerm) ||
+                            email.includes(searchTerm) ||
+                            department.includes(searchTerm);
+
+                        row.style.display = isMatch ? '' : 'none';
+                    });
+                });
+
+                // Role filter
+                document.getElementById('role-filter').addEventListener('change', function () {
+                    const selectedRole = this.value;
+                    const rows = document.querySelectorAll('tbody tr');
+
+                    if (selectedRole === '') {
+                        rows.forEach(row => { row.style.display = ''; });
+                        return;
+                    }
+
+                    rows.forEach(row => {
+                        const role = row.querySelector('td:nth-child(3) span').textContent.trim();
+                        row.style.display = role === selectedRole ? '' : 'none';
+                    });
+                });
+
+                // Status filter
+                document.getElementById('status-filter').addEventListener('change', function () {
+                    const selectedStatus = this.value.toLowerCase();
+                    const rows = document.querySelectorAll('tbody tr');
+
+                    if (selectedStatus === '') {
+                        rows.forEach(row => { row.style.display = ''; });
+                        return;
+                    }
+
+                    rows.forEach(row => {
+                        const status = row.querySelector('td:nth-child(5) span').textContent.trim().toLowerCase();
+                        row.style.display = status === selectedStatus ? '' : 'none';
+                    });
+                });
+
+                // Delete button handlers
+                const deleteButtons = document.querySelectorAll('.delete-user-btn');
+                deleteButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const userId = this.getAttribute('data-id');
+                        const user = adminUsers.find(u => u.id == userId);
+
+                        if (confirm(`Are you sure you want to delete ${user.firstName} ${user.lastName}?`)) {
+                            // In a real app, this would send a request to delete the user
+                            alert(`User ${user.firstName} ${user.lastName} has been deleted`);
+                            // Remove the row from the table
+                            this.closest('tr').remove();
+                        }
+                    });
+                });
+            }
         // Modal Toggle Functions
         document.getElementById('addRoleBtn').addEventListener('click', function () {
             document.getElementById('addRoleModal').classList.remove('hidden');
